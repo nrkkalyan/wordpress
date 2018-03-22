@@ -1,0 +1,237 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: YITH WooCommerce Pre Order\n"
+"POT-Creation-Date: 2017-05-26 12:45+0100\n"
+"PO-Revision-Date: 2015-04-22 11:55+0100\n"
+"Last-Translator: \n"
+"Language-Team: Your Inspiration Themes <plugins@yithemes.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Poedit-KeywordsList: __ ;_e;_n:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: plugin-fw\n"
+
+#: functions.php:37
+msgid ""
+"YITH Pre Order for WooCommerce is enabled but not effective. It requires "
+"WooCommerce in order to work."
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:311
+msgctxt "Admin option: Automatic purchasable Pre-order products"
+msgid "Remove Pre-Order status when the release date passes"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:314
+msgctxt ""
+"Admin option description: Automatic\n"
+"\t\t\t\tpurchasable Pre-order products"
+msgid ""
+"By enabling this option, the Pre-Order status is removed as soon as the Pre-"
+"Order date is\n"
+"\t\t\t\tpassed. If not checked, you will have to remove the Pre-Order status "
+"first."
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:321
+msgctxt ""
+"Admin option: When products get\n"
+"\t\t\t\tOut-of-Stock status\n"
+"\t\t\t\tturn into Pre-Order"
+msgid "When products go out of stock, turn them to Pre-Order"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:332
+msgctxt ""
+"Admin option: Force enabling Allow Backorders option and In Stock status."
+msgid "Force 'Allow Backorders' and 'In stock' status"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:341
+msgctxt "Admin option: automatic date formatting"
+msgid "Automatic date formatting"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:349
+msgctxt "Admin option"
+msgid "Prevent mixing products in cart"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:356
+msgctxt "Admin option: customize Add to Cart label"
+msgid "Default availability date text"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:358
+msgctxt ""
+"Admin option description: customize\n"
+"\t\t\t\tavailability date label"
+msgid ""
+"Use {availability_date} and {availability_time} to show when to remove the "
+"Pre-Order status. By leaving it\n"
+"\t\t\t\tblank, it will look like this: 'Available on: {availability_date} at "
+"{availability_time}'."
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:362
+msgctxt "Default message for availability date"
+msgid "Available on: {availability_date} at {availability_time}"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:365
+msgctxt "Admin option: customize Add to Cart label"
+msgid "No date message"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:367
+msgctxt "Admin option description: Default no date message"
+msgid "Default message to be shown when no date is set on a Pre-Order product."
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:369
+msgctxt "Default message when no date is set"
+msgid "Coming soon..."
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:372
+msgctxt "Admin option: customize color"
+msgid "Color on shop page"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:380
+msgctxt "Admin option: customize color"
+msgid "Color on single product page"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:387
+msgctxt "Admin option: customize color"
+msgid "Color on cart page"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:402
+msgctxt "Panel: Notification title"
+msgid "Notifications"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:409
+msgctxt "Admin option: Enable purchasable pre-order products"
+msgid "Notification before Pre-Order release date"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:412
+msgctxt "Admin option description: Enable notification"
+msgid ""
+"Check this option to receive a notification when a Pre-Order product date is "
+"going to pass."
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:418
+msgctxt "Admin option: customize Add to Cart label"
+msgid "Number of days"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:420
+msgctxt ""
+"Admin\n"
+"\t\t\t\t\toption\n"
+"\t\t\t\t\tdescription: Number of days"
+msgid ""
+"Get a notification up to certain number of days before the product release "
+"date."
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:432
+msgctxt "Admin option: Enable purchasable pre order products"
+msgid "Notification for product availability"
+msgstr ""
+
+#: includes/class.yith-pre-order-admin-premium.php:435
+msgctxt ""
+"Admin option\n"
+"\t\t\t\t\tdescription: Enable notification"
+msgid ""
+"Check this option to notify users who purchased a Pre-Order product when it "
+"goes on sale."
+msgstr ""
+
+#: includes/class.yith-pre-order-edit-product-page-premium.php:248
+#: includes/class.yith-pre-order-edit-product-page-premium.php:507
+msgctxt "placeholder"
+msgid "Date&hellip;"
+msgstr ""
+
+#: includes/class.yith-pre-order-edit-product-page.php:61
+msgctxt "Set the product as a Pre-Order product."
+msgid "Pre-Order"
+msgstr ""
+
+#: includes/class.yith-pre-order-edit-product-page.php:90
+msgctxt "Set the variation to Pre-Order status."
+msgid "Pre-Order"
+msgstr ""
+
+#: includes/class.yith-pre-order-my-account-premium.php:109
+msgid "at"
+msgstr ""
+
+#: plugin-options/settings-options.php:21
+msgctxt "Panel: page title"
+msgid "General settings"
+msgstr ""
+
+#: plugin-options/settings-options.php:28
+msgctxt "Admin option: Enable plugin"
+msgid "Enable Pre-Order on Frontend"
+msgstr ""
+
+#: plugin-options/settings-options.php:30
+msgctxt "Admin option description: Enable plugin"
+msgid "Uncheck this option to disable all Pre-Order features on Frontend"
+msgstr ""
+
+#: plugin-options/settings-options.php:89
+msgctxt "Panel: page title"
+msgid "Label settings"
+msgstr ""
+
+#: plugin-options/settings-options.php:96
+msgctxt "Admin option: customize Add to Cart label"
+msgid "Default Add to Cart text"
+msgstr ""
+
+#: plugin-options/settings-options.php:98
+msgctxt "Admin option description: customize Add to Cart label"
+msgid ""
+"This text will be replaced on 'Add to Cart' button. By leaving it blank, it "
+"will be 'Pre-Order Now'."
+msgstr ""
+
+#: plugin-options/settings-options.php:100
+msgctxt "Default label for add to cart button(Pre-Order Now)"
+msgid "Pre-Order Now"
+msgstr ""
+
+#: templates/emails/pre-order-date-changed.php:22
+msgid "Pre-order date updated"
+msgstr ""
+
+#: templates/emails/pre-order-is-for-sale.php:26
+msgid "Download link:"
+msgstr ""
+
+#: templates/emails/pre-order-out-of-stock.php:20
+msgid "Hi admin!"
+msgstr ""
+
+#: templates/woocommerce/frontend/my-account-my-pre-orders.php:56
+msgctxt "hash before order number"
+msgid "#"
+msgstr ""

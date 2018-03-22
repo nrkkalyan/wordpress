@@ -1,0 +1,256 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: YITH Desktop Notifications for WooCommerce\n"
+"POT-Creation-Date: 2016-11-07 13:02+0000\n"
+"PO-Revision-Date: 2016-01-13 15:19+0100\n"
+"Last-Translator: \n"
+"Language-Team: YITH <plugins@yithemes.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_n:1,2;__ngettext:1,2;"
+"__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;"
+"_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: plugin-fw\n"
+
+#: includes/class.yith-wcdn-desktop-notifications-admin.php:121
+msgid "Settings"
+msgstr ""
+
+#: includes/class.yith-wcdn-desktop-notifications-admin.php:122
+msgid "Notifications"
+msgstr ""
+
+#: includes/class.yith-wcdn-desktop-notifications-admin.php:123
+#: templates/admin/upload-panel.php:20 templates/admin/upload-panel.php:23
+#: templates/admin/upload-panel.php:67 templates/admin/upload-panel.php:70
+msgid "Upload"
+msgstr ""
+
+#: includes/class.yith-wcdn-desktop-notifications-admin.php:130
+msgctxt "plugin name in admin page title"
+msgid "Desktop Notifications"
+msgstr ""
+
+#: includes/class.yith-wcdn-desktop-notifications-admin.php:131
+msgctxt "plugin name in admin WP menu"
+msgid "Desktop Notifications"
+msgstr ""
+
+#: includes/class.yith-wcdn-desktop-notifications-admin.php:168
+msgid "Help Center"
+msgstr ""
+
+#: includes/class.yith-wcdn-desktop-notifications-admin.php:172
+msgid "Support platform"
+msgstr ""
+
+#: includes/class.yith-wcdn-desktop-notifications-ajax.php:72
+#: includes/class.yith-wcdn-desktop-notifications-ajax.php:107
+msgid "Notification"
+msgstr ""
+
+#: includes/class.yith-wcdn-desktop-notifications-options.php:58
+msgid "A product is sold"
+msgstr ""
+
+#: includes/class.yith-wcdn-desktop-notifications-options.php:59
+msgid "A new order is placed"
+msgstr ""
+
+#: includes/class.yith-wcdn-desktop-notifications-options.php:60
+msgid "An order is refunded"
+msgstr ""
+
+#: includes/class.yith-wcdn-desktop-notifications-options.php:62
+msgid "A product goes out of stock"
+msgstr ""
+
+#: includes/class.yith-wcdn-desktop-notifications-options.php:63
+msgid "An order is switched to a specific status"
+msgstr ""
+
+#: init.php:35
+msgctxt "Alert Message: WooCommerce requires"
+msgid ""
+"YITH WooCommerce Desktop Notifications is enabled but not effective. It "
+"requires WooCommerce in order to work."
+msgstr ""
+
+#: panel/settings-options.php:21
+msgctxt "Panel: page title"
+msgid "General settings"
+msgstr ""
+
+#: panel/settings-options.php:28
+msgctxt "Admin option: Check new notifications"
+msgid "Check new notifications"
+msgstr ""
+
+#: panel/settings-options.php:30
+msgctxt "Admin option description: number of days"
+msgid "Number of seconds to pass before checking for new notifications"
+msgstr ""
+
+#: panel/settings-options.php:39
+msgctxt "Admin option: Looping sound"
+msgid "Looping sound"
+msgstr ""
+
+#: panel/settings-options.php:41
+msgctxt ""
+"Admin option description: Check this option to set a looping sound that will "
+"stop when the notification is closed"
+msgid ""
+"Check this option to set a looping sound that will stop when the notification "
+"is closed"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:28
+msgid "New Notification"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:33
+#: templates/admin/notifications-load-options.php:206
+msgid "Notification type"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:49
+#: templates/admin/notifications-load-options.php:221
+msgid "Specific status"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:64
+#: templates/admin/notifications-load-options.php:249
+msgid "Select products"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:72
+msgid "Title"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:80
+msgid "Description"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:85
+#: templates/admin/notifications-load-options.php:286
+msgid "Available placeholders:"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:101
+msgid "Role notification"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:111
+msgid "Select notification icon:"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:136
+msgid "Select notification sound:"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:154
+msgid "click here to preview"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:161
+#: templates/admin/notifications-load-options.php:366
+msgid "Notification length:"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:165
+#: templates/admin/notifications-load-options.php:370
+msgid "Time in seconds, \"0\" = Default notification length"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:172
+msgid "Create new notification"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:176
+#: templates/admin/notifications-load-options.php:388
+msgid "Preview notification"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:186
+msgid "Active Notifications"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:273
+msgid "Title:"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:281
+msgid "Description:"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:302
+msgid "Role notification:"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:315
+msgid "Notification icon:"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:340
+msgid "Notification sound:"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:359
+msgid "Click here to preview"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:379
+msgid "Update"
+msgstr ""
+
+#: templates/admin/notifications-load-options.php:386
+#: templates/admin/upload-panel.php:30 templates/admin/upload-panel.php:77
+msgid "Delete"
+msgstr ""
+
+#: templates/admin/notifications-panel.php:21
+msgid "Add new notification"
+msgstr ""
+
+#: templates/admin/upload-panel.php:19
+msgid "Notification icon"
+msgstr ""
+
+#: templates/admin/upload-panel.php:21
+msgid "Select image"
+msgstr ""
+
+#: templates/admin/upload-panel.php:28
+msgid "Icon"
+msgstr ""
+
+#: templates/admin/upload-panel.php:29 templates/admin/upload-panel.php:75
+msgid "File name"
+msgstr ""
+
+#: templates/admin/upload-panel.php:41 templates/admin/upload-panel.php:90
+#: templates/admin/upload-panel.php:108
+msgid "delete"
+msgstr ""
+
+#: templates/admin/upload-panel.php:66
+msgid "Sound Notifications"
+msgstr ""
+
+#: templates/admin/upload-panel.php:68
+msgid "Select audio"
+msgstr ""
+
+#: templates/admin/upload-panel.php:76 templates/admin/upload-panel.php:86
+#: templates/admin/upload-panel.php:103
+msgid "Preview"
+msgstr ""
