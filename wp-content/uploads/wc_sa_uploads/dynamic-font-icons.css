@@ -1,0 +1,70 @@
+/*status-default_statuses-start*/
+						body .widefat .column-order_status mark.pending:after{
+							color: #ffba00 !important;
+						}
+						
+						body .widefat .column-order_status mark.processing:after{
+							color: #73a724 !important;
+						}
+						
+						body .widefat .column-order_status mark.on-hold:after{
+							color: #999999 !important;
+						}
+						
+						body .widefat .column-order_status mark.completed:after{
+							color: #2ea2cc !important;
+						}
+						
+						body .widefat .column-order_status mark.cancelled:after{
+							color: #a00a00 !important;
+						}
+						
+						body .widefat .column-order_status mark.refunded:after{
+							color: #999999 !important;
+						}
+						
+						body .widefat .column-order_status mark.failed:after{
+							color: #d0c21f !important;
+						}
+						/*status-default_statuses-end*//*status-136-start*/
+				.widefat .column-order_status mark.dat-hang-truoc::after{
+					color: #fff;
+					content: "\e014";
+					font-family: 'WC-SA-Icons' !important;
+					font-variant: normal;
+				    font-weight: 400;
+				    height: 100%;
+				    left: 0;
+				    margin: 0;
+				    position: absolute;
+				    text-indent: 0;
+				    text-transform: none;
+				    top: 0;
+				    width: 100%;
+				    font-size: 47%;
+				    line-height: 17px;
+				}
+				.widefat .column-order_status mark.dat-hang-truoc{
+					background-color:#aa2727;
+					border: 1px solid #aa2727;
+					width: 11px;
+    				height: 11px;
+    				padding: 3px;
+    				border-radius: 100%;
+    				text-align: center;
+				}
+				
+					#woocommerce_dashboard_status .wc_status_list li.dat-hang-truoc-orders a:before{
+						color: #fff;
+						content: "\e014";
+						font-family: 'WC-SA-Icons' !important;
+						font-size: 12px;
+						background-color:#aa2727;
+						border: 1px solid #aa2727;
+						width: 18px;
+	    				height: 18px;
+	    				line-height: 18px;
+	    				padding: 3px;
+	    				border-radius: 100%;
+	    				text-align: center;
+					}/*status-136-end*/

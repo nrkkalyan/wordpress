@@ -1,0 +1,56 @@
+2018-03-21T04:49:46+00:00 CRITICAL Uncaught Error: Class 'pw_woocommerc_brans_active_plugin' not found in /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-brand/woocommerce-brand.php:79
+Stack trace:
+#0 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-brand/woocommerce-brand.php(83): is_woocommerce_active()
+#1 /home/vagrant/hanghieu.test/wp-admin/includes/plugin.php(555): include_once('/home/vagrant/h...')
+#2 /home/vagrant/hanghieu.test/wp-admin/plugins.php(43): activate_plugin('woocommerce-bra...', 'http://hanghieu...', false)
+#3 {main}
+  thrown
+
+2018-03-21T04:49:47+00:00 CRITICAL Uncaught Error: Class 'pw_woocommerc_brans_active_plugin' not found in /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-brand/woocommerce-brand.php:79
+Stack trace:
+#0 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-brand/woocommerce-brand.php(83): is_woocommerce_active()
+#1 /home/vagrant/hanghieu.test/wp-admin/includes/plugin.php(1897): include('/home/vagrant/h...')
+#2 /home/vagrant/hanghieu.test/wp-admin/plugins.php(172): plugin_sandbox_scrape('woocommerce-bra...')
+#3 {main}
+  thrown
+
+2018-03-21T04:49:47+00:00 CRITICAL Uncaught Error: Class 'pw_woocommerc_brans_active_plugin' not found in /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-brand/woocommerce-brand.php:79
+Stack trace:
+#0 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-brand/woocommerce-brand.php(83): is_woocommerce_active()
+#1 /home/vagrant/hanghieu.test/wp-admin/includes/plugin.php(1897): include('/home/vagrant/h...')
+#2 /home/vagrant/hanghieu.test/wp-admin/plugins.php(172): plugin_sandbox_scrape('woocommerce-bra...')
+#3 {main}
+  thrown
+
+2018-03-22T09:18:38+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /home/vagrant/hanghieu.test/wp-content/plugins/yith-woocommerce-order-tracking/class.yith-woocommerce-order-tracking-premium.php:494
+Stack trace:
+#0 /home/vagrant/hanghieu.test/wp-admin/includes/template.php(1063): YITH_WooCommerce_Order_Tracking_Premium->show_order_tracking_metabox(Object(WP_Post), Array)
+#1 /home/vagrant/hanghieu.test/wp-admin/edit-form-advanced.php(707): do_meta_boxes(Object(WP_Screen), 'side', Object(WP_Post))
+#2 /home/vagrant/hanghieu.test/wp-admin/post-new.php(76): include('/home/vagrant/h...')
+#3 {main}
+  thrown
+
+2018-03-22T09:41:31+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on boolean in /home/vagrant/hanghieu.test/wp-content/plugins/yith-pre-order-for-woocommerce/includes/class.yith-pre-order-product.php:23
+Stack trace:
+#0 /home/vagrant/hanghieu.test/wp-content/plugins/yith-pre-order-for-woocommerce/includes/class.yith-pre-order-frontend-premium.php(310): YITH_Pre_Order_Product->__construct(Object(WC_Product_Variation))
+#1 /home/vagrant/hanghieu.test/wp-content/plugins/yith-pre-order-for-woocommerce/includes/class.yith-pre-order-frontend-premium.php(306): YITH_Pre_Order_Frontend_Premium->check_out_of_stock_products(Object(WC_Product_Variation))
+#2 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(286): YITH_Pre_Order_Frontend_Premium->check_out_of_stock_variations(Object(WC_Product_Variation))
+#3 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#4 /home/vagrant/hanghieu.test/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#5 /home/vagrant/hanghieu.test/wp-content/p
+
+2018-03-22T09:41:39+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on boolean in /home/vagrant/hanghieu.test/wp-content/plugins/yith-pre-order-for-woocommerce/includes/class.yith-pre-order-product.php:23
+Stack trace:
+#0 /home/vagrant/hanghieu.test/wp-content/plugins/yith-pre-order-for-woocommerce/includes/class.yith-pre-order-edit-product-page-premium.php(653): YITH_Pre_Order_Product->__construct(128)
+#1 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(286): YITH_Pre_Order_Edit_Product_Page_Premium->save_variable_fields(128, 14)
+#2 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#3 /home/vagrant/hanghieu.test/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-product-data.php(464): do_action('woocommerce_sav...', 128, 14)
+#5 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce/includes/class-wc-ajax.php(1867): WC_Meta_Box_Product_Data::save_variations(1
+
+2018-03-22T12:20:51+00:00 CRITICAL Cannot declare class WC_SA_Admin_Meta_Boxes, because the name is already in use
+
+2018-03-22T12:20:53+00:00 CRITICAL Cannot declare class WC_SA_Admin_Meta_Boxes, because the name is already in use
+
+2018-03-22T12:20:53+00:00 CRITICAL Cannot declare class WC_SA_Admin_Meta_Boxes, because the name is already in use
+

@@ -1,0 +1,826 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: YITH WooCommerce Product Countdown\n"
+"POT-Creation-Date: 2016-09-27 09:29+0200\n"
+"PO-Revision-Date: 2015-09-17 16:23+0100\n"
+"Last-Translator: \n"
+"Language-Team: Your Inspiration Themes <plugins@yithemes.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPathExcluded-0: ../plugin-fw\n"
+
+#: ../class.yith-wc-product-countdown-premium.php:318
+msgid "Countdown"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown-premium.php:367
+msgctxt "Abbreviation for Days"
+msgid "d"
+msgid_plural "dd"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../class.yith-wc-product-countdown-premium.php:372
+msgctxt "Abbreviation for Hours"
+msgid "h"
+msgid_plural "hh"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../class.yith-wc-product-countdown-premium.php:377
+msgctxt "Abbreviation for Minutes"
+msgid "m"
+msgid_plural "mm"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../class.yith-wc-product-countdown-premium.php:382
+msgctxt "Abbreviation for Seconds"
+msgid "s"
+msgid_plural "ss"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../class.yith-wc-product-countdown-premium.php:429
+#: ../class.yith-wc-product-countdown-premium.php:431
+#: ../templates/admin/custom-radio.php:133
+#: ../templates/admin/custom-radio.php:136
+#: ../templates/frontend/category-bar.php:52
+#: ../templates/frontend/category-bar.php:55
+#: ../templates/frontend/single-product-bar.php:43
+#, php-format
+msgid "%d/%d Sold"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown-premium.php:530
+msgid "Add YITH WooCommerce Product Countdown shortcode"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown-premium.php:645
+msgid "General countdown"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown-premium.php:646
+#: ../templates/admin/bulk-operations.php:349
+msgid ""
+"Set a general countdown for all the variations rather than for each single "
+"variation"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown-premium.php:666
+#: ../class.yith-wc-product-countdown-premium.php:826
+#: ../templates/admin/bulk-operations.php:367
+msgid "Discounted products"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown-premium.php:669
+#: ../class.yith-wc-product-countdown-premium.php:826
+#: ../templates/admin/bulk-operations.php:373
+msgid "The number of discounted products."
+msgstr ""
+
+#: ../class.yith-wc-product-countdown-premium.php:681
+#: ../class.yith-wc-product-countdown-premium.php:831
+#: ../templates/admin/bulk-operations.php:380
+msgid "Already sold products"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown-premium.php:684
+#: ../templates/admin/bulk-operations.php:386
+msgid "The number of already sold products."
+msgstr ""
+
+#: ../class.yith-wc-product-countdown-premium.php:815
+msgid "Countdown start date"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown-premium.php:820
+msgid "Countdown end date"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown-premium.php:831
+msgid "Already sold products."
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:165
+#: ../class.yith-wc-product-countdown.php:170
+msgid "General"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:166
+msgid "Customization"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:167
+msgid "Bulk Operations"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:168
+msgid "Top/Bottom Countdown bar"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:171
+#: ../class.yith-wc-product-countdown.php:487
+msgid "Premium Version"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:177
+#: ../class.yith-wc-product-countdown.php:178
+#: ../class.yith-wc-product-countdown.php:234
+msgid "Product Countdown"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:265
+msgid "Enable "
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:266
+msgid "Enable YITH WooCommerce Product Countdown for this product"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:278
+msgid "Countdown Dates"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:279
+#: ../templates/admin/bulk-operations.php:360
+msgid "From&hellip;"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:280
+#: ../templates/admin/bulk-operations.php:361
+msgid "To&hellip;"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:281
+msgid "The sale will end at the beginning of the set date."
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:484
+msgid "Settings"
+msgstr ""
+
+#: ../class.yith-wc-product-countdown.php:514
+msgid "Plugin Documentation"
+msgstr ""
+
+#: ../includes/class-ywpc-widget.php:37
+#: ../plugin-options/general-options.php:21
+#: ../plugin-options/general-options.php:27
+msgid "YITH WooCommerce Product Countdown"
+msgstr ""
+
+#: ../includes/class-ywpc-widget.php:37
+msgid "Display a list of products with sale timer and/or sale bar"
+msgstr ""
+
+#: ../includes/class-ywpc-widget.php:132
+msgid "Widget Title"
+msgstr ""
+
+#: ../includes/class-ywpc-widget.php:138 ../templates/admin/lightbox.php:133
+#: ../templates/admin/lightbox.php:138
+msgid "Products to show"
+msgstr ""
+
+#: ../includes/class-ywpc-widget.php:141
+#: ../templates/admin/bulk-operations.php:321
+#: ../templates/admin/custom-select.php:68 ../templates/admin/lightbox.php:134
+#: ../templates/admin/lightbox.php:139
+msgid "Search for a product&hellip;"
+msgstr ""
+
+#: ../init.php:23
+msgid ""
+"YITH WooCommerce Product Countdown is enabled but not effective. It requires "
+"WooCommerce in order to work."
+msgstr ""
+
+#: ../plugin-options/general-options.php:18
+msgid "Upgrade to the PREMIUM VERSION"
+msgstr ""
+
+#: ../plugin-options/general-options.php:22
+msgid "Discover the Advanced Features"
+msgstr ""
+
+#: ../plugin-options/general-options.php:23
+msgid ""
+"Upgrade to the PREMIUM VERSION of YITH WooCommerce Product Countdown to "
+"benefit from all features!"
+msgstr ""
+
+#: ../plugin-options/general-options.php:29
+msgid "Get Support and Pro Features"
+msgstr ""
+
+#: ../plugin-options/general-options.php:30
+msgid ""
+"By purchasing the premium version of the plugin, you will take advantage of "
+"the advanced features of the product and you will get one year of free "
+"updates and support through our platform available 24h/24."
+msgstr ""
+
+#: ../plugin-options/general-options.php:39
+#: ../plugin-options/premium-general-options.php:18
+msgid "General Settings"
+msgstr ""
+
+#: ../plugin-options/general-options.php:45
+#: ../plugin-options/premium-general-options.php:24
+msgid "Enable YITH WooCommerce Product Countdown"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:31
+msgid "Select type"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:36
+msgid "Both timer and sale bar"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:37
+msgid "Timer only "
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:38
+msgid "Sale bar only"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:42
+msgid "Select position"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:47
+msgid "Categories and product detail page"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:48
+msgid "Categories only"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:49
+msgid "Product detail page only"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:50
+msgid "Widget/Shortcode only"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:54
+msgid "Show timer before sale starts"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:61
+msgid "Disable products before sale starts"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:68
+msgid "Behaviour on expiration or sold out"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:73
+msgid "Hide countdown and/or sale bar"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:74
+msgid "Remove product from sale"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:75
+msgid "Leave the product unavailable"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:79
+msgid "Show sale summary"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:81
+msgid "Only if product is unavailable"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:91
+msgid "Timer and sale bar position"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:97
+msgid "Product Page"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:101
+msgid ""
+"The position where timer and sale bar are showed in product detail pages."
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:103
+#: ../plugin-options/premium-general-options.php:118
+msgid "Before title"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:104
+msgid "After price"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:105
+msgid "Before \"Add to cart\""
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:106
+msgid "Before tabs"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:107
+msgid "Between tabs and related products"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:108
+msgid "After related products"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:112
+msgid "Category"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:116
+msgid "The position where timer and sale bar are showed in category pages."
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:119
+msgid "Before price"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:120
+msgid "Between price and \"Add to cart\""
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:121
+msgid "After \"Add to cart\""
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:130
+msgid "Shortcode settings"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:135
+#: ../plugin-options/premium-general-options.php:186
+msgid "Product elements to show"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:137
+#: ../plugin-options/premium-general-options.php:188
+#: ../plugin-options/topbar-options.php:31
+msgid "Title"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:145
+#: ../plugin-options/premium-general-options.php:196
+msgid "Rating"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:153
+#: ../plugin-options/premium-general-options.php:204
+msgid "Price"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:161
+#: ../plugin-options/premium-general-options.php:212
+msgid "Image"
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:169
+#: ../plugin-options/premium-general-options.php:220
+msgid "\"Add to cart\""
+msgstr ""
+
+#: ../plugin-options/premium-general-options.php:180
+msgid "Widget settings"
+msgstr ""
+
+#: ../plugin-options/style-options.php:18
+msgid "Customization Settings"
+msgstr ""
+
+#: ../plugin-options/style-options.php:24
+msgid "Timer title"
+msgstr ""
+
+#: ../plugin-options/style-options.php:26
+#: ../templates/admin/custom-radio.php:80
+#: ../templates/frontend/category-timer.php:42
+#: ../templates/frontend/single-product-timer.php:32
+msgid "Sale ends in"
+msgstr ""
+
+#: ../plugin-options/style-options.php:31
+msgid "Timer title before sale starts"
+msgstr ""
+
+#: ../plugin-options/style-options.php:33
+msgid "Countdown to upcoming sale"
+msgstr ""
+
+#: ../plugin-options/style-options.php:38
+msgid "Sale bar title"
+msgstr ""
+
+#: ../plugin-options/style-options.php:40
+#: ../templates/admin/custom-radio.php:123
+#: ../templates/frontend/category-bar.php:41
+#: ../templates/frontend/single-product-bar.php:35
+msgid "On sale"
+msgstr ""
+
+#: ../plugin-options/style-options.php:45
+msgid "Countdown and sale bar template"
+msgstr ""
+
+#: ../plugin-options/style-options.php:51
+#: ../plugin-options/topbar-options.php:62
+msgid "Style 1"
+msgstr ""
+
+#: ../plugin-options/style-options.php:52
+#: ../plugin-options/topbar-options.php:63
+msgid "Style 2"
+msgstr ""
+
+#: ../plugin-options/style-options.php:53
+msgid "Style 3"
+msgstr ""
+
+#: ../plugin-options/style-options.php:58
+#: ../plugin-options/topbar-options.php:67
+msgid "Color and font size"
+msgstr ""
+
+#: ../plugin-options/style-options.php:64
+msgid "Use template default settings"
+msgstr ""
+
+#: ../plugin-options/style-options.php:65
+#: ../plugin-options/topbar-options.php:74
+msgid "Customize"
+msgstr ""
+
+#: ../plugin-options/style-options.php:69
+#: ../plugin-options/topbar-options.php:78
+msgid "Text font size"
+msgstr ""
+
+#: ../plugin-options/style-options.php:71
+#: ../plugin-options/topbar-options.php:80
+msgid "Set font size for message text. Min: 10 - Max: 55"
+msgstr ""
+
+#: ../plugin-options/style-options.php:82
+#: ../plugin-options/topbar-options.php:91
+msgid "Timer font size"
+msgstr ""
+
+#: ../plugin-options/style-options.php:84
+msgid "Set font size for timer text. Min: 10 - Max: 55"
+msgstr ""
+
+#: ../plugin-options/style-options.php:95
+msgid "Text font size (category page)"
+msgstr ""
+
+#: ../plugin-options/style-options.php:97
+msgid "Set font size for message text. Min: 10 - Max: 20"
+msgstr ""
+
+#: ../plugin-options/style-options.php:107
+msgid "Timer font size (category page)"
+msgstr ""
+
+#: ../plugin-options/style-options.php:109
+#: ../plugin-options/topbar-options.php:93
+msgid "Set font size for timer text. Min: 10 - Max: 35"
+msgstr ""
+
+#: ../plugin-options/style-options.php:119
+#: ../plugin-options/topbar-options.php:104
+msgid "Text color"
+msgstr ""
+
+#: ../plugin-options/style-options.php:124
+#: ../plugin-options/topbar-options.php:109
+msgid "Set color for message text."
+msgstr ""
+
+#: ../plugin-options/style-options.php:127
+msgid "Border color"
+msgstr ""
+
+#: ../plugin-options/style-options.php:132
+msgid "Set color for box border."
+msgstr ""
+
+#: ../plugin-options/style-options.php:135
+#: ../plugin-options/topbar-options.php:120
+msgid "Background color"
+msgstr ""
+
+#: ../plugin-options/style-options.php:140
+#: ../plugin-options/topbar-options.php:125
+msgid "Set color for box background."
+msgstr ""
+
+#: ../plugin-options/style-options.php:143
+#: ../plugin-options/topbar-options.php:128
+msgid "Timer text color"
+msgstr ""
+
+#: ../plugin-options/style-options.php:148
+#: ../plugin-options/topbar-options.php:133
+msgid "Set color for timer text."
+msgstr ""
+
+#: ../plugin-options/style-options.php:151
+#: ../plugin-options/topbar-options.php:136
+msgid "Timer background color"
+msgstr ""
+
+#: ../plugin-options/style-options.php:156
+#: ../plugin-options/topbar-options.php:141
+#: ../plugin-options/topbar-options.php:149
+msgid "Set color for timer background."
+msgstr ""
+
+#: ../plugin-options/style-options.php:159
+msgid "Sale bar main color"
+msgstr ""
+
+#: ../plugin-options/style-options.php:164
+msgid "Set color for sale bar foreground."
+msgstr ""
+
+#: ../plugin-options/style-options.php:167
+msgid "Sale bar background color"
+msgstr ""
+
+#: ../plugin-options/style-options.php:172
+msgid "Set color for sale bar background."
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:18
+msgid "Top/Bottom Countdown Bar Settings"
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:24
+msgid "Enable Top/Bottom Countdown Bar"
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:33
+#: ../templates/admin/custom-radio-topbar.php:80
+msgid "Click here for special offer!"
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:35
+msgid "The text displayed next to the timer"
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:38
+msgid "Position"
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:43
+msgid "Top of the page"
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:44
+msgid "Bottom of the page"
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:48
+msgid "Selected product"
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:53
+msgid "The product to link in the bar"
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:56
+msgid "Bar template"
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:73
+msgid "Use template defaults"
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:112
+msgid "Label text color"
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:117
+msgid "Set color for label text."
+msgstr ""
+
+#: ../plugin-options/topbar-options.php:144
+msgid "Timer border color"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:36
+msgid "Assign to a selection of products"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:37
+msgid "Assign to a category"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:38
+msgid "Assign to all recent products"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:39
+msgid "Assign to all on sale products"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:40
+msgid "Assign to all featured products"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:102
+msgid "You must select a category"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:125
+msgid "You must select at least one product"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:224
+#, php-format
+msgid "%s product updated successfully"
+msgid_plural "%s products updated successfully"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../templates/admin/bulk-operations.php:280
+msgid "Days passed"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:286
+msgid "The number of days that have passed."
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:302
+msgid "Category to assign"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:306
+msgid "Search for a category&hellip;"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:317
+msgid "Products to assign"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:330
+msgid "Enable"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:336
+msgid "Enable YITH WooCommerce Product Countdown for selected products."
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:343
+msgid "General Countdown"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:356
+msgid "Sale Dates"
+msgstr ""
+
+#: ../templates/admin/bulk-operations.php:392
+msgid "Submit"
+msgstr ""
+
+#: ../templates/admin/custom-radio-topbar.php:89
+#: ../templates/admin/custom-radio.php:89
+#: ../templates/frontend/bar-timer.php:38
+#: ../templates/frontend/category-timer.php:54
+#: ../templates/frontend/single-product-timer.php:42
+msgid "Days"
+msgstr ""
+
+#: ../templates/admin/custom-radio-topbar.php:98
+#: ../templates/admin/custom-radio.php:98
+#: ../templates/frontend/bar-timer.php:48
+#: ../templates/frontend/category-timer.php:64
+#: ../templates/frontend/single-product-timer.php:52
+msgid "Hours"
+msgstr ""
+
+#: ../templates/admin/custom-radio-topbar.php:107
+#: ../templates/admin/custom-radio.php:107
+#: ../templates/frontend/bar-timer.php:58
+#: ../templates/frontend/category-timer.php:74
+#: ../templates/frontend/single-product-timer.php:62
+msgid "Minutes"
+msgstr ""
+
+#: ../templates/admin/custom-radio-topbar.php:116
+#: ../templates/admin/custom-radio.php:116
+#: ../templates/frontend/bar-timer.php:68
+#: ../templates/frontend/category-timer.php:84
+#: ../templates/frontend/single-product-timer.php:72
+msgid "Seconds"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:20
+msgid "Add shortcode"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:35
+msgctxt "enhanced select"
+msgid "One result is available, press enter to select it."
+msgstr ""
+
+#: ../templates/admin/lightbox.php:36
+msgctxt "enhanced select"
+msgid "%qty% results are available, use up and down arrow keys to navigate."
+msgstr ""
+
+#: ../templates/admin/lightbox.php:37
+msgctxt "enhanced select"
+msgid "No matches found"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:38
+msgctxt "enhanced select"
+msgid "Loading failed"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:39
+msgctxt "enhanced select"
+msgid "Please enter 1 or more characters"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:40
+msgctxt "enhanced select"
+msgid "Please enter %qty% or more characters"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:41
+msgctxt "enhanced select"
+msgid "Please delete 1 character"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:42
+msgctxt "enhanced select"
+msgid "Please delete %qty% characters"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:43
+msgctxt "enhanced select"
+msgid "You can only select 1 item"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:44
+msgctxt "enhanced select"
+msgid "You can only select %qty% items"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:45
+msgctxt "enhanced select"
+msgid "Loading more results&hellip;"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:46
+msgctxt "enhanced select"
+msgid "Searching&hellip;"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:123
+msgid "Shortcode Style"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:125
+msgid "Multiple product"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:128
+msgid "Single product"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:144
+msgid "Insert"
+msgstr ""
+
+#: ../templates/admin/lightbox.php:174
+msgid "You should select at least a product"
+msgstr ""
+
+#: ../templates/frontend/bar-timer.php:26
+msgid "Click here for a special offer!"
+msgstr ""

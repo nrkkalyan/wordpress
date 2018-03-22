@@ -1,0 +1,1547 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: YITH WooCommerce Brands Add-On\n"
+"POT-Creation-Date: 2016-11-28 12:15+0100\n"
+"PO-Revision-Date: 2016-11-28 12:15+0100\n"
+"Last-Translator: Nicola Mustone <mail@nicolamustone.it>\n"
+"Language-Team: Your Inspiration Themes <plugins@yithemes.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_n:1,2;__ngettext:1,2;"
+"__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;"
+"_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPathExcluded-0: ../plugin-fw\n"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:121
+msgid "Product brand taxonomy"
+msgstr "Taxonomía de marcas de producto"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:125
+msgid "Default brand taxonomy"
+msgstr "Taxonomía de marca predeterminada"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:129
+msgid ""
+"Select the taxonomy whose terms will be used as brands; not all taxonomies "
+"support all plugin features, so if you change this option it is at your own "
+"risk"
+msgstr ""
+"Selecciona la taxonomía cuyos términos serán usados como marcas; no todas "
+"las taxonomías soportan todas las características de los plugins, por lo que "
+"si cambias esta opción es bajo tu propio riesgo"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:139
+msgid "Single product brand position"
+msgstr "Posición de la marca en producto único"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:142
+msgid "Hide on single product page"
+msgstr "Ocultar en página de producto único"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:143
+msgid "Before product title"
+msgstr "Antes del título del producto"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:144
+msgid "After product title"
+msgstr "Después del título del producto"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:145
+#: ../includes/class.yith-wcbr-admin-premium.php:185
+msgid "After product price"
+msgstr "Después del precio del producto"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:146
+msgid "After product excerpt"
+msgstr "Después de la excerpta del producto"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:147
+msgid "After single Add to Cart"
+msgstr "Después del botón de Añadir al carrito en página de producto"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:148
+msgid "After product meta"
+msgstr "Después de los metadatos del producto"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:149
+msgid "After product share"
+msgstr "Después de los botones de compartir"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:151
+msgid "Position for brand list"
+msgstr "Posición en la lista de marcas"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:157
+msgid "Single product brand content"
+msgstr "Contenido de marca en producto único"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:160
+#: ../includes/class.yith-wcbr-admin-premium.php:208
+msgid "Both name and logo"
+msgstr "Ambos, nombre y logo"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:161
+#: ../includes/class.yith-wcbr-admin-premium.php:209
+msgid "Only logo"
+msgstr "Sólo logo"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:162
+#: ../includes/class.yith-wcbr-admin-premium.php:210
+msgid "Only name"
+msgstr "Sólo nombre"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:164
+msgid "Content to show for brands in single product page"
+msgstr ""
+"Contenido que se muestra para las marcas en la página de producto único"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:170
+msgid "Standard size of brand images in product page"
+msgstr "Tamaño estándar de las imágenes de marca en la página de producto"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:172
+msgid ""
+"This is the size of images that will be used as brand thumbnails in single "
+"product page"
+msgstr ""
+"Este es el tamaño de las imágenes que se usará como miniatura de marca en la "
+"página de producto único"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:181
+msgid "Product brand position in loop page"
+msgstr "Posición de la marca en página loop"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:184
+msgid "Hide on loop"
+msgstr "Ocultar en loop"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:186
+msgid "After \"Add to Cart\" in loop"
+msgstr "Después de \"Añadir al carrito\" en loop"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:188
+msgid "Position of brand list"
+msgstr "Posición de lista de marcas"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:194
+msgid "Standard size of brand images in shop page"
+msgstr "Tamaño estándar de las imágenes de marca en la página de tienda"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:196
+msgid ""
+"This is the size of images that will be used as brand thumbnails in shop page"
+msgstr ""
+"Este es el tamaño de las imágenes que se usará como miniaturas de marca en "
+"la página de tienda"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:205
+msgid "Loop product brand content"
+msgstr "Contenido de marca en producto loop"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:212
+msgid "Content to show for brands in loop page"
+msgstr "Contenido que se muestra para las marcas en la página de loop"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:218
+msgid "Use brand default logo"
+msgstr "Usar el logo de marca predeterminado"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:220
+msgid "Use default image when no logo is selected or not"
+msgstr ""
+"Selecciona si usar la imagen predeterminada cuando no hay ningún logo "
+"predeterminado o no"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:226
+msgid "Default logo"
+msgstr "Logo predeterminado"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:353
+msgid "Import from CSV"
+msgstr "Importar desde CSV"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:366
+msgid "YITH Brands (CSV)"
+msgstr "YITH Brands (CSV)"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:366
+msgid "Import <strong>brands</strong> to your store via csv file."
+msgstr "Importar <strong>marcas</strong> a tu tienda a través de archivo csv."
+
+#: ../includes/class.yith-wcbr-admin-premium.php:383
+#: ../includes/class.yith-wcbr-admin-premium.php:384
+msgid "Export CSV"
+msgstr "Exportar CSV"
+
+#: ../includes/class.yith-wcbr-admin-premium.php:542
+msgid "Select a brand"
+msgstr ""
+
+#: ../includes/class.yith-wcbr-admin.php:72
+#: ../includes/class.yith-wcbr-admin.php:293
+msgid "Settings"
+msgstr "Ajustes"
+
+#: ../includes/class.yith-wcbr-admin.php:73
+#: ../includes/class.yith-wcbr-admin.php:297
+msgid "Premium Version"
+msgstr "Versión Premium"
+
+#: ../includes/class.yith-wcbr-admin.php:119
+msgid "Choose an image"
+msgstr "Escoger una imagen"
+
+#: ../includes/class.yith-wcbr-admin.php:120
+msgid "Use image"
+msgstr "Usar imagen"
+
+#: ../includes/class.yith-wcbr-admin.php:183
+msgid "Image"
+msgstr "Imagen"
+
+#: ../includes/class.yith-wcbr-admin.php:213
+#: ../templates/admin/add-brand-taxonomy-form.php:17
+#: ../templates/admin/edit-brand-taxonomy-form.php:16
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: ../includes/class.yith-wcbr-admin.php:227
+msgid ""
+"Product brands for your store can be managed here. To display more brands "
+"here, click on \"screen options\" link on top of the page."
+msgstr ""
+"Puedes administrar las marcas de los productos de tu tienda aquí. Para "
+"mostrar más marcas aquí, haz click en el enlace \"opciones de pantalla\" en "
+"la parte superior de la página."
+
+#: ../includes/class.yith-wcbr-admin.php:242
+#: ../includes/class.yith-wcbr-admin.php:243
+#: ../includes/class.yith-wcbr-shortcode.php:64
+#: ../includes/class.yith-wcbr-shortcode.php:186
+#: ../includes/class.yith-wcbr-shortcode.php:274
+#: ../includes/class.yith-wcbr-shortcode.php:433
+#: ../includes/class.yith-wcbr-shortcode.php:473
+#: ../includes/class.yith-wcbr-shortcode.php:556
+#: ../includes/class.yith-wcbr-shortcode.php:651
+#: ../includes/class.yith-wcbr-shortcode.php:746
+#: ../includes/class.yith-wcbr-shortcode.php:793
+#: ../includes/class.yith-wcbr-shortcode.php:882
+#: ../includes/class.yith-wcbr.php:101 ../includes/class.yith-wcbr.php:117
+msgid "Brands"
+msgstr "Brands"
+
+#: ../includes/class.yith-wcbr-admin.php:317
+msgid "Plugin Documentation"
+msgstr "Documentación del Plugin"
+
+#: ../includes/class.yith-wcbr-premium.php:139
+msgid "Any Brand"
+msgstr "Cualquier marca"
+
+#: ../includes/class.yith-wcbr-premium.php:520
+#, php-format
+msgid "Rated %s out of 5"
+msgstr "Valorado en %s sobre 5"
+
+#: ../includes/class.yith-wcbr-premium.php:521
+msgid "out of 5"
+msgstr "sobre 5"
+
+#: ../includes/class.yith-wcbr-premium.php:760
+msgctxt "slug"
+msgid "uncategorized"
+msgstr ""
+
+#: ../includes/class.yith-wcbr-shortcode.php:61
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:40
+msgid "YITH Brand Filter"
+msgstr "YITH"
+
+#: ../includes/class.yith-wcbr-shortcode.php:63
+msgid "Adds a list of brands with js filter for name"
+msgstr "Añade una lista de marcas con filtro js de nombre"
+
+#: ../includes/class.yith-wcbr-shortcode.php:69
+#: ../includes/class.yith-wcbr-shortcode.php:191
+#: ../includes/class.yith-wcbr-shortcode.php:279
+#: ../includes/class.yith-wcbr-shortcode.php:438
+#: ../includes/class.yith-wcbr-shortcode.php:561
+#: ../includes/class.yith-wcbr-shortcode.php:751
+#: ../includes/class.yith-wcbr-shortcode.php:798
+#: ../includes/class.yith-wcbr-shortcode.php:887
+msgid "Title"
+msgstr "Título"
+
+#: ../includes/class.yith-wcbr-shortcode.php:72
+#: ../includes/class.yith-wcbr-shortcode.php:194
+#: ../includes/class.yith-wcbr-shortcode.php:282
+msgid "Text to enter as shortcode title"
+msgstr "Texto para introducir como título del shortcode"
+
+#: ../includes/class.yith-wcbr-shortcode.php:77
+#: ../includes/class.yith-wcbr-shortcode.php:199
+#: ../includes/class.yith-wcbr-shortcode.php:446
+#: ../includes/class.yith-wcbr-shortcode.php:814
+msgid "Pagination"
+msgstr "Paginación"
+
+#: ../includes/class.yith-wcbr-shortcode.php:80
+#: ../includes/class.yith-wcbr-shortcode.php:202
+#: ../includes/class.yith-wcbr-shortcode.php:449
+#: ../includes/class.yith-wcbr-shortcode.php:817
+msgid "Paginate items"
+msgstr "Paginar artículos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:81
+#: ../includes/class.yith-wcbr-shortcode.php:203
+#: ../includes/class.yith-wcbr-shortcode.php:450
+#: ../includes/class.yith-wcbr-shortcode.php:818
+msgid "Do not paginate items"
+msgstr "No paginar artículos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:83
+#: ../includes/class.yith-wcbr-shortcode.php:205
+#: ../includes/class.yith-wcbr-shortcode.php:452
+#: ../includes/class.yith-wcbr-shortcode.php:820
+msgid "Paginate brand elements or not"
+msgstr "Paginar o no elementos de marca"
+
+#: ../includes/class.yith-wcbr-shortcode.php:88
+#: ../includes/class.yith-wcbr-shortcode.php:210
+#: ../includes/class.yith-wcbr-shortcode.php:457
+#: ../includes/class.yith-wcbr-shortcode.php:825
+msgid "Per page"
+msgstr "Por página"
+
+#: ../includes/class.yith-wcbr-shortcode.php:91
+#: ../includes/class.yith-wcbr-shortcode.php:213
+#: ../includes/class.yith-wcbr-shortcode.php:460
+#: ../includes/class.yith-wcbr-shortcode.php:828
+msgid "Number of elements to show for each page"
+msgstr "Número de elementos que se muestra en cada página"
+
+#: ../includes/class.yith-wcbr-shortcode.php:96
+#: ../includes/class.yith-wcbr-shortcode.php:218
+#: ../includes/class.yith-wcbr-shortcode.php:287
+#: ../includes/class.yith-wcbr-shortcode.php:759
+#: ../includes/class.yith-wcbr-shortcode.php:806
+msgid "Categories"
+msgstr "Categorías"
+
+#: ../includes/class.yith-wcbr-shortcode.php:99
+#: ../includes/class.yith-wcbr-shortcode.php:221
+#: ../includes/class.yith-wcbr-shortcode.php:290
+#: ../includes/class.yith-wcbr-shortcode.php:762
+#: ../includes/class.yith-wcbr-shortcode.php:809
+msgid ""
+"A list of valid comma separated category slugs, if you want to filter brands "
+"by product cat"
+msgstr ""
+"Una lista de slugs válidos de categorías de productos separados por comas, "
+"si quieres filtrar marcas por categorías de productos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:104
+#: ../includes/class.yith-wcbr-shortcode.php:107
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:118
+msgid "Show filters"
+msgstr "Mostrar filtros"
+
+#: ../includes/class.yith-wcbr-shortcode.php:108
+msgid "Do not show filters"
+msgstr "No mostrar filtros"
+
+#: ../includes/class.yith-wcbr-shortcode.php:110
+msgid "Show letters to filter brands or not"
+msgstr "Mostrar letras para filtrar por marcas o no"
+
+#: ../includes/class.yith-wcbr-shortcode.php:115
+#: ../includes/class.yith-wcbr-shortcode.php:118
+msgid "Show reset"
+msgstr "Mostrar reiniciar"
+
+#: ../includes/class.yith-wcbr-shortcode.php:119
+msgid "Do not show reset"
+msgstr "No mostrar reiniciar"
+
+#: ../includes/class.yith-wcbr-shortcode.php:121
+msgid "Show \"All\" label to reset all filters or not"
+msgstr "Mostrar la etiqueta \"Todos\" para reiniciar todos los filtros o no"
+
+#: ../includes/class.yith-wcbr-shortcode.php:126
+#: ../includes/class.yith-wcbr-shortcode.php:129
+#: ../includes/class.yith-wcbr-shortcode.php:1016
+#: ../includes/class.yith-wcbr-shortcode.php:1019
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:132
+msgid "Show all letters"
+msgstr "Mostrar todas las letras"
+
+#: ../includes/class.yith-wcbr-shortcode.php:130
+#: ../includes/class.yith-wcbr-shortcode.php:1020
+msgid "Do not show all letters"
+msgstr "No mostrar todas las letras"
+
+#: ../includes/class.yith-wcbr-shortcode.php:132
+msgid "Show all letters or only available letters"
+msgstr "Mostrar todas las letras o sólo letras disponibles"
+
+#: ../includes/class.yith-wcbr-shortcode.php:137
+#: ../includes/class.yith-wcbr-shortcode.php:778
+#: ../includes/class.yith-wcbr-shortcode.php:833
+#: ../includes/class.yith-wcbr-shortcode.php:903
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:139
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:113
+#: ../includes/widget/class.yith-wcbr-brand-select-widget.php:120
+msgid "Show count"
+msgstr "Mostrar cuenta"
+
+#: ../includes/class.yith-wcbr-shortcode.php:140
+#: ../includes/class.yith-wcbr-shortcode.php:781
+#: ../includes/class.yith-wcbr-shortcode.php:836
+#: ../includes/class.yith-wcbr-shortcode.php:906
+msgid "Show term count"
+msgstr "Mostrar cuenta de términos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:141
+#: ../includes/class.yith-wcbr-shortcode.php:782
+#: ../includes/class.yith-wcbr-shortcode.php:837
+#: ../includes/class.yith-wcbr-shortcode.php:907
+msgid "Do not show term count"
+msgstr "No mostrar cuenta de términos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:143
+msgid "show term count or not"
+msgstr "Mostrar o no la cuenta de términos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:148
+#: ../includes/class.yith-wcbr-shortcode.php:151
+#: ../includes/class.yith-wcbr-shortcode.php:226
+#: ../includes/class.yith-wcbr-shortcode.php:229
+#: ../includes/class.yith-wcbr-shortcode.php:295
+#: ../includes/class.yith-wcbr-shortcode.php:298
+#: ../includes/class.yith-wcbr-shortcode.php:925
+#: ../includes/class.yith-wcbr-shortcode.php:928
+msgid "Hide if empty"
+msgstr "Ocultar si está vacío"
+
+#: ../includes/class.yith-wcbr-shortcode.php:152
+#: ../includes/class.yith-wcbr-shortcode.php:230
+#: ../includes/class.yith-wcbr-shortcode.php:299
+#: ../includes/class.yith-wcbr-shortcode.php:929
+msgid "Do not hide even if empty"
+msgstr "No ocultar aunque esté vacío"
+
+#: ../includes/class.yith-wcbr-shortcode.php:154
+#: ../includes/class.yith-wcbr-shortcode.php:232
+#: ../includes/class.yith-wcbr-shortcode.php:301
+msgid "Choose to show empty terms or not"
+msgstr "Elegir si mostrar términos vacíos o no"
+
+#: ../includes/class.yith-wcbr-shortcode.php:159
+#: ../includes/class.yith-wcbr-shortcode.php:256
+#: ../includes/class.yith-wcbr-shortcode.php:413
+#: ../includes/class.yith-wcbr-shortcode.php:719
+#: ../includes/class.yith-wcbr-shortcode.php:855
+msgid "Style"
+msgstr "Estilo"
+
+#: ../includes/class.yith-wcbr-shortcode.php:162
+#: ../includes/class.yith-wcbr-shortcode.php:259
+#: ../includes/class.yith-wcbr-shortcode.php:416
+#: ../includes/class.yith-wcbr-shortcode.php:722
+#: ../includes/class.yith-wcbr-shortcode.php:858
+#: ../includes/class.yith-wcbr-shortcode.php:995
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:165
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:139
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:195
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:138
+msgid "Default"
+msgstr "Por defecto"
+
+#: ../includes/class.yith-wcbr-shortcode.php:163
+#: ../includes/class.yith-wcbr-shortcode.php:859
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:166
+msgid "Big Header"
+msgstr "Encabezado grande"
+
+#: ../includes/class.yith-wcbr-shortcode.php:164
+#: ../includes/class.yith-wcbr-shortcode.php:263
+#: ../includes/class.yith-wcbr-shortcode.php:860
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:167
+msgid "Small Header"
+msgstr "Encabezado pequeño"
+
+#: ../includes/class.yith-wcbr-shortcode.php:165
+#: ../includes/class.yith-wcbr-shortcode.php:261
+#: ../includes/class.yith-wcbr-shortcode.php:418
+#: ../includes/class.yith-wcbr-shortcode.php:861
+#: ../includes/class.yith-wcbr-shortcode.php:996
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:168
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:141
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:197
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:140
+msgid "Shadow"
+msgstr "Sombra"
+
+#: ../includes/class.yith-wcbr-shortcode.php:166
+#: ../includes/class.yith-wcbr-shortcode.php:260
+#: ../includes/class.yith-wcbr-shortcode.php:420
+#: ../includes/class.yith-wcbr-shortcode.php:862
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:169
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:199
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:139
+msgid "Boxed"
+msgstr "En recuadro"
+
+#: ../includes/class.yith-wcbr-shortcode.php:167
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:170
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:143
+msgid "Highlight"
+msgstr "Resaltado"
+
+#: ../includes/class.yith-wcbr-shortcode.php:169
+#: ../includes/class.yith-wcbr-shortcode.php:265
+#: ../includes/class.yith-wcbr-shortcode.php:424
+#: ../includes/class.yith-wcbr-shortcode.php:726
+#: ../includes/class.yith-wcbr-shortcode.php:865
+msgid "Shortcode style"
+msgstr "Estilo de shortcode"
+
+#: ../includes/class.yith-wcbr-shortcode.php:174
+#: ../includes/class.yith-wcbr-shortcode.php:870
+msgid "Highlight color"
+msgstr "Color de Resaltado"
+
+#: ../includes/class.yith-wcbr-shortcode.php:177
+#: ../includes/class.yith-wcbr-shortcode.php:873
+msgid "Color to use as background in \"Highlight\" style"
+msgstr "Color para usar de fondo en el estilo \"Resaltado\""
+
+#: ../includes/class.yith-wcbr-shortcode.php:183
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:40
+msgid "YITH Brand Thumbnail"
+msgstr "YITH Brand Miniaturas"
+
+#: ../includes/class.yith-wcbr-shortcode.php:185
+msgid "Adds a list of brand thumbnails"
+msgstr "Añadir una lista de miniaturas de marca"
+
+#: ../includes/class.yith-wcbr-shortcode.php:237
+#: ../includes/class.yith-wcbr-shortcode.php:240
+#: ../includes/class.yith-wcbr-shortcode.php:317
+#: ../includes/class.yith-wcbr-shortcode.php:320
+#: ../includes/class.yith-wcbr-shortcode.php:936
+#: ../includes/class.yith-wcbr-shortcode.php:939
+msgid "Hide terms without image"
+msgstr "Esconder términos sin imagen"
+
+#: ../includes/class.yith-wcbr-shortcode.php:241
+#: ../includes/class.yith-wcbr-shortcode.php:321
+#: ../includes/class.yith-wcbr-shortcode.php:940
+msgid "Do not hide terms even if without image"
+msgstr "No esconder términos incluso in imagen"
+
+#: ../includes/class.yith-wcbr-shortcode.php:243
+#: ../includes/class.yith-wcbr-shortcode.php:323
+msgid "Choose to show terms without image or not"
+msgstr "Escoger si mostrar términos sin imagen o no"
+
+#: ../includes/class.yith-wcbr-shortcode.php:248
+#: ../includes/class.yith-wcbr-shortcode.php:339
+#: ../includes/class.yith-wcbr-shortcode.php:465
+#: ../includes/class.yith-wcbr-shortcode.php:569
+#: ../includes/class.yith-wcbr-shortcode.php:895
+msgid "Columns"
+msgstr "Columnas"
+
+#: ../includes/class.yith-wcbr-shortcode.php:251
+#: ../includes/class.yith-wcbr-shortcode.php:342
+#: ../includes/class.yith-wcbr-shortcode.php:468
+#: ../includes/class.yith-wcbr-shortcode.php:572
+#: ../includes/class.yith-wcbr-shortcode.php:898
+msgid "Number of elements per row"
+msgstr "Número de elementos por fila"
+
+#: ../includes/class.yith-wcbr-shortcode.php:262
+msgid "Without borders"
+msgstr "Sin bordes"
+
+#: ../includes/class.yith-wcbr-shortcode.php:271
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:40
+msgid "YITH Brand Thumbnail Carousel"
+msgstr "YITH Brand Carrusel de miniaturas"
+
+#: ../includes/class.yith-wcbr-shortcode.php:273
+msgid "Adds a carousel of brand thumbnails"
+msgstr "Añade un carrusel de miniaturas de marca"
+
+#: ../includes/class.yith-wcbr-shortcode.php:306
+#: ../includes/class.yith-wcbr-shortcode.php:596
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:153
+msgid "Autoplay"
+msgstr "Reproducción automática"
+
+#: ../includes/class.yith-wcbr-shortcode.php:309
+#: ../includes/class.yith-wcbr-shortcode.php:599
+msgid "Yes"
+msgstr "Sí"
+
+#: ../includes/class.yith-wcbr-shortcode.php:310
+#: ../includes/class.yith-wcbr-shortcode.php:600
+msgid "No"
+msgstr "No"
+
+#: ../includes/class.yith-wcbr-shortcode.php:312
+#: ../includes/class.yith-wcbr-shortcode.php:602
+msgid "Start autoplay for carousel or not"
+msgstr "Comenzar la reproducción automática para el carrusel o no"
+
+#: ../includes/class.yith-wcbr-shortcode.php:328
+#: ../includes/class.yith-wcbr-shortcode.php:585
+msgid "Direction"
+msgstr "Dirección"
+
+#: ../includes/class.yith-wcbr-shortcode.php:331
+#: ../includes/class.yith-wcbr-shortcode.php:588
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:172
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: ../includes/class.yith-wcbr-shortcode.php:332
+#: ../includes/class.yith-wcbr-shortcode.php:589
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:173
+msgid "Vertical"
+msgstr "Vertical"
+
+#: ../includes/class.yith-wcbr-shortcode.php:334
+#: ../includes/class.yith-wcbr-shortcode.php:591
+#: ../includes/class.yith-wcbr-shortcode.php:942
+msgid "Show terms without image or not"
+msgstr "Mostrar términos sin imagen o no"
+
+#: ../includes/class.yith-wcbr-shortcode.php:347
+#: ../includes/class.yith-wcbr-shortcode.php:607
+msgid "Carousel pagination"
+msgstr "Paginación del carrusel"
+
+#: ../includes/class.yith-wcbr-shortcode.php:350
+#: ../includes/class.yith-wcbr-shortcode.php:610
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:180
+msgid "Show carousel pagination"
+msgstr "Mostrar paginación de carrusel"
+
+#: ../includes/class.yith-wcbr-shortcode.php:351
+#: ../includes/class.yith-wcbr-shortcode.php:611
+msgid "Do not show carousel pagination"
+msgstr "No mostrar paginación de carrusel"
+
+#: ../includes/class.yith-wcbr-shortcode.php:353
+#: ../includes/class.yith-wcbr-shortcode.php:613
+msgid "Show carousel pagination or not"
+msgstr "Mostrar o no paginación del carrusel"
+
+#: ../includes/class.yith-wcbr-shortcode.php:358
+#: ../includes/class.yith-wcbr-shortcode.php:618
+#: ../includes/class.yith-wcbr-shortcode.php:624
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:190
+msgid "Carousel pagination style"
+msgstr "Estilo de paginación de carrusel"
+
+#: ../includes/class.yith-wcbr-shortcode.php:361
+#: ../includes/class.yith-wcbr-shortcode.php:383
+#: ../includes/class.yith-wcbr-shortcode.php:621
+#: ../includes/class.yith-wcbr-shortcode.php:643
+#: ../includes/class.yith-wcbr-shortcode.php:723
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:188
+msgid "Square"
+msgstr "Cuadrado"
+
+#: ../includes/class.yith-wcbr-shortcode.php:362
+#: ../includes/class.yith-wcbr-shortcode.php:384
+#: ../includes/class.yith-wcbr-shortcode.php:622
+#: ../includes/class.yith-wcbr-shortcode.php:644
+#: ../includes/class.yith-wcbr-shortcode.php:724
+#: ../includes/class.yith-wcbr-shortcode.php:998
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:142
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:187
+msgid "Round"
+msgstr "Redondo"
+
+#: ../includes/class.yith-wcbr-shortcode.php:364
+msgid "Style for Carousel pagination"
+msgstr "Estilo de la paginación del carrusel"
+
+#: ../includes/class.yith-wcbr-shortcode.php:369
+#: ../includes/class.yith-wcbr-shortcode.php:629
+msgid "Prev/Next button"
+msgstr "Botón de Previo/Siguiente"
+
+#: ../includes/class.yith-wcbr-shortcode.php:372
+#: ../includes/class.yith-wcbr-shortcode.php:632
+msgid "Show prev/next button"
+msgstr "Mostrar botón de Previo/Siguiente"
+
+#: ../includes/class.yith-wcbr-shortcode.php:373
+#: ../includes/class.yith-wcbr-shortcode.php:633
+msgid "Do not show prev/next button"
+msgstr "No mostrar botón de previo/siguiente"
+
+#: ../includes/class.yith-wcbr-shortcode.php:375
+#: ../includes/class.yith-wcbr-shortcode.php:635
+msgid "Show prev/next button or not"
+msgstr "Mostrar o no el botón de previo/siguiente"
+
+#: ../includes/class.yith-wcbr-shortcode.php:380
+#: ../includes/class.yith-wcbr-shortcode.php:640
+msgid "Prev/Next button style"
+msgstr "Estilo del botón de Previo/Siguiente"
+
+#: ../includes/class.yith-wcbr-shortcode.php:386
+#: ../includes/class.yith-wcbr-shortcode.php:646
+msgid "Carousel prev/next button style"
+msgstr "Estilo del carrusel del botón previo/siguiente"
+
+#: ../includes/class.yith-wcbr-shortcode.php:391
+#: ../includes/class.yith-wcbr-shortcode.php:394
+#: ../includes/class.yith-wcbr-shortcode.php:947
+#: ../includes/class.yith-wcbr-shortcode.php:950
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:125
+msgid "Show name"
+msgstr "Mostrar nombre"
+
+#: ../includes/class.yith-wcbr-shortcode.php:395
+#: ../includes/class.yith-wcbr-shortcode.php:951
+msgid "Do not show name"
+msgstr "No mostrar nombre"
+
+#: ../includes/class.yith-wcbr-shortcode.php:397
+#: ../includes/class.yith-wcbr-shortcode.php:953
+msgid "Show brand name or not"
+msgstr "Muestra el nombre de marca o no"
+
+#: ../includes/class.yith-wcbr-shortcode.php:402
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:132
+msgid "Show rating"
+msgstr "Muestra la valoración"
+
+#: ../includes/class.yith-wcbr-shortcode.php:405
+msgid "Show average brand rating"
+msgstr "Mostrar valoración media de marca"
+
+#: ../includes/class.yith-wcbr-shortcode.php:406
+msgid "Do not show average brand rating"
+msgstr "No mostrar valoración media de marca"
+
+#: ../includes/class.yith-wcbr-shortcode.php:408
+msgid "Show average brand rating or not (based on brand's product rating)"
+msgstr ""
+"Muestra o no la valoración media de marca (basada en la valoración de los "
+"productos de la marca)"
+
+#: ../includes/class.yith-wcbr-shortcode.php:417
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:196
+msgid "Top border"
+msgstr "Borde superior"
+
+#: ../includes/class.yith-wcbr-shortcode.php:419
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:198
+msgid "Centered title"
+msgstr "Título centrado"
+
+#: ../includes/class.yith-wcbr-shortcode.php:421
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:200
+msgid "Squared"
+msgstr "Cuadrado"
+
+#: ../includes/class.yith-wcbr-shortcode.php:422
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:201
+msgid "Background"
+msgstr "Fondo"
+
+#: ../includes/class.yith-wcbr-shortcode.php:430
+msgid "YITH Brand Products"
+msgstr "YITH Brand Productos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:432
+msgid "Adds a list of brand products"
+msgstr "Añade una lista de productos de la marca"
+
+#: ../includes/class.yith-wcbr-shortcode.php:441
+#: ../includes/class.yith-wcbr-shortcode.php:564
+#: ../includes/class.yith-wcbr-shortcode.php:754
+#: ../includes/class.yith-wcbr-shortcode.php:801
+#: ../includes/class.yith-wcbr-shortcode.php:890
+msgid "Text to show as shortcode title"
+msgstr "Texto que se muestra como título del shortcode"
+
+#: ../includes/class.yith-wcbr-shortcode.php:476
+msgid ""
+"A list of valid comma separated brand slugs, if you want to filter products "
+"by brand"
+msgstr ""
+"Una lista de slugs de marca válidos separados por comas, si quieres filtrar "
+"productos por marca"
+
+#: ../includes/class.yith-wcbr-shortcode.php:481
+#: ../includes/class.yith-wcbr-shortcode.php:659
+msgid "Product type"
+msgstr "Tipo de producto"
+
+#: ../includes/class.yith-wcbr-shortcode.php:484
+#: ../includes/class.yith-wcbr-shortcode.php:662
+msgid "All products"
+msgstr "Todos los productos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:485
+#: ../includes/class.yith-wcbr-shortcode.php:663
+msgid "Featured products"
+msgstr "Productos destacados"
+
+#: ../includes/class.yith-wcbr-shortcode.php:486
+#: ../includes/class.yith-wcbr-shortcode.php:664
+msgid "On sale products"
+msgstr "Productos rebajados"
+
+#: ../includes/class.yith-wcbr-shortcode.php:488
+#: ../includes/class.yith-wcbr-shortcode.php:666
+msgid "Type of products to show"
+msgstr "Tipo de productos que se muestran"
+
+#: ../includes/class.yith-wcbr-shortcode.php:493
+#: ../includes/class.yith-wcbr-shortcode.php:671
+msgid "Order by"
+msgstr "Ordenar por"
+
+#: ../includes/class.yith-wcbr-shortcode.php:496
+#: ../includes/class.yith-wcbr-shortcode.php:674
+msgid "Random order"
+msgstr "Orden aleatorio"
+
+#: ../includes/class.yith-wcbr-shortcode.php:497
+#: ../includes/class.yith-wcbr-shortcode.php:675
+msgid "\"Created at\" date"
+msgstr "Fecha de \"Creado el\""
+
+#: ../includes/class.yith-wcbr-shortcode.php:498
+#: ../includes/class.yith-wcbr-shortcode.php:676
+msgid "Product title"
+msgstr "Título de producto"
+
+#: ../includes/class.yith-wcbr-shortcode.php:499
+#: ../includes/class.yith-wcbr-shortcode.php:677
+msgid "Product price"
+msgstr "Precio de producto"
+
+#: ../includes/class.yith-wcbr-shortcode.php:500
+#: ../includes/class.yith-wcbr-shortcode.php:678
+msgid "Product sales"
+msgstr "Rebajados"
+
+#: ../includes/class.yith-wcbr-shortcode.php:502
+msgid "Set order criteria for products"
+msgstr "Establecer criterio de orden de productos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:508
+#: ../includes/class.yith-wcbr-shortcode.php:686
+msgid "Order"
+msgstr "Pedido"
+
+#: ../includes/class.yith-wcbr-shortcode.php:511
+#: ../includes/class.yith-wcbr-shortcode.php:689
+msgid "Descending"
+msgstr "Descendente"
+
+#: ../includes/class.yith-wcbr-shortcode.php:512
+#: ../includes/class.yith-wcbr-shortcode.php:690
+msgid "Ascending"
+msgstr "Ascendente"
+
+#: ../includes/class.yith-wcbr-shortcode.php:514
+msgid "Set order direction for products"
+msgstr "Establecer la dirección del orden de los productos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:519
+#: ../includes/class.yith-wcbr-shortcode.php:522
+#: ../includes/class.yith-wcbr-shortcode.php:697
+#: ../includes/class.yith-wcbr-shortcode.php:700
+msgid "Hide free products"
+msgstr "Ocultar productos gratuitos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:523
+#: ../includes/class.yith-wcbr-shortcode.php:701
+msgid "Do not hide free products"
+msgstr "No ocultar productos gratuitos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:525
+#: ../includes/class.yith-wcbr-shortcode.php:703
+msgid "Hide free products or not"
+msgstr "Ocultar o no los productos gratuitos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:530
+#: ../includes/class.yith-wcbr-shortcode.php:708
+msgid "Show hidden products"
+msgstr "Mostrar productos ocultos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:533
+#: ../includes/class.yith-wcbr-shortcode.php:711
+msgid "Show products hidden in catalog"
+msgstr "Mostrar productos ocultos en el catálogo"
+
+#: ../includes/class.yith-wcbr-shortcode.php:534
+#: ../includes/class.yith-wcbr-shortcode.php:712
+msgid "Do not show products hidden in catalog"
+msgstr "No mostrar los productos ocultos en el catálogo"
+
+#: ../includes/class.yith-wcbr-shortcode.php:536
+#: ../includes/class.yith-wcbr-shortcode.php:714
+msgid "Show products hidden in catalog or not"
+msgstr "Mostrar o no los productos ocultos en el catálogo"
+
+#: ../includes/class.yith-wcbr-shortcode.php:541
+#: ../includes/class.yith-wcbr-shortcode.php:731
+msgid "Show brand box before shortcode"
+msgstr "Mostrar el recuadro de marcas antes del shortcode"
+
+#: ../includes/class.yith-wcbr-shortcode.php:544
+#: ../includes/class.yith-wcbr-shortcode.php:734
+msgid "Show brand box"
+msgstr "Mostrar recuadro de marcas"
+
+#: ../includes/class.yith-wcbr-shortcode.php:545
+#: ../includes/class.yith-wcbr-shortcode.php:735
+msgid "Do not show brand box"
+msgstr "No mostrar un recuadro de marcas"
+
+#: ../includes/class.yith-wcbr-shortcode.php:547
+#: ../includes/class.yith-wcbr-shortcode.php:737
+msgid "Show brand box or not"
+msgstr "Muestra un recuadro de marcas o no"
+
+#: ../includes/class.yith-wcbr-shortcode.php:553
+msgid "YITH Brand Product Carousel"
+msgstr "Carrusel de Productos YITH Brand"
+
+#: ../includes/class.yith-wcbr-shortcode.php:555
+msgid "Adds a carousel of products"
+msgstr "Añade un carrusel de productos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:577
+msgid "Total products to show"
+msgstr "Total de productos que se muestran"
+
+#: ../includes/class.yith-wcbr-shortcode.php:580
+msgid "Total number of products to show; -1 to show all products"
+msgstr ""
+"Número total de productos que mostrar; -1 para mostrar todos los productos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:654
+msgid ""
+"A list of valid comma separated brands slugs, if you want to filter products "
+"by brand"
+msgstr ""
+"Una lista de slugs de marcas válidos separados por comas, si quieres filtrar "
+"los productos por marca"
+
+#: ../includes/class.yith-wcbr-shortcode.php:680
+msgid "Select sorting criteria for products"
+msgstr "Selecciona el criterio de orden de los productos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:692
+msgid "Select sorting direction for products"
+msgstr "Selecciona el criterio de dirección de los productos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:743
+#: ../includes/widget/class.yith-wcbr-brand-select-widget.php:40
+msgid "YITH Brand Select"
+msgstr "YITH Brand Selección"
+
+#: ../includes/class.yith-wcbr-shortcode.php:745
+msgid "Adds a select with all brands that redirects to archive page on change"
+msgstr ""
+"Añade una selección con todas las marcas que redirige a la página de archivo "
+"en cambio"
+
+#: ../includes/class.yith-wcbr-shortcode.php:767
+#: ../includes/class.yith-wcbr-shortcode.php:770
+#: ../includes/class.yith-wcbr-shortcode.php:844
+#: ../includes/class.yith-wcbr-shortcode.php:847
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:146
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:120
+#: ../includes/widget/class.yith-wcbr-brand-select-widget.php:127
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:139
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:112
+msgid "Hide empty"
+msgstr "Ocultar vacíos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:771
+#: ../includes/class.yith-wcbr-shortcode.php:848
+msgid "Do not hide empty"
+msgstr "No ocultar vacíos"
+
+#: ../includes/class.yith-wcbr-shortcode.php:773
+#: ../includes/class.yith-wcbr-shortcode.php:850
+#: ../includes/class.yith-wcbr-shortcode.php:931
+msgid "Show empty terms or not"
+msgstr "Mostrar términos vacíos o no"
+
+#: ../includes/class.yith-wcbr-shortcode.php:784
+#: ../includes/class.yith-wcbr-shortcode.php:839
+#: ../includes/class.yith-wcbr-shortcode.php:909
+msgid "Show term count or not"
+msgstr "Muestra la cuenta de términos o no"
+
+#: ../includes/class.yith-wcbr-shortcode.php:790
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:40
+msgid "YITH Brand List"
+msgstr "YITH Brand Lista"
+
+#: ../includes/class.yith-wcbr-shortcode.php:792
+msgid "Prints a list of all brands"
+msgstr "Imprime una lista de todas las marcas"
+
+#: ../includes/class.yith-wcbr-shortcode.php:863
+msgid "HIghlight"
+msgstr "Resaltado"
+
+#: ../includes/class.yith-wcbr-shortcode.php:879
+msgid "YITH Brand Grid"
+msgstr "YITH Brand Cuadrícula"
+
+#: ../includes/class.yith-wcbr-shortcode.php:881
+msgid "Prints a grid of all brands with js filters"
+msgstr "Imprime una cuadrícula de todas las marcas con filtros js"
+
+#: ../includes/class.yith-wcbr-shortcode.php:914
+msgid "Show image"
+msgstr "Mostrar imagen"
+
+#: ../includes/class.yith-wcbr-shortcode.php:917
+msgid "Show term image"
+msgstr "Mostrar imagen de término"
+
+#: ../includes/class.yith-wcbr-shortcode.php:918
+msgid "Do not show term image"
+msgstr "No mostrar imagen de término"
+
+#: ../includes/class.yith-wcbr-shortcode.php:920
+msgid "Show term image or not"
+msgstr "Muestra la imagen de término o no"
+
+#: ../includes/class.yith-wcbr-shortcode.php:958
+msgid "Show filtered"
+msgstr "Mostrar filtrado"
+
+#: ../includes/class.yith-wcbr-shortcode.php:961
+msgid "Show brands grouped by heading letter"
+msgstr "Mostrar marcas agrupadas por letra de encabezado"
+
+#: ../includes/class.yith-wcbr-shortcode.php:962
+msgid "Show brands grouped by product category"
+msgstr "Mostrar marcas agrupadas por categoría de producto"
+
+#: ../includes/class.yith-wcbr-shortcode.php:963
+msgid "Do not show brands filtered"
+msgstr "No mostrar marcas filtradas"
+
+#: ../includes/class.yith-wcbr-shortcode.php:965
+msgid "Show brands grouped or not"
+msgstr "Mostrar marcas agrupadas o no"
+
+#: ../includes/class.yith-wcbr-shortcode.php:970
+msgid "Show category filter"
+msgstr "Mostrar filtro de categoría"
+
+#: ../includes/class.yith-wcbr-shortcode.php:973
+msgid "Show filters for product category"
+msgstr "Mostrar filtros por categoría de producto"
+
+#: ../includes/class.yith-wcbr-shortcode.php:974
+msgid "Do not show filters for product category"
+msgstr "No mostrar filtros por categoría de producto"
+
+#: ../includes/class.yith-wcbr-shortcode.php:976
+msgid "Show filters for product category or not (only when filtered by name)"
+msgstr ""
+"Muestra filtros por categoría de producto o no (sólo cuando se filtra por "
+"nombre)"
+
+#: ../includes/class.yith-wcbr-shortcode.php:981
+msgid "Category filter type"
+msgstr "Tipo de filtro de categoría"
+
+#: ../includes/class.yith-wcbr-shortcode.php:984
+msgid "Multiselect"
+msgstr "Multiselección"
+
+#: ../includes/class.yith-wcbr-shortcode.php:985
+msgid "Dropdown"
+msgstr "Estilo del desplegable:"
+
+#: ../includes/class.yith-wcbr-shortcode.php:987
+msgid ""
+"Show filters for product category as multiselect or as a dropdown (only when "
+"filtered by name)"
+msgstr ""
+"Mostrar filtros de categoría de producto como multiselección o como "
+"desplegable (sólo cuando se filtra por nombre)"
+
+#: ../includes/class.yith-wcbr-shortcode.php:992
+msgid "Category filter style"
+msgstr "Estilo de filtro de categoría"
+
+#: ../includes/class.yith-wcbr-shortcode.php:997
+msgid "Border"
+msgstr "Borde"
+
+#: ../includes/class.yith-wcbr-shortcode.php:1000
+msgid "Category filter style (only when filtered by name)"
+msgstr "Categoría de filtro de estilo (sólo cuando se filtra por nombre)"
+
+#: ../includes/class.yith-wcbr-shortcode.php:1005
+msgid "Show name filters"
+msgstr "Mostrar filtros de nombre"
+
+#: ../includes/class.yith-wcbr-shortcode.php:1008
+msgid "Show letters to filter brands"
+msgstr "Mostrar letras para filtrar marcas"
+
+#: ../includes/class.yith-wcbr-shortcode.php:1009
+msgid "Do not show letters"
+msgstr "No mostrar letras"
+
+#: ../includes/class.yith-wcbr-shortcode.php:1011
+msgid "Show letters to filter brands (only when filtered by name)"
+msgstr "Mostrar letras para filtrar marcas (sólo cuando se filtra por nombre)"
+
+#: ../includes/class.yith-wcbr-shortcode.php:1022
+msgid ""
+"Whether to show all letters or only available letters (only when filtered by "
+"name)"
+msgstr ""
+"Si se muestran todas las letras o sólo las letras disponibles (sólo cuando "
+"se filtra por nombre)"
+
+#: ../includes/class.yith-wcbr-shortcode.php:1970
+#: ../templates/shortcodes/brand-filter.php:26
+#: ../templates/shortcodes/brand-select.php:25
+msgid "All"
+msgstr "Todos"
+
+#: ../includes/class.yith-wcbr.php:102
+msgid "Brand"
+msgstr "Brand"
+
+#: ../includes/class.yith-wcbr.php:103
+msgid "All Brands"
+msgstr "Todas las marcas"
+
+#: ../includes/class.yith-wcbr.php:104
+msgid "Edit Brand"
+msgstr "Editar marca"
+
+#: ../includes/class.yith-wcbr.php:105
+msgid "View Brand"
+msgstr "Ver marca"
+
+#: ../includes/class.yith-wcbr.php:106
+msgid "Update Brand"
+msgstr "Actualizar marca"
+
+#: ../includes/class.yith-wcbr.php:107
+msgid "Add New Brand"
+msgstr "Añadir nueva marca"
+
+#: ../includes/class.yith-wcbr.php:108
+msgid "New Brand Name"
+msgstr "Nuevo nombre de marca"
+
+#: ../includes/class.yith-wcbr.php:109
+msgid "Parent Brand"
+msgstr "Marca padre"
+
+#: ../includes/class.yith-wcbr.php:110
+msgid "Parent Brand:"
+msgstr "Marca Padre:"
+
+#: ../includes/class.yith-wcbr.php:111
+msgid "Search Brands"
+msgstr "Buscar marcas:"
+
+#: ../includes/class.yith-wcbr.php:112
+msgid "Separate brands with commas"
+msgstr "Separar marcas con comas"
+
+#: ../includes/class.yith-wcbr.php:113
+msgid "No Brands Found"
+msgstr "No se han encontrado marcas"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:144
+msgid "The file does not exist, please try again."
+msgstr "El archivo no existe, por favor, inténtalo de nuevo"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:195
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:205
+#, php-format
+msgid "Failed to import attachment %s"
+msgstr "Ha fallado importar el adjunto %s"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:214
+#, php-format
+msgid "Failed to import %s %s"
+msgstr "Ha fallado importar %s %s"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:220
+msgid "The CSV is invalid."
+msgstr "EL CSV es inválido."
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:227
+#, php-format
+msgid "Import complete - imported <strong>%s</strong> brands."
+msgstr "Importación completada - importadas <strong>%s</strong> marcas."
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:257
+msgid "Invalid file type"
+msgstr "Tipo de archivo inválido"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:307
+msgid "Remote server did not respond"
+msgstr "El servidor remoto no ha respondido"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:314
+#, php-format
+msgid "Remote server returned error response %1$d %2$s"
+msgstr "El servidor remoto ha devuelto la respuesta de error %1$d %2$s"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:329
+msgid "Remote file is incorrect size"
+msgstr "El archivo remoto es de tamaño incorrecto"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:335
+msgid "Zero size file downloaded"
+msgstr "Archivo de tamaño cero descargado"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:342
+#, php-format
+msgid "Remote file is too large, limit is %s"
+msgstr "El archivo remoto es demasiado grande, el límite es %s"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:373
+msgid "All done!"
+msgstr "¡Todo hecho!"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:375
+msgid "View Brands"
+msgstr "Ver Marcas"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:414
+msgid "YITH Brands Importer"
+msgstr "YITH Brands Importador"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:436
+msgid ""
+"Hi there! Upload a CSV file containing brands to import the contents into "
+"your shop. Choose a .csv file to upload, then click \"Upload file and import"
+"\"."
+msgstr ""
+"¡Hola! Carga un archivo CSV que contenga marcas para importar los contenidos "
+"a tu tienda. Escoge un archivi .csv para cargar y haz click en \"Cargar "
+"archivo e importar\"."
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:446
+msgid "Before uploading your import file, you need to fix the following error:"
+msgstr ""
+"Antes de cargar tu archivo importado, necesitas arreglar el siguiente error:"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:456
+msgid "Choose a file from your computer:"
+msgstr "Elige un archivo de tu ordenador:"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:462
+#, php-format
+msgid "Maximum size: %s"
+msgstr "Tamaño máximo: %s"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:467
+msgid "OR enter path to file:"
+msgstr "O escoge una ruta de archivo:"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:475
+msgid "Delimiter"
+msgstr "Delimitador"
+
+#: ../includes/importer/class.yith-wcbr-csv-importer.php:511
+msgid "Sorry, an error has occurred."
+msgstr "Lo sentimos, ha ocurrido un error."
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:42
+msgid "Add an A-Z filter for brands"
+msgstr "Añade un filtro A-Z para las marcas"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:112
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:107
+#: ../includes/widget/class.yith-wcbr-brand-select-widget.php:102
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:119
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:106
+msgid "Title:"
+msgstr "Título:"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:120
+msgid "Show letter filter"
+msgstr "Mostrar filtro de letras"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:125
+msgid "Show reset:"
+msgstr "Mostrar reinicio:"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:127
+msgid "Display \"Show all\" button within letter filter"
+msgstr "Muestra el botón \"Mostrar todo\" en el filtro de letras"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:134
+msgid ""
+"When filters are activated, show all letters instead of showing only those "
+"of brands available"
+msgstr ""
+"Cuando los filtros están activos, muestra todas las letras en lugar de "
+"mostrar sólo aquellas marcas disponibles"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:141
+#: ../includes/widget/class.yith-wcbr-brand-select-widget.php:122
+msgid "Show number of products for each brand"
+msgstr "Mostrar el número de productos para cada marca"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:148
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:122
+#: ../includes/widget/class.yith-wcbr-brand-select-widget.php:129
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:141
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:114
+msgid "Hide brands without products associated"
+msgstr "Ocultar marcas sin productos asociados"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:153
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:127
+#: ../includes/widget/class.yith-wcbr-brand-select-widget.php:108
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:160
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:126
+msgid "Autosense category"
+msgstr "Detección automática de categorías"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:155
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:129
+#: ../includes/widget/class.yith-wcbr-brand-select-widget.php:110
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:162
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:128
+msgid ""
+"On product category page, ignore category option and filter brands for "
+"current category"
+msgstr ""
+"En la página de categoría de producto, ignora la opción de categoría de "
+"producto y filtra las marcas por categoría actual"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:158
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:132
+#: ../includes/widget/class.yith-wcbr-brand-select-widget.php:113
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:165
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:131
+msgid "Category:"
+msgstr "Categoría"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:160
+msgid ""
+"Comma separated list of valid product category slugs, to filter brands; "
+"leave empty if you don't want to filter brands by category"
+msgstr ""
+"Lista de slugs de categorías de productos separados por comas, para filtrar "
+"marcas; déjalo vacío si no quieres filtrar marcas por categoría"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:163
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:137
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:193
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:136
+msgid "Style:"
+msgstr "Estilo"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:174
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:147
+msgid "Highlight:"
+msgstr "Resaltado:"
+
+#: ../includes/widget/class.yith-wcbr-brand-filter-widget.php:176
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:149
+msgid "Valid hex color code, to use as background in highlight style"
+msgstr "Código hex válido de color para usar como fondo en el estilo Resaltado"
+
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:42
+msgid "Add a list of brands"
+msgstr "Añadir una lista de marcas"
+
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:115
+msgid "Show number for products for each brand"
+msgstr "Mostrar el número de productos para cada marca"
+
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:134
+#: ../includes/widget/class.yith-wcbr-brand-select-widget.php:115
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:167
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:133
+msgid ""
+"Comma separated list of valid product category slugs, to filter brands; "
+"leave it empty if you don't want to filter brands by category"
+msgstr ""
+"Lista de slugs de categoría de productos separados por comas, para filtrar "
+"marcas; déjalo vacío si no quieres filtrar marcas por categoría"
+
+#: ../includes/widget/class.yith-wcbr-brand-list-widget.php:140
+msgid "Empty"
+msgstr "Vacío"
+
+#: ../includes/widget/class.yith-wcbr-brand-select-widget.php:42
+msgid "Add a select with all brands"
+msgstr "Añadir una selección con todas las marcas"
+
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:42
+msgid "Add a carousel of brand thumbnails"
+msgstr "Añadir un carrusel de miniaturas de marcas"
+
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:127
+msgid "Show brand name for each element of the carousel"
+msgstr "Muestra el nombre de marca para cada elemento del carrusel"
+
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:134
+msgid ""
+"Show brand rate for each element of the carousel (brand rate is calculated "
+"as average rating for products of the same brand)"
+msgstr ""
+"Mostrar valoración de marca para cada elemento del carrusel (la valoración "
+"de la marca se calcula como la media de la valoración de productos de la "
+"misma marca)"
+
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:146
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:119
+msgid "Hide term without images"
+msgstr "Ocultar términos sin imágenes"
+
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:148
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:121
+msgid "Hide brands with no associated images"
+msgstr "Ocultar marcas sin imágenes asociadas"
+
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:155
+msgid "Autoplay carousel slides"
+msgstr "Reproducir automáticamente las diapositivas del carrusel"
+
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:170
+msgid "Direction:"
+msgstr "Dirección"
+
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:175
+msgid "Select sliding direction in carousel"
+msgstr ""
+"Selecciona la dirección en la que se deslizan los productos del carrusel"
+
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:182
+msgid "Show pagination for the carousel"
+msgstr "Mostrar paginación para el carrusel"
+
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-carousel-widget.php:185
+msgid "Carousel pagination style:"
+msgstr "Estilo de paginación del carrusel:"
+
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:42
+msgid "Add a grid of brand thumbnails"
+msgstr "Añade una cuadrícula de miniaturas de marcas"
+
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:141
+msgid "Borderless"
+msgstr "Sin borde"
+
+#: ../includes/widget/class.yith-wcbr-brand-thumbnail-widget.php:142
+msgid "Top Border"
+msgstr "Borde superior"
+
+#: ../init.php:125
+msgid ""
+"YITH WooCommerce Brands Add-on is enabled but not effective. It requires "
+"WooCommerce in order to work."
+msgstr ""
+"YITH Woocommerce Brands Add-on está habilitado pero no es efectivo. Requiere "
+"WooCommerce para funcionar."
+
+#: ../init.php:135
+msgid ""
+"You can't activate the free version of YITH WooCommerce Brands while you are "
+"using the premium one."
+msgstr ""
+"No puedes activar la versión free de YITH WooCommerce Brands mientras estás "
+"usando la versión premium."
+
+#: ../plugin-options/settings-options.php:20
+msgid "General"
+msgstr "General"
+
+#: ../plugin-options/settings-options.php:28
+msgid "Brand label"
+msgstr "Etiqueta de marca"
+
+#: ../plugin-options/settings-options.php:30
+msgid "Label used for \"Brand\" link"
+msgstr "Etiqueta usada para el enlace de \"Marca\""
+
+#: ../plugin-options/settings-options.php:31
+msgid "Brand:"
+msgstr "Marca:"
+
+#: ../templates/admin/add-brand-taxonomy-form-premium.php:17
+#: ../templates/admin/edit-brand-taxonomy-form-premium.php:16
+msgid "Banner"
+msgstr "Banner"
+
+#: ../templates/admin/add-brand-taxonomy-form-premium.php:21
+#: ../templates/admin/add-brand-taxonomy-form.php:21
+#: ../templates/admin/edit-brand-taxonomy-form-premium.php:21
+#: ../templates/admin/edit-brand-taxonomy-form.php:21
+#: ../templates/admin/fields/upload-image.php:24
+msgid "Upload/Add image"
+msgstr "Cargar/Añadir imagen"
+
+#: ../templates/admin/add-brand-taxonomy-form-premium.php:22
+#: ../templates/admin/add-brand-taxonomy-form.php:22
+#: ../templates/admin/edit-brand-taxonomy-form-premium.php:22
+#: ../templates/admin/edit-brand-taxonomy-form.php:22
+#: ../templates/admin/fields/upload-image.php:25
+msgid "Remove image"
+msgstr "Borar imagen"
+
+#: ../templates/admin/add-brand-taxonomy-form-premium.php:28
+#: ../templates/admin/edit-brand-taxonomy-form-premium.php:29
+msgid "Custom URL"
+msgstr "Personalizar URL"
+
+#: ../templates/admin/add-brand-taxonomy-form-premium.php:30
+#: ../templates/admin/edit-brand-taxonomy-form-premium.php:32
+msgid "Set a custom URL for redirect. Default redirect is to archive page"
+msgstr ""
+"Establecer una URL personalizada para redireccionar. La redirección "
+"predeterminada es a la página de archivo"
+
+#: ../templates/admin/fields/image-size.php:22
+msgid "x"
+msgstr "x"
+
+#: ../templates/admin/fields/image-size.php:23
+msgid "px"
+msgstr "px"
+
+#: ../templates/admin/fields/image-size.php:24
+msgid "Hard Crop?"
+msgstr "¿Recortar?"
+
+#: ../templates/shortcodes/brand-product-carousel.php:29
+#: ../templates/shortcodes/brand-product.php:28
+msgid "Products in Brands"
+msgstr "Productos con marcas"
