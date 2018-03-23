@@ -101,7 +101,7 @@ if ( is_woocommerce_active() && ! class_exists( 'WC_Bulk_Stock_Management' ) ) {
 		 * Add menus to WP admin
 		 */
 		public function register_menu() {
-			$page = add_submenu_page( 'edit.php?post_type=product', __( 'Stock Management', 'woocommerce-bulk-stock-management' ), __( 'Stock Management', 'woocommerce-bulk-stock-management' ), apply_filters( 'wc_bulk_stock_cap', 'edit_others_products' ), 'woocommerce-bulk-stock-management', array( $this, 'stock_management_page' ) );
+			$page = add_submenu_page( 'edit.php?post_type=product', __( 'Stocks', 'woocommerce-bulk-stock-management' ), __( 'Stocks', 'woocommerce-bulk-stock-management' ), apply_filters( 'wc_bulk_stock_cap', 'edit_others_products' ), 'woocommerce-bulk-stock-management', array( $this, 'stock_management_page' ) );
 
 			add_action( 'admin_print_styles-' . $page, array( $this, 'admin_css' ) );
 
@@ -157,7 +157,7 @@ if ( is_woocommerce_active() && ! class_exists( 'WC_Bulk_Stock_Management' ) ) {
 		    $this->maybe_show_notice();
 		    ?>
 		    <div class="wrap">
-		        <h2><?php _e( 'Stock Management', 'woocommerce-bulk-stock-management' ); ?> <a href="<?php echo wp_nonce_url( add_query_arg( 'print', 'stock_report' ), 'print-stock' ) ?>" class="add-new-h2"><?php _e( 'View stock report', 'woocommerce-bulk-stock-management' ); ?></a></h2>
+		        <h2><?php _e( 'Stocks', 'woocommerce-bulk-stock-management' ); ?> <a href="<?php echo wp_nonce_url( add_query_arg( 'print', 'stock_report' ), 'print-stock' ) ?>" class="add-new-h2"><?php _e( 'View stock report', 'woocommerce-bulk-stock-management' ); ?></a></h2>
 		        <form id="stock-management" method="get">
 		            <input type="hidden" name="post_type" value="product" />
 		            <input type="hidden" name="page" value="woocommerce-bulk-stock-management" />
