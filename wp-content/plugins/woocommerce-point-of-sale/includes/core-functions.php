@@ -24,7 +24,6 @@ function pos_admin_page()
         'wc_pos_grids',
         'wc_pos_outlets',
         'wc_pos_registers',
-        'wc_pos_stock_controller',
         'wc_pos_cash_management',
         'wc_pos_bill_screen',
     );

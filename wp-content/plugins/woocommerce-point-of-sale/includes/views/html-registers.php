@@ -40,7 +40,7 @@ if (isset($_SERVER['HTTP_REFERER'])) {
             <?php } ?>
             <?php if (current_user_can('manage_wc_point_of_sale')) { ?>
                 <a class="tips page-title-action" href="<?php echo $admin_url; ?>admin.php?page=wc_pos_settings"
-                   id="settings_page" data-tip="<?php _e('Settings', 'wc_point_of_sale'); ?>"></a>
+                   id="settings_page" data-tip="<?php _e('Settings', 'woocommerce'); ?>"></a>
             <?php } ?>
         </div>
         <div class="wp-heading" id="pos_register_buttons">
@@ -48,10 +48,8 @@ if (isset($_SERVER['HTTP_REFERER'])) {
             <a class="pos_register_user_panel <?php echo get_option('woocommerce_pos_register_branding') ?>"
                href="<?php echo $admin_url; ?>admin.php?page=wc_pos_registers">
                 <span class="pos_register_brand_logo"></span>
-                <span class="pos_register_shop_name"><?php echo bloginfo('name') ?></span>
-                <span class="pos_register_main_name"><?php echo $data['name'] ?></span>
             </a>
-            <a class="page-title-action" href="#" id="retrieve_sales"><?php _e('Load', 'wc_point_of_sale'); ?></a>
+            <a class="page-title-action" href="#" id="retrieve_sales"><?php echo _x( 'Pending payment', 'Order status', 'woocommerce' ); ?></a>
             <?php if (current_user_can('edit_private_shop_orders')) { ?>
                 <a class="page-title-action" href="<?php echo $admin_url; ?>edit.php?post_type=shop_order"
                    id="orders_page"><?php _e('Orders', 'woocommerce'); ?></a>
@@ -377,7 +375,7 @@ if (isset($_SERVER['HTTP_REFERER'])) {
                             <div class="tb">
                                 <div class="tbr">
                                     <div class="wc_pos_register_void page-title-action"
-                                         type="button"><?php _e('Void', 'wc_point_of_sale'); ?></div>
+                                         type="button"><?php _e('Clear', 'woocommerce'); ?></div>
                                     <div class="wc_pos_register_save page-title-action"
                                          type="submit"><?php _e('Save', 'woocommerce'); ?></div>
                                     <div class="wc_pos_register_pay page-title-action"

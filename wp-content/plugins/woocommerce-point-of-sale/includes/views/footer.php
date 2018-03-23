@@ -24,33 +24,33 @@
 	        <div class="clear"></div>
         <?php } ?>
         <div class="md-content">
-            <h1><?php _e('Select Variation', 'wc_point_of_sale'); ?></h1>
+            <h1><?php _e('Variations', 'woocommerce'); ?></h1>
             <div>
                 <div id="missing-attributes-select"></div>
                 <div id="product-addons-attributes"></div>
             </div>
                 <table id="selected-variation-data">
                         <tr>
-                            <th class="variation-price-sku"><?php _e('SKU', 'wc_point_of_sale'); ?></th>
+                            <th class="variation-price-sku"><?php _e('SKU', 'woocommerce'); ?></th>
                             <td class="variation-price-sku"><span class="selected-variation-sku" style="font-family: Consolas, Monaco, monospace;"></span></td>
                         </tr>
                         <tr>
 	                    <?php
 		                    $show_stock = get_option('wc_pos_show_stock');
-		                    if ($show_stock == 'yes') { ?>
+		                    if ($show_stock == 'yes') : ?>
 							<th class="variation-stock"><?php _e('Stock', 'wc_point_of_sale'); ?></th>
 							<td class="variation-stock"><span class="selected-variation-stock"></span></td>
                         </tr>
-						<?php } ?>
+						<?php endif; ?>
 						<tr>
-                            <th class="variation-price"><?php _e('Price', 'wc_point_of_sale'); ?></th>
+                            <th class="variation-price"><?php _e('Price', 'woocommerce'); ?></th>
 		                    <td class="variation-price"><span class="selected-variation-price"></span></td>
 		                </tr>
                 </table>
             <div class="wrap-button wrap-button-center">
-                <button class="md-close cancel-add-product"><?php _e('Cancel', 'wc_point_of_sale'); ?></button>
-                <a class="button alignleft" href="#reset" id="reset_selected_variation"><?php _e('Reset Variation', 'wc_point_of_sale'); ?></a>
-                <button class="alignright product-add-btn"><?php _e('Add Product', 'wc_point_of_sale'); ?></button>
+                <button class="md-close cancel-add-product"><?php _e('Cancel', 'woocommerce'); ?></button>
+                <a class="button alignleft" href="#reset" id="reset_selected_variation"><?php _e('Clear', 'woocommerce'); ?></a>
+                <button class="alignright product-add-btn"><?php _e('Add', 'woocommerce'); ?></button>
             </div>
         </div>
     </div>

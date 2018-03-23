@@ -176,7 +176,7 @@ class WC_Pos_ACF_Fields{
 	        1
 	    );
 	    $colorpicker_l10n = array(
-	        'clear' => __( 'Clear' ),
+	        'clear' => __( 'Clear', 'woocommerce' ),
 	        'defaultString' => __( 'Default' ),
 	        'pick' => __( 'Select Color' ),
 	        'current' => __( 'Current Color' ),

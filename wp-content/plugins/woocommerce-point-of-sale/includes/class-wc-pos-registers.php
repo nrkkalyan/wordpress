@@ -135,7 +135,7 @@ class WC_Pos_Registers
             'default_customer' => array(
                 'label' => __('Default Customer', 'wc_point_of_sale'),
                 'type' => 'select',
-                'options' => array(__('Guest', 'wc_point_of_sale')),
+                'options' => array(__('Guest', 'woocommerce')),
                 'description' => __('Select what you want the default customer to be when register is opened.', 'wc_point_of_sale'),
                 'custom_attributes' => array()
             ),

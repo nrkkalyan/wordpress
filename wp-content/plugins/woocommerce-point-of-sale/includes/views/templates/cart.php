@@ -113,7 +113,7 @@
         <tr class="item new_row" data-customer_id="0">
             <td class="avatar">
                 <?php echo get_avatar(0, 64); ?>
-            <td class="name"><?php _e('Guest', 'wc_point_of_sale'); ?></td>
+            <td class="name"><?php _e('Guest', 'woocommerce'); ?></td>
             <?php if (isset($GLOBALS['wc_points_rewards'])) { ?>
                 <td class="customer_points"></td>
             <?php } ?>
@@ -128,7 +128,7 @@
     <tr class="item" data-customer_id="0">
         <td class="avatar">
             <?php echo get_avatar(0, 64); ?>
-        <td class="name"><?php _e('Guest', 'wc_point_of_sale'); ?></td>
+        <td class="name"><?php _e('Guest', 'woocommerce'); ?></td>
         <?php if (isset($GLOBALS['wc_points_rewards'])) { ?>
             <td class="customer_points"></td>
         <?php } ?>

@@ -484,7 +484,7 @@ class WC_POS_Admin_Setup_Wizard
                 ?>
                 <tr class="section_title">
                     <td colspan="2">
-                        <h2><?php _e('Payment Methods', 'wc_point_of_sale'); ?></h2>
+                        <h2><?php _e('Payment methods', 'woocommerce'); ?></h2>
                     </td>
                 </tr>
                 <?php

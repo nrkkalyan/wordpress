@@ -125,17 +125,10 @@ if (!class_exists('WC_POS_Admin_Menus')) :
                 WC_POS()->id_barcodes,
                 array($this, 'render_barcodes')
             );
-            add_submenu_page(WC_POS()->id,
-                __("Stock", 'wc_point_of_sale'),
-                __("Stock", 'wc_point_of_sale'),
-                'manage_wc_point_of_sale',
-                WC_POS()->id_stock_c,
-                array($this, 'render_stocks_controller')
-            );
 
             add_submenu_page(WC_POS()->id,
-                __("Settings", 'wc_point_of_sale'),
-                __("Settings", 'wc_point_of_sale'),
+                __("Settings", 'woocommerce'),
+                __("Settings", 'woocommerce'),
                 'manage_wc_point_of_sale',
                 WC_POS()->id_settings,
                 array($this, 'render_settings')
@@ -215,11 +208,6 @@ if (!class_exists('WC_POS_Admin_Menus')) :
         public function render_barcodes()
         {
             WC_POS()->barcode()->display_single_barcode_page();
-        }
-
-        public function render_stocks_controller()
-        {
-            WC_POS()->stock()->display_single_stocks_page();
         }
 
         public function render_settings()

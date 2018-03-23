@@ -28,7 +28,7 @@ class WC_Pos_Booking
         global $wp_locale;
 
         $colorpicker_l10n = array(
-            'clear' => __('Clear'),
+            'clear' => __('Clear', 'woocommerce'),
             'defaultString' => __('Default'),
             'pick' => __('Select Color'),
             'current' => __('Current Color'),

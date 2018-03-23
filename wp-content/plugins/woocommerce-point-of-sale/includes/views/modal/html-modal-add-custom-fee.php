@@ -21,7 +21,7 @@
     	</div>
 		<div class="wrap-button">
                 <button id="add-fee" class="alignright wc_points_rewards_apply_fee"
-                type="button"><?php _e('Add Fee', 'wc_point_of_sale'); ?></button>
+                type="button"><?php _e('Add', 'woocommerce'); ?></button>
         </div>
     </div>
 </div>

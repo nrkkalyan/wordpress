@@ -101,7 +101,6 @@ class WC_POS
     public $id_users = 'wc_pos_users';
     public $id_receipts = 'wc_pos_receipts';
     public $id_barcodes = 'wc_pos_barcodes';
-    public $id_stock_c = 'wc_pos_stock_controller';
     public $id_settings = 'wc_pos_settings';
     public $id_session_reports = 'wc_pos_session_reports';
 
@@ -455,9 +454,6 @@ class WC_POS
             pos_localize_script('wc-pos-script-admin');
             wp_enqueue_script('wc-pos-shop-order-page-script', $this->plugin_url() . '/assets/js/shop-order-page-script.js', array('jquery'), $wc_pos_version);
         }
-        if (isset($_GET['page']) && $_GET['page'] == $this->id_stock_c) {
-            wp_enqueue_script('jquery_barcodelistener', $this->plugin_url() . '/assets/plugins/anysearch.js', array('jquery'), $wc_pos_version);
-        }
 
     } // End admin_enqueue_scripts ()
 
@@ -580,7 +576,6 @@ class WC_POS
                 $_GET['page'] == 'wc_pos_grids' ||
                 $_GET['page'] == 'wc_pos_outlets' ||
                 $_GET['page'] == 'wc_pos_registers' ||
-                $_GET['page'] == 'wc_pos_stock_controller' ||
                 $_GET['page'] == 'wc_pos_cash_management' ||
                 $_GET['page'] == 'wc_pos_bill_screen'
             )

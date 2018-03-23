@@ -37,7 +37,7 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
         public function __construct()
         {
             $this->id = 'system_status';
-            $this->label = __('Advanced', 'wc_point_of_sale');
+            $this->label = __('Advanced');
 
             add_filter('wc_pos_settings_tabs_array', array($this, 'add_settings_page'), 20);
             add_action('woocommerce_sections_' . $this->id, array($this, 'output_sections'));
@@ -69,7 +69,7 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
                 <tbody>
                 <tr>
                     <td style="width: 30%;">
-                        <?php _e('Site URL:', 'wc_point_of_sale') ?>
+                        <?php _e('Site URL', 'woocommerce') ?>:
                     </td>
                     <td>
                         <?php echo get_site_url(); ?>
@@ -85,7 +85,7 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
                 </tr>
                 <tr>
                     <td>
-                        <?php _e('WordPress Version:', 'wc_point_of_sale') ?>
+                        <?php _e('WordPress Version') ?>:
                     </td>
                     <td>
                         <?php echo get_bloginfo('version'); ?>
@@ -93,7 +93,7 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
                 </tr>
                 <tr>
                     <td>
-                        <?php _e('Language:', 'wc_point_of_sale') ?>
+                        <?php _e('Language') ?>:
                     </td>
                     <td>
                         <?php echo get_locale(); ?>
@@ -221,14 +221,14 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
                 <thead>
                 <tr>
                     <th colspan="2">
-                        <b><?php _e('API', 'wc_point_of_sale') ?></b>
+                        <b><?php _e('API', 'woocommerce') ?></b>
                     </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td style="width: 30%;">
-                        <?php _e('API Enabled:', 'wc_point_of_sale') ?>
+                        <?php _e( 'Enable the REST API', 'woocommerce' ) ?>:
                     </td>
                     <td>
                         <?php echo 'yes' === get_option('woocommerce_api_enabled') ? '<mark class="yes"><span class="dashicons dashicons-yes"></span></mark>' : '<mark class="no">&ndash;</mark>'; ?>
@@ -246,11 +246,11 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
                 <tbody>
                 <tr>
                     <td style="width: 30%;">
-                        <?php _e('Setup Wizard:', 'wc_point_of_sale') ?>
+                        <?php _e('Setup wizard', 'woocommerce') ?>
                     </td>
                     <td>
                         <a class="button"
-                           href="<?php echo $admin_url; ?>admin.php?page=wc_pos-setup"><?php _e('Run Setup Wizard', 'wc_point_of_sale'); ?></a>
+                           href="<?php echo $admin_url; ?>admin.php?page=wc_pos-setup"><?php _e('Go', 'woocommerce' ); ?></a>
                     </
                     <br><span class="description"
                               style="margin-top: .5em; display: inline-block;"></<?php echo __('This tool will update the database to the latest version - useful when settings are not being applied as per configured in settings, registers, receipts and outlets.', 'wc_point_of_sale') ?></span>

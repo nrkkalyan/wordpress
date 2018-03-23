@@ -12,7 +12,7 @@
             <td>{{name}}</td>
             <td>
                 <select data-label="{{name}}" data-taxonomy="{{slug}}" class="attribute_{{slug}}">
-                    <option value=""><?php _e('Choose an option', 'wc_point_of_sale'); ?></option>
+                    <option value=""><?php _e('Choose an option', 'woocommerce'); ?></option>
                     {{missingAttributesOptions}}
                 </select>
             </td>
@@ -136,7 +136,7 @@
                 {{#case "select" break=true}}
             <td colspan="2">
                 <select class="addon addon-select {{type}}_{{@index}}">
-                    <option value=""><?php _e('Choose an option...', 'wc_point_of_sale'); ?></option>
+                    <option value=""><?php _e('Choose an option', 'woocommerce'); ?></option>
                     {{#each options}}
                     <option data-raw-price="{{price}}" data-price="{{price}}" value="{{label}}">
                         {{label}}{{{accountingPOS price}}}
@@ -238,7 +238,7 @@ $tax_display_mode = get_option('woocommerce_tax_display_shop');
             <div class="shipping_address">
                 <p class="billing-same-as-shipping">
                     <a id="billing-same-as-shipping"
-                       class="button billing-same-as-shipping"><?php _e('Copy billing address', 'wc_point_of_sale'); ?></a>
+                       class="button billing-same-as-shipping"><?php _e('Copy from billing address', 'woocommerce'); ?></a>
                 </p>
                 <?php
                 if (isset($checkout->checkout_fields['shipping'])) {
@@ -411,9 +411,9 @@ $tax_display_mode = get_option('woocommerce_tax_display_shop');
             <td class="order_total column-order_total">{{{order_total}}}</td>
             <td class="crm_actions column-crm_actions"><p>
                     <a href="{{this.id}}"
-                       class="button load_order_data"><?php _e('Load', 'wc_point_of_sale'); ?></a>
+                       class="button load_order_data"><?php _e('Import', 'woocommerce'); ?></a>
                     <a href="<?php echo admin_url('admin.php?print_pos_receipt=true&order_id=') ?>{{this.id}}&_wpnonce=<?= wp_create_nonce('print_pos_receipt') ?>"
-                       class="button reprint_receipts"><?php _e('Print', 'wc_point_of_sale'); ?></a>
+                       class="button reprint_receipts"><?php _e('Print', 'woocommerce'); ?></a>
                 </p></td>
         </tr>
         {{/each}}
@@ -425,7 +425,7 @@ $tax_display_mode = get_option('woocommerce_tax_display_shop');
     <table class="wp-list-table widefat fixed striped posts retrieve_sales_nav">
         <tbody>
         <tr class="no-items">
-            <td colspan="9" class="colspanchange"><?php _e('No Orders found', 'wc_point_of_sale'); ?></td>
+            <td colspan="9" class="colspanchange"><?php _e('No orders found', 'woocommerce'); ?></td>
         </tr>
         </tbody>
     </table>

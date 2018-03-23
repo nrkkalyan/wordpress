@@ -38,7 +38,7 @@ if ($user_to_add > 0) {
         <td class="avatar">
             <?php echo get_avatar( $user_to_add, 64); ?>
         </td>
-        <td class="name" ><?php _e('Guest', 'wc_point_of_sale'); ?></td>
+        <td class="name" ><?php _e('Guest', 'woocommerce'); ?></td>
         <?php if( isset( $GLOBALS['wc_points_rewards'] ) ){
             ?>
             <td class="customer_points" ></td>

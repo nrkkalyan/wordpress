@@ -54,3 +54,14 @@ Stack trace:
 
 2018-03-22T12:20:53+00:00 CRITICAL Cannot declare class WC_SA_Admin_Meta_Boxes, because the name is already in use
 
+2018-03-22T17:38:35+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Variation::get_available_variations() in /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-bulk-stock-management/includes/class-wc-stock-management-list-table.php:461
+Stack trace:
+#0 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-bulk-stock-management/woocommerce-bulk-stock-management.php(149): WC_Stock_Management_List_Table->prepare_items()
+#1 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(286): WC_Bulk_Stock_Management->stock_management_page('')
+#2 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#3 /home/vagrant/hanghieu.test/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /home/vagrant/hanghieu.test/wp-admin/admin.php(224): do_action('product_page_wo...')
+#5 /home/vagrant/hanghieu.test/wp-admin/edit.php(10): require_once('/home/vagrant/h...')
+#6 {main}
+  thrown
+

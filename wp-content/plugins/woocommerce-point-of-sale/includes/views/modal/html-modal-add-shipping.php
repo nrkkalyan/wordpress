@@ -8,10 +8,10 @@
                         <thead>
                         <tr>
                             <th class="shipping_title">
-                                <?php _e('Shipping Method', 'wc_point_of_sale'); ?>
+                                <?php _e('Shipping method', 'woocommerce'); ?>
                             </th>
                             <th class="shipping_price">
-                                <?php _e('Price (' . get_woocommerce_currency_symbol() . ')', 'wc_point_of_sale'); ?>
+                                <?php printf(__('Price (%s)', 'wc_point_of_sale'), get_woocommerce_currency_symbol()); ?>
                             </th>
                         </tr>
                         </thead>
@@ -29,10 +29,9 @@
                             <input type="checkbox" value="1" id="custom-add-shipping-details" class="input-checkbox"
                                    style="margin: 5px 10px 5px 0;">
                             <label class="checkbox"
-                                   for="custom-add-shipping-details"><?php _e('Add shipping details', 'wc_point_of_sale'); ?></label>
+                                   for="custom-add-shipping-details"><?php _e('Add shipping', 'woocommerce'); ?></label>
                         </h3>
                         <div id="custom-shipping-details-wrap">
-                            <h3> <?php _e('Shipping Address', 'wc_point_of_sale'); ?> </h3>
                             <div id="custom-shipping-shippingaddress"></div>
                         </div>
                     </div>
@@ -42,7 +41,7 @@
         </div>
         <div class="wrap-button">
             <button class="button button-primary wp-button-large alignright"
-                    id="add_custom_shipping"><?php _e('Add shipping', 'woocommerce'); ?></button>
+                    id="add_custom_shipping"><?php _e('Add', 'woocommerce'); ?></button>
             <div class="clearfix"></div>
         </div>
     </div>
