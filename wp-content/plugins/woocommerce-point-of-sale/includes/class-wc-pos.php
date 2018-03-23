@@ -103,6 +103,7 @@ class WC_POS
     public $id_barcodes = 'wc_pos_barcodes';
     public $id_settings = 'wc_pos_settings';
     public $id_session_reports = 'wc_pos_session_reports';
+    public $id_cash_management = 'wc_pos_cash_management';
 
     /**
      * Constructor function.
@@ -569,11 +570,10 @@ class WC_POS
             return true;
         if (isset($_GET['page']) && (
                 $_GET['page'] == 'wc_pos_settings' ||
-                $_GET['page'] == 'wc_pos_barcodesr' ||
+                $_GET['page'] == 'wc_pos_barcodes' ||
                 $_GET['page'] == 'wc_pos_receipts' ||
                 $_GET['page'] == 'wc_pos_users' ||
                 $_GET['page'] == 'wc_pos_tiles' ||
-                $_GET['page'] == 'wc_pos_grids' ||
                 $_GET['page'] == 'wc_pos_outlets' ||
                 $_GET['page'] == 'wc_pos_registers' ||
                 $_GET['page'] == 'wc_pos_cash_management' ||
@@ -1008,10 +1008,10 @@ class WC_POS
      * @since 1.9
      * @return WC_Pos_Table_Grids
      */
-    public function grids_table()
-    {
-        return new WC_Pos_Table_Grids;
-    }
+//     public function grids_table()
+//     {
+//         return new WC_Pos_Table_Grids;
+//     }
 
     /**
      * Get Tiles class

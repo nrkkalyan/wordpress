@@ -28,6 +28,9 @@ if (!class_exists('WC_Pos_Float_Cash')) :
             self::register_scripts();
 
             $this->register = $this->get_register_by_id(intval($register_id));
+            if (!isset($this->register)) {
+                $this->register = new stdClass();
+            }
             $this->register->detail = json_decode($this->register->detail);
             $this->register->settings = json_decode($this->register->settings);
             $this->cash_balance = $this->get_cash_balance();

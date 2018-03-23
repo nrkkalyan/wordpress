@@ -65,3 +65,45 @@ Stack trace:
 #6 {main}
   thrown
 
+2018-03-23T05:49:49+00:00 CRITICAL Uncaught Error: Unsupported operand types in /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/tables/class-wc-pos-table-grids.php:163
+Stack trace:
+#0 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/class-wc-pos-grids.php(351): WC_Pos_Table_Grids->prepare_items()
+#1 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/class-wc-pos-grids.php(230): WC_Pos_Grids->add_grid()
+#2 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/admin/class-wc-pos-admin-menus.php(180): WC_Pos_Grids->output()
+#3 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(286): WC_POS_Admin_Menus->render_grids('')
+#4 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 /home/vagrant/hanghieu.test/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#6 /home/vagrant/hanghieu.test/wp-admin/admin.php(224): do_action('point-of-sale_p...')
+#7 {main}
+  thrown
+
+2018-03-23T08:24:05+00:00 CRITICAL Uncaught Error: Call to a member function get_title() on boolean in /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/class-wc-pos-sell.php:1042
+Stack trace:
+#0 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/class-wc-pos-sell.php(746): WC_Pos_Sell->getJs_Custom_Product()
+#1 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/views/footer.php(118): WC_Pos_Sell->footer()
+#2 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/views/html-admin-pos.php(4): include_once('/home/vagrant/h...')
+#3 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/class-wc-pos-sell.php(213): include_once('/home/vagrant/h...')
+#4 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(286): WC_Pos_Sell->template_redirect('')
+#5 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#6 /home/vagrant/hanghieu.test/wp-includes/plugin.php
+
+2018-03-23T08:27:29+00:00 CRITICAL Uncaught Error: Call to a member function get_title() on boolean in /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/class-wc-pos-sell.php:1042
+Stack trace:
+#0 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/class-wc-pos-sell.php(746): WC_Pos_Sell->getJs_Custom_Product()
+#1 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/views/footer.php(118): WC_Pos_Sell->footer()
+#2 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/views/html-admin-pos.php(4): include_once('/home/vagrant/h...')
+#3 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/class-wc-pos-sell.php(213): include_once('/home/vagrant/h...')
+#4 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(286): WC_Pos_Sell->template_redirect('')
+#5 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#6 /home/vagrant/hanghieu.test/wp-includes/plugin.php
+
+2018-03-23T08:46:49+00:00 CRITICAL Uncaught Error: Call to a member function get_title() on boolean in /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/class-wc-pos-sell.php:1060
+Stack trace:
+#0 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/class-wc-pos-sell.php(761): WC_Pos_Sell->getJs_Custom_Product()
+#1 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/views/footer.php(124): WC_Pos_Sell->footer()
+#2 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/views/html-admin-pos.php(4): include_once('/home/vagrant/h...')
+#3 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-point-of-sale/includes/class-wc-pos-sell.php(214): include_once('/home/vagrant/h...')
+#4 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(286): WC_Pos_Sell->template_redirect('')
+#5 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#6 /home/vagrant/hanghieu.test/wp-includes/plugin.php
+

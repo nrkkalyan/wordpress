@@ -92,9 +92,9 @@ class WC_Pos_Table_Outlets extends WP_List_Table {
 
   function column_name( $item ) {
     
-    $actions['edit'] = sprintf('<a href="?page=%s&action=%s&id=%s">Edit</a>','wc_pos_outlets','edit', $item['ID']);
+    $actions['edit'] = sprintf('<a href="?page=%s&action=%s&id=%s">' . __('Edit') . '</a>','wc_pos_outlets','edit', $item['ID']);
     if(wc_pos_check_can_delete('outlet', $item['ID'])){
-      $actions['delete'] = sprintf('<a href="?page=%s&action=%s&id=%s">Delete</a>','wc_pos_outlets','delete', $item['ID']);
+      $actions['delete'] = sprintf('<a href="?page=%s&action=%s&id=%s">' . __('Delete') . '</a>','wc_pos_outlets','delete', $item['ID']);
     }
     $item['contact']['first_name'] = '';
     $item['contact']['last_name'] = '';

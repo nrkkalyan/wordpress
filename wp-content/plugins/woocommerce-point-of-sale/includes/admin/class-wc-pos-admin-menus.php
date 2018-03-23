@@ -8,12 +8,11 @@
  * @package     WC_POS/Classes
  * @since       2.7.0
  */
-
-if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly
+if (! defined('ABSPATH')) {
+    exit(); // Exit if accessed directly
 }
 
-if (!class_exists('WC_POS_Admin_Menus')) :
+if (! class_exists('WC_POS_Admin_Menus')) :
 
     /**
      * WC_POS_Admin_Menus Class
@@ -27,10 +26,22 @@ if (!class_exists('WC_POS_Admin_Menus')) :
         public function __construct()
         {
             // Add menus
-            add_filter('set-screen-option', array(&$this, 'set_screen'), 10, 3);
-            add_action('admin_menu', array($this, 'add_menu'));
-            add_filter('admin_head', array($this, 'menu_highlight'));
-            add_filter('admin_print_footer_scripts', array($this, 'highlight_menu_item'));
+            add_filter('set-screen-option', array(
+                &$this,
+                'set_screen'
+            ), 10, 3);
+            add_action('admin_menu', array(
+                $this,
+                'add_menu'
+            ));
+            add_filter('admin_head', array(
+                $this,
+                'menu_highlight'
+            ));
+            add_filter('admin_print_footer_scripts', array(
+                $this,
+                'highlight_menu_item'
+            ));
         }
 
         public static function set_screen($status, $option, $value)
@@ -43,114 +54,111 @@ if (!class_exists('WC_POS_Admin_Menus')) :
          */
         public function add_menu()
         {
-            $hook = add_menu_page(
-                __('Point of Sale', 'wc_point_of_sale'), // page title
-                __('Point of Sale', 'wc_point_of_sale'), // menu title
-                'view_register', // capability
-                WC_POS()->id, // unique menu slug
-                array($this, 'render_registers'),
-                null, '55.8'
-            );
-            $registers_hook = add_submenu_page(WC_POS()->id,
-                __("Registers", 'wc_point_of_sale'),
-                __("Registers", 'wc_point_of_sale'),
-                'view_register',
-                WC_POS()->id_registers,
-                array($this, 'render_registers')
-            );
-            $outlets_hook = add_submenu_page(WC_POS()->id,
-                __("Outlets", 'wc_point_of_sale'),
-                __("Outlets", 'wc_point_of_sale'),
-                'manage_wc_point_of_sale',
-                WC_POS()->id_outlets,
-                array($this, 'render_outlets')
-            );
-            $grids_hook = add_submenu_page(WC_POS()->id,
-                __("Product Grids", 'wc_point_of_sale'),
-                '<span id="wc_pos_grids">' . __("Product Grids", 'wc_point_of_sale') . '</span>',
-                'manage_wc_point_of_sale',
-                WC_POS()->id_grids,
-                array($this, 'render_grids')
-            );
+            $hook = add_menu_page(__('Point of Sale', 'wc_point_of_sale'), // page title
+            __('Point of Sale', 'wc_point_of_sale'), // menu title
+            'view_register', // capability
+            WC_POS()->id, // unique menu slug
+            array(
+                $this,
+                'render_registers'
+            ), null, '55.8');
+            
+            $registers_hook = add_submenu_page(WC_POS()->id, __('Registers', 'wc_point_of_sale'), __('Registers', 'wc_point_of_sale'), 'view_register', WC_POS()->id_registers, array(
+                $this,
+                'render_registers'
+            ));
+            $outlets_hook = add_submenu_page(WC_POS()->id, __('Outlets', 'wc_point_of_sale'), __('Outlets', 'wc_point_of_sale'), 'manage_wc_point_of_sale', WC_POS()->id_outlets, array(
+                $this,
+                'render_outlets'
+            ));
+            // $grids_hook = add_submenu_page(WC_POS()->id,
+            // __('Product Grids', 'wc_point_of_sale'),
+            // '<span id='wc_pos_grids'>' . __('Product Grids', 'wc_point_of_sale') . '</span>',
+            // 'manage_wc_point_of_sale',
+            // WC_POS()->id_grids,
+            // array($this, 'render_grids')
+            // );
             // add submenu page or permission allow this page action
-            $tiles_page_title = '';
-            if (isset($_GET['page']) && $_GET['page'] == WC_POS()->id_tiles && isset($_GET['grid_id']) && !empty($_GET['grid_id'])) {
-                $grid_id = $_GET['grid_id'];
-                $grids_single_record = wc_point_of_sale_tile_record($grid_id);
-                $tiles_page_title = $grids_single_record[0]->name . ' Layout';
-            }
-
-            $tiles_hook = add_submenu_page(WC_POS()->id_grids,
-                sprintf(__("Tiles - %s", 'wc_point_of_sale'), $tiles_page_title),
-                sprintf(__("Tiles - %s", 'wc_point_of_sale'), $tiles_page_title),
-                'manage_wc_point_of_sale',
-                WC_POS()->id_tiles,
-                array($this, 'render_tiles')
-            );
-            $receipt_hook = add_submenu_page(WC_POS()->id,
-                __("Receipts", 'wc_point_of_sale'),
-                __("Receipts", 'wc_point_of_sale'),
-                'manage_wc_point_of_sale',
-                WC_POS()->id_receipts,
-                array($this, 'render_receipts')
-            );
-            $users_hook = add_submenu_page(WC_POS()->id,
-                __("Cashiers", 'wc_point_of_sale'),
-                __("Cashiers", 'wc_point_of_sale'),
-                'view_register',
-                WC_POS()->id_users,
-                array($this, 'render_users')
-            );
-
-            $cash_management_hook = add_submenu_page(WC_POS()->id,
-                __("Cash Management", 'wc_point_of_sale'),
-                __("Cash Management", 'wc_point_of_sale'),
-                'view_register',
-                'wc_pos_cash_management',
-                array($this, 'render_cash_management')
-            );
-
-            $session_reports = add_submenu_page(WC_POS()->id,
-                __("Sales by sessions", 'wc_point_of_sale'),
-                __("Sales by sessions", 'wc_point_of_sale'),
-                'view_register',
-                'wc_pos_session_reports',
-                array($this, 'render_session_reports')
-            );
-
-            add_submenu_page(WC_POS()->id,
-                __("Barcode", 'wc_point_of_sale'),
-                __("Barcode", 'wc_point_of_sale'),
-                'manage_wc_point_of_sale',
-                WC_POS()->id_barcodes,
-                array($this, 'render_barcodes')
-            );
-
-            add_submenu_page(WC_POS()->id,
-                __("Settings", 'woocommerce'),
-                __("Settings", 'woocommerce'),
-                'manage_wc_point_of_sale',
-                WC_POS()->id_settings,
-                array($this, 'render_settings')
-            );
-
-            $update_log = add_submenu_page(null,
-                __("Update log", 'wc_point_of_sale'),
-                __("Update log", 'wc_point_of_sale'),
-                'view_register',
-                'wc_pos_update_log',
-                array($this, 'render_update_log')
-            );
-
-            add_action("load-$hook", array($this, 'rerister_screen_option'));
-            add_action("load-$registers_hook", array($this, 'rerister_screen_option'));
-            add_action("load-$outlets_hook", array($this, 'outlet_screen_option'));
-            add_action("load-$grids_hook", array($this, 'grids_screen_option'));
-            add_action("load-$tiles_hook", array($this, 'tiles_screen_option'));
-            add_action("load-$receipt_hook", array($this, 'receipt_screen_option'));
-            add_action("load-$users_hook", array($this, 'users_screen_option'));
-            add_action("load-$session_reports", array($this, 'sessions_screen_option'));
-
+//             $tiles_page_title = '';
+//             if (isset($_GET['page']) && $_GET['page'] == WC_POS()->id_tiles && isset($_GET['grid_id']) && ! empty($_GET['grid_id'])) {
+//                 $grid_id = $_GET['grid_id'];
+//                 $grids_single_record = wc_point_of_sale_tile_record($grid_id);
+//                 $tiles_page_title = $grids_single_record[0]->name . ' Layout';
+//             }
+            
+            // $tiles_hook = add_submenu_page(WC_POS()->id,
+            // __('Tiles', 'wc_point_of_sale'),
+            // __('Tiles', 'wc_point_of_sale'),
+            // 'manage_wc_point_of_sale',
+            // WC_POS()->id_tiles,
+            // array($this, 'render_tiles')
+            // );
+            
+            $receipt_hook = add_submenu_page(WC_POS()->id, __('Receipts', 'wc_point_of_sale'), __('Receipts', 'wc_point_of_sale'), 'manage_wc_point_of_sale', WC_POS()->id_receipts, array(
+                $this,
+                'render_receipts'
+            ));
+            
+            $users_hook = add_submenu_page(WC_POS()->id, __('Cashiers', 'wc_point_of_sale'), __('Cashiers', 'wc_point_of_sale'), 'view_register', WC_POS()->id_users, array(
+                $this,
+                'render_users'
+            ));
+            
+            add_submenu_page(WC_POS()->id_users, __('Cash Management', 'wc_point_of_sale'), __('Cash Management', 'wc_point_of_sale'), 'view_register', WC_POS()->id_cash_management, array(
+                $this,
+                'render_cash_management'
+            ));
+            
+            $session_reports = add_submenu_page(WC_POS()->id, __('Sales by sessions', 'wc_point_of_sale'), __('Sales by sessions', 'wc_point_of_sale'), 'view_register', WC_POS()->id_session_reports, array(
+                $this,
+                'render_session_reports'
+            ));
+            
+            add_submenu_page(WC_POS()->id, __('Barcode', 'wc_point_of_sale'), __('Barcode', 'wc_point_of_sale'), 'manage_wc_point_of_sale', WC_POS()->id_barcodes, array(
+                $this,
+                'render_barcodes'
+            ));
+            
+            add_submenu_page(WC_POS()->id, __('Settings', 'woocommerce'), __('Settings', 'woocommerce'), 'manage_wc_point_of_sale', WC_POS()->id_settings, array(
+                $this,
+                'render_settings'
+            ));
+            
+            // add_submenu_page(WC_POS()->id,
+            // __('Update log', 'wc_point_of_sale'),
+            // __('Update log', 'wc_point_of_sale'),
+            // 'view_register',
+            // 'wc_pos_update_log',
+            // array($this, 'render_update_log')
+            // );
+            
+            add_action("load-$hook", array(
+                $this,
+                'rerister_screen_option'
+            ));
+            add_action("load-$registers_hook", array(
+                $this,
+                'rerister_screen_option'
+            ));
+            add_action("load-$outlets_hook", array(
+                $this,
+                'outlet_screen_option'
+            ));
+            // add_action("load-$grids_hook", array($this, 'grids_screen_option'));
+            // add_action("load-$tiles_hook", array($this, 'tiles_screen_option'));
+            add_action("load-$receipt_hook", array(
+                $this,
+                'receipt_screen_option'
+            ));
+            add_action("load-$users_hook", array(
+                $this,
+                'users_screen_option'
+            ));
+            add_action("load-$session_reports", array(
+                $this,
+                'sessions_screen_option'
+            ));
+            
             if (isset($_GET['page'])) {
                 $curent_screen = $rest = substr($_GET['page'], 0, 7);
                 if ($curent_screen == 'wc_pos_')
@@ -175,11 +183,10 @@ if (!class_exists('WC_POS_Admin_Menus')) :
                 WC_POS()->outlet()->display();
         }
 
-        public function render_grids()
-        {
-            WC_POS()->grid()->output();
-        }
-
+        // public function render_grids()
+        // {
+        // WC_POS()->grid()->output();
+        // }
         public function render_tiles()
         {
             if (isset($_GET['action']) && isset($_GET['id']) && $_GET['action'] == 'edit' && $_GET['id'] != '')
@@ -192,10 +199,10 @@ if (!class_exists('WC_POS_Admin_Menus')) :
         {
             if (isset($_GET['action']) && $_GET['action'] == 'add')
                 WC_POS()->receipt()->display_single_receipt_page();
-
+            
             elseif (isset($_GET['action']) && $_GET['action'] == 'edit')
                 WC_POS()->receipt()->display_single_receipt_page();
-
+            
             else
                 WC_POS()->receipt()->display_receipt_table();
         }
@@ -236,23 +243,22 @@ if (!class_exists('WC_POS_Admin_Menus')) :
                 'option' => 'outlets_per_page'
             );
             add_screen_option($option, $args);
-
+            
             WC_POS()->tables['outlets'] = WC_POS()->outlet_table();
         }
 
-        public function grids_screen_option()
-        {
-            $option = 'per_page';
-            $args = array(
-                'label' => __('Layouts', 'wc_point_of_sale'),
-                'default' => 10,
-                'option' => 'grids_per_page'
-            );
-            add_screen_option($option, $args);
-
-            WC_POS()->tables['grids'] = WC_POS()->grids_table();
-        }
-
+        // public function grids_screen_option()
+        // {
+        // $option = 'per_page';
+        // $args = array(
+        // 'label' => __('Layouts', 'wc_point_of_sale'),
+        // 'default' => 10,
+        // 'option' => 'grids_per_page'
+        // );
+        // add_screen_option($option, $args);
+        
+        // WC_POS()->tables['grids'] = WC_POS()->grids_table();
+        // }
         public function tiles_screen_option()
         {
             $option = 'per_page';
@@ -262,7 +268,7 @@ if (!class_exists('WC_POS_Admin_Menus')) :
                 'option' => 'tiles_per_page'
             );
             add_screen_option($option, $args);
-
+            
             WC_POS()->tables['tiles'] = WC_POS()->tiles_table();
         }
 
@@ -287,10 +293,9 @@ if (!class_exists('WC_POS_Admin_Menus')) :
                 'option' => 'users_per_page'
             );
             add_screen_option($option, $args);
-
+            
             WC_POS()->tables['users'] = WC_POS()->users_table();
         }
-
 
         function menu_highlight()
         {
@@ -306,20 +311,20 @@ if (!class_exists('WC_POS_Admin_Menus')) :
         function highlight_menu_item()
         {
             if (isset($_GET['page']) && $_GET['page'] == WC_POS()->id_tiles) {
-
+                
                 ?>
-                <script type="text/javascript">
+<script type="text/javascript">
                     jQuery(document).ready(function ($) {
                         jQuery('#wc_pos_grids').parent().addClass('current').parent().addClass('current');
                         jQuery('#toplevel_page_wc_point_of_sale').addClass('wp-has-current-submenu wp-menu-open').removeClass('wp-not-current-submenu');
                         jQuery('#toplevel_page_wc_point_of_sale > a').addClass('wp-has-current-submenu wp-menu-open').removeClass('wp-not-current-submenu');
                     });
                 </script>
-                <?php
+<?php
             }
         }
 
-        //TODO: Change to WP_list_table view
+        // TODO: Change to WP_list_table view
         public function render_cash_management()
         {
             $cash_management = new WC_Pos_Float_Cash($_GET['register']);
@@ -339,7 +344,7 @@ if (!class_exists('WC_POS_Admin_Menus')) :
         public function render_update_log()
         {
             $changes = array();
-            //$matches = array();
+            // $matches = array();
             $cur_ver = WC_POS()->_version;
             $version = $cur_ver[0] . $cur_ver[2] . $cur_ver[4];
             $txt_file = file_get_contents(WC_POS()->dir . '/readme.txt');

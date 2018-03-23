@@ -80,10 +80,9 @@ class WC_Stock_Management_List_Table extends WP_List_Table {
 			break;
 			case 'manage_stock' :
 				if ( ! $product->is_type( 'variation' ) && $product->managing_stock() ) {
-					return '<mark class="yes">' . __( 'Parent', 'woocommerce-bulk-stock-management' ) . '</mark>';
-				} else {
-					return ( $product->managing_stock() ) ? '<mark class="yes">' . __( 'Yes', 'woocommerce' ) . '</mark>' : '<span class="na">' . __( 'No', 'woocommerce' ) . '</span>';
-				}
+				    return '<mark class="yes">' . __( 'Yes', 'woocommerce' ) . '</mark>';
+				} 
+				return ( $product->managing_stock() ) ? '<mark class="yes">' . __( 'Yes', 'woocommerce' ) . '</mark>' : '<span class="na">' . __( 'No', 'woocommerce' ) . '</span>';
 			break;
 			case 'stock' :
 				$this->index++;

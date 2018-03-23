@@ -21,7 +21,6 @@ function pos_admin_page()
         'wc_pos_receipts',
         'wc_pos_users',
         'wc_pos_tiles',
-        'wc_pos_grids',
         'wc_pos_outlets',
         'wc_pos_registers',
         'wc_pos_cash_management',
@@ -271,9 +270,7 @@ function pos_check_register_lock($register_id)
         return false;
 
     $row = $db_data[0];
-
     $user = $row->_edit_last;
-
     if (strtotime($row->opened) >= strtotime($row->closed) && $user != get_current_user_id()) {
         return $user;
     }

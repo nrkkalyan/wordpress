@@ -67,17 +67,17 @@
             <div class="wrap-button wrap-button-center">
                 <button class="md-close button wp-button-large cancel-add-product"><?php _e('Cancel', 'wc_point_of_sale'); ?></button>
                 <button class="button button-primary wp-button-large"
-                        id="booking-add-btn"><?php _e('Add Product', 'wc_point_of_sale'); ?></button>
+                        id="booking-add-btn"><?php _e('Add', 'woocoomerce'); ?></button>
             </div>
         </div>
     </div>
 
 
-    <?php if ($instant_quantity == 'yes') { ?>
+    <?php if ($instant_quantity == 'yes') : ?>
         <div class="md-modal md-dynamicmodal md-message md-close-by-overlay md-register <?php echo $full_keypad == 'yes' ? 'full_keypad' : ''; ?>"
              id="modal-qt-product">
             <div class="md-content">
-                <h1><?php _e('Enter Quantity', 'wc_point_of_sale'); ?></h1>
+                <h1><?php _e('Qty', 'woocoomerce'); ?></h1>
                 <div>
                     <div class="enter-quantity">
                         <div class="inline_quantity"></div>
@@ -85,12 +85,12 @@
                     <div class="clear"></div>
                 </div>
                 <div class="wrap-button wrap-button-center">
-                    <button class="md-close alignleft cancel-add-product"><?php _e('Cancel', 'wc_point_of_sale'); ?></button>
-                    <button class="alignright product-add-btn"><?php _e('Add Product', 'wc_point_of_sale'); ?></button>
+                    <button class="md-close alignleft cancel-add-product"><?php _e('Cancel', 'woocoomerce'); ?></button>
+                    <button class="alignright product-add-btn"><?php _e('Add', 'woocoomerce'); ?></button>
                 </div>
             </div>
         </div>
-    <?php } ?>
+    <?php endif; ?>
     <?php require_once('modal/html-modal-payments.php'); ?>
     <?php require_once('modal/html-modal-comments.php'); ?>
     <?php require_once('modal/html-modal-discount.php'); ?>

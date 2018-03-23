@@ -392,7 +392,6 @@ class WC_Pos_Registers
         <div class="col-wrap">
             <p><?php echo _e('Registers for your store can be managed here. Registers can be added using the form below. To edit an register, simply hover over the register and click on Edit.', 'wc_point_of_sale'); ?></p>
             <div class="form-wrap">
-                <h3><?php _e('Register Details', 'wc_point_of_sale'); ?></h3>
                 <form id="add_wc_pos_registers" class="validate" action="" method="post">
                     <input type="hidden" value="add-wc-pos-registers" name="action">
                     <?php wp_nonce_field('nonce-add-wc-pos-registers', '_wpnonce_add-wc-pos-registers'); ?>

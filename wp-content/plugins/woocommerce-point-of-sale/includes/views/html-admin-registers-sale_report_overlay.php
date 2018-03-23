@@ -33,13 +33,10 @@
         <thead>
         <tr>
             <th class="manage-column column-order_customer" scope="col">
-                <?php _e('Order', 'wc_point_of_sale'); ?>
-            </th>
-            <th class="manage-column column-order-date" scope="col">
-                <?php _e('Date', 'wc_point_of_sale'); ?>
+                <?php _e('Order', 'woocommerce'); ?>
             </th>
             <th class="manage-column column-order-time" scope="col">
-                <?php _e('Time', 'wc_point_of_sale'); ?>
+                <?php _e('Time'); ?>
             </th>
             <th class="manage-column column-order_total" style="width: 25%;" scope="col">
                 <?php _e('Total', 'woocommerce'); ?>
@@ -59,7 +56,6 @@
         $sql = "SELECT ID, post_status FROM {$wpdb->posts}
                 INNER JOIN {$wpdb->postmeta} reg_id
     ON ( reg_id.post_id = {$wpdb->posts}.ID AND reg_id.meta_key = 'wc_pos_id_register' AND reg_id.meta_value = $rg_id )
-
     WHERE {$wpdb->posts}.post_type='shop_order' AND ({$wpdb->posts}.post_date BETWEEN '$report_opened' AND '$report_closed') 
             ";
         $results = $wpdb->get_results($sql);
@@ -120,12 +116,7 @@
                     </td>
                     <td>
                         <?php
-                        echo date_i18n(__('jS F Y', 'woocommerce'), strtotime($the_order->get_date_created())) . "\n";
-                        ?>
-                    </td>
-                    <td>
-                        <?php
-                        echo date_i18n(__('g:i:s A', 'woocommerce'), strtotime($the_order->get_date_created())) . "\n";
+                        echo date_i18n(__('jS F Y g:i:s A', 'woocommerce'), strtotime($the_order->get_date_created())) . "\n";
                         ?>
                     </td>
                     <td><?php
@@ -146,7 +137,7 @@
                 <?php
             }
         } else {
-            echo '<tr><td colspan="4"> No sales </td></tr>';
+            echo '<tr><td colspan="3"> No sales </td></tr>';
         } ?>
         </tbody>
     </table>
