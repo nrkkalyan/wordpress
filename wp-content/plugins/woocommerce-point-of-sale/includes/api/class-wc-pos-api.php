@@ -393,9 +393,11 @@ class WC_Pos_API
         if (isset($GLOBALS['wc_points_rewards'])) {
             $customer_data['points_balance'] = WC_Points_Rewards_Manager::get_users_points($customer->get_id());
         }
+        
         if (function_exists('get_avatar_url')) {
             $customer_data['avatar_url'] = get_avatar_url($customer->get_id(), array('size' => 64));
         }
+        
         return $customer_data;
     }
 

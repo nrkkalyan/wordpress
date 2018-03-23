@@ -77,7 +77,7 @@ class WC_Pos_Table_Registers extends WP_List_Table
             'print_receipt' => '<span class="print_receipt_head tips" data-tip="' . esc_attr__('Print Receipt', 'wc_point_of_sale') . '">' . esc_attr__('Print Receipt', 'wc_point_of_sale') . '</span>',
             'note_request' => '<span class="note_request_head tips" data-tip="' . esc_attr__('Note Request', 'wc_point_of_sale') . '">' . esc_attr__('Note Request', 'wc_point_of_sale') . '</span>',
             'cash_management' => '<span class="cash_management_head tips" data-tip="' . esc_attr__('Cash Management', 'wc_point_of_sale') . '">' . esc_attr__('Cash Management', 'wc_point_of_sale') . '</span>',
-            'access' => __('Access', 'wc_point_of_sale'),
+            'access' => __('Login', 'woocommerce'),
         );
         if (!current_user_can('manage_wc_point_of_sale')) {
             unset($columns['cb']);
@@ -106,7 +106,7 @@ class WC_Pos_Table_Registers extends WP_List_Table
         $actions = array();
         if (current_user_can('manage_wc_point_of_sale')) {
             $actions = apply_filters('wc_pos_register_bulk_actions', array(
-                'delete' => __('Delete', 'wc_point_of_sale'),
+                'delete' => __('Delete', 'woocommerce'),
             ));
         }
         return $actions;
@@ -125,8 +125,8 @@ class WC_Pos_Table_Registers extends WP_List_Table
         $actions = array();
         if (current_user_can('manage_wc_point_of_sale')) {
             $actions = array(
-                'edit' => sprintf('<a href="?page=%s&action=%s&id=%s">Edit</a>', WC_POS()->id_registers, 'edit', $item['ID']),
-                'delete' => sprintf('<a href="?page=%s&action=%s&id=%s">Delete</a>', WC_POS()->id_registers, 'delete', $item['ID']),
+                'edit' => sprintf('<a href="?page=%s&action=%s&id=%s">' . __('Edit') . '</a>', WC_POS()->id_registers, 'edit', $item['ID']),
+                'delete' => sprintf('<a href="?page=%s&action=%s&id=%s">' . __('Delete') . '</a>', WC_POS()->id_registers, 'delete', $item['ID']),
             );
         }
         if (current_user_can('manage_wc_point_of_sale')) {
@@ -306,7 +306,7 @@ class WC_Pos_Table_Registers extends WP_List_Table
 
             $btn_text = __('Open', 'wc_point_of_sale');
             if (pos_check_register_is_open($item['ID'])) {
-                $btn_text = __('Enter', 'wc_point_of_sale');
+                $btn_text = __('Go', 'woocommerce');
             }
             $outlet = sanitize_title($outlets_name[$item['outlet']]);
             $register = $item['slug'];
@@ -325,7 +325,7 @@ class WC_Pos_Table_Registers extends WP_List_Table
             if (is_ssl() || get_option('woocommerce_pos_force_ssl_checkout') == 'yes') {
                 $register_url = str_replace('http:', 'https:', $register_url);
             }
-            return '<a class="button tips ' . $btn_text . '-register" href="' . $register_url . '" data-tip="' . $btn_text . ' Register" >' . $btn_text . '</a>';
+            return '<a class="button tips ' . $btn_text . '-register" href="' . $register_url . '" data-tip="' . $btn_text . '" >' . $btn_text . '</a>';
 
         } else {
             if (!WC_POS()->wc_api_is_active) {

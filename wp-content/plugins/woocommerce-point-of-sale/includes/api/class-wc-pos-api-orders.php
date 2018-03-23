@@ -278,7 +278,7 @@ class WC_API_POS_Orders extends WC_API_Orders
                         } else {
                             $this->$set_item($order, $item, 'create');
                         }
-                        if ($line_type == 'coupon' && $item['code'] == 'WC_POINTS_REDEMPTION') {
+                        if (isset($GLOBALS['wc_points_rewards']) && $line_type == 'coupon' && $item['code'] == 'WC_POINTS_REDEMPTION') {
                             global $wc_points_rewards;
                             $discount_amount = $item['amount'];
                             $points_redeemed = WC_Points_Rewards_Manager::calculate_points_for_discount($discount_amount);

@@ -194,7 +194,7 @@ $characters = array(
     };
 
     var addIdentifier = function(id) {
-        var identifier = $("<div class='gs1128_identifier'><input type='text' value='" + id + "' class='gs1128_id' readonly='readonly' /> - <input type='text' class='gs1128_value' /><a href='#' class='gs1128_delete'><img src='delete.png' alt='Delete' /></a></div>")
+        var identifier = $("<div class='gs1128_identifier'><input type='text' value='" + id + "' class='gs1128_id' readonly='readonly' /> - <input type='text' class='gs1128_value' /><a href='#' class='gs1128_delete'><img src='delete.png' /></a></div>")
             .appendTo(identifierContainer)
 
         identifier.find(".gs1128_delete").on("click", function() {

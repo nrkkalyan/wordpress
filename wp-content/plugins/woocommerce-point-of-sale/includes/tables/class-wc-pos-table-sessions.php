@@ -90,7 +90,7 @@ class WC_Pos_Table_Sessions extends WP_List_Table
         $actions = array();
         if (current_user_can('manage_wc_point_of_sale')) {
             $actions = apply_filters('wc_pos_register_bulk_actions', array(
-                'delete' => __('Delete', 'wc_point_of_sale'),
+                'delete' => __('Delete', 'woocommerce'),
             ));
         }
         return $actions;

@@ -75,7 +75,7 @@ class WC_Pos_Table_Outlets extends WP_List_Table {
 
   function get_bulk_actions() {
     $actions = apply_filters( 'wc_pos_outlet_bulk_actions', array(
-      'delete' => __( 'Delete', 'wc_point_of_sale' ),
+      'delete' => __( 'Delete', 'woocommerce' ),
     ) );
     return $actions;
   }

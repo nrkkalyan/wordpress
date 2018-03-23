@@ -10,22 +10,22 @@ $product_types = apply_filters('wc_pos_edit_product_types', array());
                     <thead>
                         <tr>
                             <th class="product_title">
-                                <?php _e('Product Title', 'wc_point_of_sale'); ?>
+                                <?php _e('Product name', 'woocommerce'); ?>
                             </th>
                             <?php                             
-                            if (!empty($product_types)) {
+                            if (!empty($product_types)) :
                                 ?>
                                 <th class="product_type">
                                     <?php _e('Type', 'wc_point_of_sale'); ?>
                                 </th>
                                 <?php
-                            }
+                            endif;
                             ?>
                             <th class="product_price">
                                 <?php printf(__('Price (%s)', 'wc_point_of_sale'), get_woocommerce_currency_symbol()); ?>
                             </th>
                             <th class="product_quantity">
-                                <?php _e('Quantity', 'wc_point_of_sale'); ?>
+                                <?php _e('Qty', 'woocommerce'); ?>
                             </th>
                         </tr>
                     </thead>
@@ -33,22 +33,22 @@ $product_types = apply_filters('wc_pos_edit_product_types', array());
                         <tr>
                             <td class="product_title"><input type="text" id="custom_product_title"></td>
                             <?php                             
-                            if (!empty($product_types)) {
+                            if (!empty($product_types)) :
                                 ?>
                                 <td class="product_type">
                                     <select id="product_type">
                                         <option value="simple"><?php _e('Simple'); ?></option>
                                         <?php 
-                                        foreach ($product_types as $key => $value) {
+                                        foreach ($product_types as $key => $value) :
                                             ?>
                                             <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
                                             <?php
-                                        }
+                                        endforeach;
                                         ?>
                                     </select>
                                 </td>
                                 <?php
-                            }
+                            endif;
                             ?>
                             <td class="product_price"><input type="text" id="custom_product_price"></td>
                             <td class="product_quantity"><input type="number" id="custom_product_quantity" value="1"></td>
@@ -61,10 +61,10 @@ $product_types = apply_filters('wc_pos_edit_product_types', array());
                     <thead>
                         <tr>
                             <th class="meta_label">
-                                <?php _e('Product Attribute', 'wc_point_of_sale'); ?>
+                                <?php _e('Attribute', 'woocommerce'); ?>
                             </th>
                             <th class="meta_attribute">
-                                <?php _e('Meta Value', 'wc_point_of_sale'); ?>
+                                <?php _e('Value'); ?>
                             </th>
                             <th class="remove_meta"></th>
                         </tr>
@@ -75,8 +75,8 @@ $product_types = apply_filters('wc_pos_edit_product_types', array());
             </div>
         </div>
         <div class="wrap-button">
-            <button class="alignleft " id="add_custom_product_meta"><?php _e('Add Meta', 'wc_point_of_sale'); ?></button>
-            <button class="alignright" id="add_custom_product"><?php _e('Add Product', 'wc_point_of_sale'); ?></button>
+            <button class="alignleft " id="add_custom_product_meta"><?php _e( 'Add Custom Field'); ?></button>
+            <button class="alignright" id="add_custom_product"><?php _e('Add', 'woocommerce'); ?></button>
         </div>
     </div>
 </div>

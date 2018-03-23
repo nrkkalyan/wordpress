@@ -42,7 +42,7 @@ class WC_POS_Admin_Orders_Page {
 
         if (!$the_order->get_billing_first_name()) {
 
-            $the_order->set_billing_first_name('Walk-in Customer');
+            $the_order->set_billing_first_name(__('Walk-in Customer', 'wc_point_of_sale'));
         }
     }
     function delete_tile($pid){

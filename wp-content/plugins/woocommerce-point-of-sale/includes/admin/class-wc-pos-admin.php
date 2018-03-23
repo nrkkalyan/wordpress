@@ -100,7 +100,7 @@ class WC_POS_Admin
                 ?></strong>
 
             <a href="#pos-visibility"
-               class="edit-pos-visibility hide-if-no-js"><?php _e('Edit', 'wc_point_of_sale'); ?></a>
+               class="edit-pos-visibility hide-if-no-js"><?php _e('Edit'); ?></a>
 
             <div id="pos-visibility-select" class="hide-if-js">
 

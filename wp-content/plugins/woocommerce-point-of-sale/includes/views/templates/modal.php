@@ -413,7 +413,7 @@ $tax_display_mode = get_option('woocommerce_tax_display_shop');
                     <a href="{{this.id}}"
                        class="button load_order_data"><?php _e('Import', 'woocommerce'); ?></a>
                     <a href="<?php echo admin_url('admin.php?print_pos_receipt=true&order_id=') ?>{{this.id}}&_wpnonce=<?= wp_create_nonce('print_pos_receipt') ?>"
-                       class="button reprint_receipts"><?php _e('Print', 'woocommerce'); ?></a>
+                       class="button reprint_receipts"><?php _e('Print', 'wc_point_of_sale'); ?></a>
                 </p></td>
         </tr>
         {{/each}}

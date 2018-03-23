@@ -923,13 +923,6 @@ jQuery(document).ready(function ($) {
                     return 0;
                 }
 
-                /*if ( $applying && 'yes' === get_option( 'wc_points_rewards_partial_redemption_enabled' ) && WC()->session->get( 'wc_points_rewards_discount_amount' ) ) {
-                 $requested_user_discount = WC_Points_Rewards_Manager::calculate_points_value( WC()->session->get( 'wc_points_rewards_discount_amount' ) );
-                 if ( $requested_user_discount > 0 && $requested_user_discount < $available_user_discount ) {
-                 $available_user_discount = $requested_user_discount;
-                 }
-                 }*/
-
                 var discount_applied = 0;
 
                 // calculate the discount to be applied by iterating through each item in the cart and calculating the individual

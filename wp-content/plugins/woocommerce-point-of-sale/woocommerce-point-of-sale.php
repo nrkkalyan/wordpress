@@ -45,10 +45,8 @@ require_once('includes/class-wc-pos.php');
  * @return object WC_POS
  */
 add_filter('woocommerce_stock_amount', 'floatval', 1);
-function WC_POS()
-{
-    $instance = WC_POS::instance(__FILE__, '4.2.5.8');
-    return $instance;
+function WC_POS() {
+    return WC_POS::instance(__FILE__, '4.2.5.8');
 }
 
 // Global for backwards compatibility.
@@ -60,6 +58,6 @@ $GLOBALS['wc_pos'] = WC_POS();
 
 register_deactivation_hook(__FILE__,  'wc_pos_deactivate');
 
-function wc_pos_deactivate(){
+function wc_pos_deactivate() {
     wp_delete_post((int)get_option('wc_pos_custom_product_id'), true);
 }

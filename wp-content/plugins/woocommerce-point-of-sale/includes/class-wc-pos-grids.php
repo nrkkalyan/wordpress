@@ -540,8 +540,8 @@ class WC_Pos_Grids {
     foreach ($data as $value) {
       $names_list[$value['ID']] = $value['name'];
     }
-    $names_list['all'] = __('All Products', 'wc_point_of_sale');
-    $names_list['categories'] = __('Category Taxonomy', 'wc_point_of_sale');
+    $names_list['all'] = __('Products', 'woocommerce');
+    $names_list['categories'] = __('Categories', 'woocommerce');
     return $names_list;
   }
 

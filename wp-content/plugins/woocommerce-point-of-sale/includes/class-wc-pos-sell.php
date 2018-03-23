@@ -1299,7 +1299,6 @@ class WC_Pos_Sell
         $grid_id = $data['grid_template'];
         $tile_styles = array();
         $products_sort = array();
-
         if ($grid_id != 'all' && $grid_id != 'categories') {
             $tiles = wc_point_of_sale_get_tiles($grid_id);
             if ($tiles) {

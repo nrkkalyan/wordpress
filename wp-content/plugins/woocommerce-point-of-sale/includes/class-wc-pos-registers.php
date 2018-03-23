@@ -62,17 +62,6 @@ class WC_Pos_Registers
     }
 
     /**
-     * __construct function.
-     *
-     * @access public
-     * @return void
-     */
-    public function __construct()
-    {
-
-    }
-
-    /**
      * Init address fields we display + save
      */
     public function init_form_fields()
