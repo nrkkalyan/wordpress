@@ -63,14 +63,21 @@ if (! class_exists('WC_POS_Admin_Menus')) :
                 'render_registers'
             ), null, '55.8');
             
+            add_submenu_page(WC_POS()->id, __('Settings', 'woocommerce'), __('Settings', 'woocommerce'), 'manage_wc_point_of_sale', WC_POS()->id_settings, array(
+                $this,
+                'render_settings'
+            ));
+            
             $registers_hook = add_submenu_page(WC_POS()->id, __('Registers', 'wc_point_of_sale'), __('Registers', 'wc_point_of_sale'), 'view_register', WC_POS()->id_registers, array(
                 $this,
                 'render_registers'
             ));
+            
             $outlets_hook = add_submenu_page(WC_POS()->id, __('Outlets', 'wc_point_of_sale'), __('Outlets', 'wc_point_of_sale'), 'manage_wc_point_of_sale', WC_POS()->id_outlets, array(
                 $this,
                 'render_outlets'
             ));
+            
             // $grids_hook = add_submenu_page(WC_POS()->id,
             // __('Product Grids', 'wc_point_of_sale'),
             // '<span id='wc_pos_grids'>' . __('Product Grids', 'wc_point_of_sale') . '</span>',
@@ -117,11 +124,6 @@ if (! class_exists('WC_POS_Admin_Menus')) :
             add_submenu_page(WC_POS()->id, __('Barcode', 'wc_point_of_sale'), __('Barcode', 'wc_point_of_sale'), 'manage_wc_point_of_sale', WC_POS()->id_barcodes, array(
                 $this,
                 'render_barcodes'
-            ));
-            
-            add_submenu_page(WC_POS()->id, __('Settings', 'woocommerce'), __('Settings', 'woocommerce'), 'manage_wc_point_of_sale', WC_POS()->id_settings, array(
-                $this,
-                'render_settings'
             ));
             
             // add_submenu_page(WC_POS()->id,

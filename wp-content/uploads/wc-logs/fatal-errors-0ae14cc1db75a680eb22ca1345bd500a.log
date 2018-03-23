@@ -107,3 +107,19 @@ Stack trace:
 #5 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
 #6 /home/vagrant/hanghieu.test/wp-includes/plugin.php
 
+2018-03-23T09:24:17+00:00 CRITICAL Cannot declare class WC_POS_Admin_Notices, because the name is already in use
+
+2018-03-23T09:24:19+00:00 CRITICAL Cannot declare class WC_POS_Admin_Notices, because the name is already in use
+
+2018-03-23T09:24:19+00:00 CRITICAL Cannot declare class WC_POS_Admin_Notices, because the name is already in use
+
+2018-03-23T09:35:34+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function add_submenu_page(), 4 passed in /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-pos/includes/admin/class-wc-pos-menu.php on line 34 and at least 5 expected in /home/vagrant/hanghieu.test/wp-admin/includes/plugin.php:1147
+Stack trace:
+#0 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-pos/includes/admin/class-wc-pos-menu.php(34): add_submenu_page('woocommerce-pos', 'POS', 'POS', 'manage_woocomme...')
+#1 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(286): WC_POS_Admin_Menu->admin_menu('')
+#2 /home/vagrant/hanghieu.test/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /home/vagrant/hanghieu.test/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /home/vagrant/hanghieu.test/wp-admin/includes/menu.php(149): do_action('admin_menu', '')
+#5 /home/vagrant/hanghieu.test/wp-admin/menu.php(286): require_once('/home/vagrant/h...')
+#6 /home/vagrant/hanghieu.test/wp-admin/admin.php(140): require('/ho
+
