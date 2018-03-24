@@ -71,7 +71,7 @@ class WC_Pos_Table_Receipts extends WP_List_Table {
 
   function get_bulk_actions() {
     $actions = apply_filters( 'wc_pos_receipt_bulk_actions', array(
-      'delete' => __( 'Delete', 'woocommerce' ),
+      'delete' => __( 'Delete', 'wc_point_of_sale' ),
     ) );
     return $actions;
   }
@@ -136,7 +136,7 @@ class WC_Pos_Table_Receipts extends WP_List_Table {
     $current_page = $this->get_pagenum();
 
     $total_items = count( self::$data );
-    if( $_GET['page'] == 'wc_pos_receipts' ){
+    if( $_GET['page'] == WC_POS()->id_receipts ){
       // only ncessary because we have sample data
       $this->found_data = array_slice( self::$data,( ( $current_page-1 )* $per_page ), $per_page );
 

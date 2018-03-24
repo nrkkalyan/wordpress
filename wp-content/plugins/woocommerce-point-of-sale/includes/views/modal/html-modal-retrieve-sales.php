@@ -1,6 +1,6 @@
 <div class="md-modal full-width md-dynamicmodal md-close-by-overlay" id="modal-retrieve_sales">
     <div class="md-content">
-        <h1><?php echo _x( 'Pending payment', 'Order status', 'woocommerce' ); ?><span class="md-close"></span></h1>
+        <h1><?php _e('Retrieve Sales', 'wc_point_of_sale'); ?> - <i><?php _e('All', 'wc_point_of_sale'); ?></i> <span class="md-close"></span></h1>
         <div class="full-height" id="retrieve-sales-wrapper">
             <div class="box_content">
                 <div class="tablenav_wrap tablenav_wrap_top">
@@ -8,7 +8,7 @@
                         <div class="alignleft actions bulkactions">
                             <?php $reg_ = WC_POS()->register()->get_data_names(); ?>
                             <select id="bulk-action-retrieve_sales">
-                                <option value="all" data-name="<?php _e('All', 'wc_point_of_sale' ); ?>"><?php _e('All', 'wc_point_of_sale'); ?></option>
+                                <option value="all" data-name="<?php _e('All', 'wc_point_of_sale'); ?>"><?php _e('All', 'wc_point_of_sale'); ?></option>
                                 <option value="<?php echo $data['ID']; ?>" data-name="<?php echo $data['name']; ?>"><?php _e('This Register', 'wc_point_of_sale'); ?></option>
                                 <?php if(!empty($reg_)){
                                     foreach ($reg_ as $reg_id => $reg_name) {
@@ -17,13 +17,13 @@
                                     }
                                 } ?>
                             </select>
-                            <input type="button" value="<?php _e('Apply', 'woocommerce'); ?>" class="button action" id="btn_retrieve_from">
+                            <input type="button" value="<?php _e('Load', 'wc_point_of_sale'); ?>" class="button action" id="btn_retrieve_from">
 
                         </div>
                         <p class="search-box">
-                            <label for="post-search-input" class="screen-reader-text"><?php _e('Search orders', 'woocommerce'); ?>:</label>
+                            <label for="post-search-input" class="screen-reader-text"><?php _e('Search Orders', 'wc_point_of_sale'); ?>:</label>
                             <input type="search" value="" id="orders-search-input">
-                            <input type="button" value="<?php _e('Search orders', 'woocommerce'); ?>" class="button" id="orders-search-submit">
+                            <input type="button" value="<?php _e('Search Orders', 'wc_point_of_sale'); ?>" class="button" id="orders-search-submit">
                         </p>
                     </div>
                     <table class="wp-list-table widefat fixed retrieve_sales_nav">

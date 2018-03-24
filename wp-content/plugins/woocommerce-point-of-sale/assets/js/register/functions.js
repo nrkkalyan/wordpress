@@ -141,18 +141,18 @@ function posPrintReceipt(url, gift_receipt) {
                 jQuery("<img>").load(function () {
                     window.print();
                     closeModal('modal-printing-receipt');
-                    wp.heartbeat.connectNow();
-                    if (change_user && typeof APP_auth_show != 'undefined') {
-                        APP_auth_show();
-                    }
+                    // wp.heartbeat.connectNow();
+                    // if (change_user && typeof APP_auth_show != 'undefined') {
+                    //     APP_auth_show();
+                    // }
                 }).attr('src', src);
             } else {
                 window.print();
                 closeModal('modal-printing-receipt');
-                wp.heartbeat.connectNow();
-                if (change_user && typeof APP_auth_show != 'undefined') {
-                    APP_auth_show();
-                }
+                // wp.heartbeat.connectNow();
+                // if (change_user && typeof APP_auth_show != 'undefined') {
+                //     APP_auth_show();
+                // }
             }
         }
         else if (jQuery('#print_receipt_logo').length) {
@@ -161,27 +161,27 @@ function posPrintReceipt(url, gift_receipt) {
                 jQuery("<img>").load(function () {
                     window.print();
                     closeModal('modal-printing-receipt');
-                    wp.heartbeat.connectNow();
-                    if (change_user && typeof APP_auth_show != 'undefined') {
-                        APP_auth_show();
-                    }
+                    // wp.heartbeat.connectNow();
+                    // if (change_user && typeof APP_auth_show != 'undefined') {
+                    //     APP_auth_show();
+                    // }
                 }).attr('src', src);
             } else {
                 window.print();
                 closeModal('modal-printing-receipt');
-                wp.heartbeat.connectNow();
-                if (change_user && typeof APP_auth_show != 'undefined') {
-                    APP_auth_show();
-                }
+                // wp.heartbeat.connectNow();
+                // if (change_user && typeof APP_auth_show != 'undefined') {
+                //     APP_auth_show();
+                // }
             }
         }
         else {
             window.print();
             closeModal('modal-printing-receipt');
-            wp.heartbeat.connectNow();
-            if (change_user && typeof APP_auth_show != 'undefined') {
-                APP_auth_show();
-            }
+            // wp.heartbeat.connectNow();
+            // if (change_user && typeof APP_auth_show != 'undefined') {
+            //     APP_auth_show();
+            // }
         }
     });
 }

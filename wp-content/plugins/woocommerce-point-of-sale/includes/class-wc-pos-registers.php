@@ -62,6 +62,17 @@ class WC_Pos_Registers
     }
 
     /**
+     * __construct function.
+     *
+     * @access public
+     * @return void
+     */
+    public function __construct()
+    {
+
+    }
+
+    /**
      * Init address fields we display + save
      */
     public function init_form_fields()
@@ -124,7 +135,7 @@ class WC_Pos_Registers
             'default_customer' => array(
                 'label' => __('Default Customer', 'wc_point_of_sale'),
                 'type' => 'select',
-                'options' => array(__('Guest', 'woocommerce')),
+                'options' => array(__('Guest', 'wc_point_of_sale')),
                 'description' => __('Select what you want the default customer to be when register is opened.', 'wc_point_of_sale'),
                 'custom_attributes' => array()
             ),
@@ -392,6 +403,7 @@ class WC_Pos_Registers
         <div class="col-wrap">
             <p><?php echo _e('Registers for your store can be managed here. Registers can be added using the form below. To edit an register, simply hover over the register and click on Edit.', 'wc_point_of_sale'); ?></p>
             <div class="form-wrap">
+                <h3><?php _e('Register Details', 'wc_point_of_sale'); ?></h3>
                 <form id="add_wc_pos_registers" class="validate" action="" method="post">
                     <input type="hidden" value="add-wc-pos-registers" name="action">
                     <?php wp_nonce_field('nonce-add-wc-pos-registers', '_wpnonce_add-wc-pos-registers'); ?>

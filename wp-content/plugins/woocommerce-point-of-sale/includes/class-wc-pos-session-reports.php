@@ -67,7 +67,7 @@ if (!class_exists('WC_Pos_Session_Reports')) :
         public function display()
         {
             $this->init_form_fields();
-            $this->display_outlet_table();
+            self::display_outlet_table();
         }
 
         public function display_outlet_table()
@@ -93,9 +93,7 @@ if (!class_exists('WC_Pos_Session_Reports')) :
             } else {
                 $offset = ($page - 1) * $per_page;
             }
-            $wc_point_of_sale_sale_reports = "{$wpdb->prefix}wc_point_of_sale_sale_reports";
-            $wc_poin_of_sale_registers = "{$wpdb->prefix}wc_poin_of_sale_registers";
-            $sql = $wpdb->prepare("SELECT `{$wc_point_of_sale_sale_reports}`.*, `{$wc_poin_of_sale_registers}`.`name` as register_name FROM `{$wc_point_of_sale_sale_reports}` INNER JOIN `{$wc_poin_of_sale_registers}` ON `{$wc_point_of_sale_sale_reports}`.`register_id` = `{$wc_poin_of_sale_registers}`.`ID` ORDER BY `{$wc_point_of_sale_sale_reports}`.`id` DESC LIMIT %d OFFSET %d", $per_page, $offset);
+            $sql = $wpdb->prepare("SELECT * FROM {$wpdb->prefix}wc_point_of_sale_sale_reports ORDER BY `id` DESC LIMIT %d OFFSET %d", $per_page, $offset);
             $db_data = $wpdb->get_results($sql);
             foreach ($db_data as $key => $val) {
 
@@ -108,7 +106,6 @@ if (!class_exists('WC_Pos_Session_Reports')) :
                 $cashier_data = get_userdata($val->cashier_id);
                 $this->session_data[$key]['cashier'] = $cashier_data->first_name . ' ' . $cashier_data->last_name;
             }
-            
             return $this->session_data;
         }
 

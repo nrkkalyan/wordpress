@@ -278,7 +278,7 @@ class WC_API_POS_Orders extends WC_API_Orders
                         } else {
                             $this->$set_item($order, $item, 'create');
                         }
-                        if (isset($GLOBALS['wc_points_rewards']) && $line_type == 'coupon' && $item['code'] == 'WC_POINTS_REDEMPTION') {
+                        if ($line_type == 'coupon' && $item['code'] == 'WC_POINTS_REDEMPTION') {
                             global $wc_points_rewards;
                             $discount_amount = $item['amount'];
                             $points_redeemed = WC_Points_Rewards_Manager::calculate_points_for_discount($discount_amount);
@@ -521,7 +521,7 @@ class WC_API_POS_Orders extends WC_API_Orders
                 $order = $this->get_order($order->get_id());
             }
             $order['payment_result'] = $result;
-            pos_logout($id_register);
+            // pos_logout($id_register);
             //TODO: fix this.
             $wc_order = wc_get_order($id);
             if ($data['fees']) {
@@ -736,7 +736,7 @@ class WC_API_POS_Orders extends WC_API_Orders
             sentEmailReceipt($id_register, $order->get_id());
 
             $order = $this->get_order($order->get_id());
-            pos_logout($id_register);
+            // pos_logout($id_register);
             return $order;
         } catch (WC_API_Exception $e) {
 
@@ -963,7 +963,7 @@ class WC_API_POS_Orders extends WC_API_Orders
             }
 
             // Update total
-            $order->set_total($order->order_shipping + $total, 'shipping');
+            $order->legacy_set_total($order->order_shipping + $total, 'shipping');
 
         } else {
 
@@ -1008,8 +1008,8 @@ class WC_API_POS_Orders extends WC_API_Orders
             $order = $this->calculate_order_taxes($order, $data);
         } else {
             // Save tax totals
-            $order->set_total(0, 'shipping_tax');
-            $order->set_total(0, 'tax');
+            $order->legacy_set_total(0, 'shipping_tax');
+            $order->legacy_set_total(0, 'tax');
         }
 
         // line items
@@ -1026,12 +1026,12 @@ class WC_API_POS_Orders extends WC_API_Orders
             $fee_total += $item['line_total'];
         }
 
-        $order->set_total($cart_subtotal - $cart_total, 'cart_discount');
-        $order->set_total($cart_subtotal_tax - $cart_total_tax, 'cart_discount_tax');
+        $order->legacy_set_total($cart_subtotal - $cart_total, 'cart_discount');
+        $order->legacy_set_total($cart_subtotal_tax - $cart_total_tax, 'cart_discount_tax');
 
         $grand_total = round($cart_total + $fee_total + $order->get_total_shipping() + $order->get_cart_tax() + $order->get_shipping_tax(), wc_get_price_decimals());
 
-        $order->set_total($grand_total, 'total');
+        $order->legacy_set_total($grand_total, 'total');
 
         return $order;
     }
@@ -1167,8 +1167,8 @@ class WC_API_POS_Orders extends WC_API_Orders
         }
 
         // Save tax totals
-        $order->set_total($shipping_tax_total, 'shipping_tax');
-        $order->set_total($tax_total, 'tax');
+        $order->legacy_set_total($shipping_tax_total, 'shipping_tax');
+        $order->legacy_set_total($tax_total, 'tax');
 
         // Tax rows
         $order->remove_order_items('tax');
@@ -1375,7 +1375,7 @@ class WC_API_POS_Orders extends WC_API_Orders
         $response = $gateways[$gateway_id]->process_payment($order_id);
 
         if (isset($response['result']) && $response['result'] == 'success') {
-            if ($docompleteorder == 1) {
+            if (isset($docompleteorder) && $docompleteorder == 1) {
                 do_action('woocommerce_payment_complete', $order_id);
                 $result = $this->payment_success($gateway_id, $order_id, $response);
             } else {

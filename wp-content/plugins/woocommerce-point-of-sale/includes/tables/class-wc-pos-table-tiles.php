@@ -52,8 +52,8 @@ class WC_Pos_Table_Tiles extends WP_List_Table
     {
         $columns = array(
             'cb' => '<input type="checkbox" />',
-            'thumb' => __('Image', 'woocommerce'),
-            'product' => __('Product', 'woocommerce'),
+            'thumb' => __('Image', 'wc_point_of_sale'),
+            'product' => __('Product', 'wc_point_of_sale'),
             'preview' => __('Preview', 'wc_point_of_sale'),
         );
         return $columns;
@@ -62,7 +62,7 @@ class WC_Pos_Table_Tiles extends WP_List_Table
     function get_bulk_actions()
     {
         $actions = apply_filters('wc_pos_tile_bulk_actions', array(
-            'delete' => __('Delete', 'woocommerce'),
+            'delete' => __('Delete', 'wc_point_of_sale'),
         ));
         return $actions;
     }

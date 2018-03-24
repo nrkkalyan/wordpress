@@ -101,30 +101,30 @@ class WAS_Condition {
 	public function get_conditions() {
 
 		$conditions = array(
-			__( 'Cart', 'woocommerce-advanced-shipping' ) => array(
-				'subtotal'                => __( 'Subtotal', 'woocommerce-advanced-shipping' ),
+			__( 'Cart', 'woocommerce' ) => array(
+				'subtotal'                => __( 'Subtotal', 'woocommerce' ),
 				'subtotal_ex_tax'         => __( 'Subtotal ex. taxes', 'woocommerce-advanced-shipping' ),
-				'tax'                     => __( 'Tax', 'woocommerce-advanced-shipping' ),
-				'quantity'                => __( 'Quantity', 'woocommerce-advanced-shipping' ),
+				'tax'                     => __( 'Tax', 'woocommerce' ),
+				'quantity'                => __( 'Qty', 'woocommerce' ),
 				'contains_product'        => __( 'Contains product', 'woocommerce-advanced-shipping' ),
-				'coupon'                  => __( 'Coupon', 'woocommerce-advanced-shipping' ),
-				'weight'                  => __( 'Weight', 'woocommerce-advanced-shipping' ),
-				'contains_shipping_class' => __( 'Contains shipping class', 'woocommerce-advanced-shipping' ),
+				'coupon'                  => __( 'Coupon', 'woocommerce' ),
+				'contains_shipping_class' => __( 'Shipping class', 'woocommerce' ),
 			),
-			__( 'User Details', 'woocommerce-advanced-shipping' ) => array(
-				'zipcode' => __( 'Zipcode', 'woocommerce-advanced-shipping' ),
-				'city'    => __( 'City', 'woocommerce-advanced-shipping' ),
-				'state'   => __( 'State', 'woocommerce-advanced-shipping' ),
-				'country' => __( 'Country', 'woocommerce-advanced-shipping' ),
-				'role'    => __( 'User role', 'woocommerce-advanced-shipping' ),
+			__( 'User', 'woocommerce' ) => array(
+				'zipcode' => __( 'Postcode / ZIP', 'woocommerce' ),
+				'city'    => __( 'City', 'woocommerce' ),
+				'state'   => __( 'State', 'woocommerce' ),
+				'country' => __( 'Country', 'woocommerce' ),
+				'role'    => __( 'User Roles' ),
 			),
-			__( 'Product', 'woocommerce-advanced-shipping' ) => array(
-				'width'        => __( 'Width', 'woocommerce-advanced-shipping' ),
-				'height'       => __( 'Height', 'woocommerce-advanced-shipping' ),
-				'length'       => __( 'Length', 'woocommerce-advanced-shipping' ),
-				'stock'        => __( 'Stock', 'woocommerce-advanced-shipping' ),
-				'stock_status' => __( 'Stock status', 'woocommerce-advanced-shipping' ),
-				'category'     => __( 'Category', 'woocommerce-advanced-shipping' ),
+			__( 'Product', 'woocommerce' ) => array(
+                'weight'                  => __( 'Weight', 'woocommerce' ),
+                'width'        => __( 'Width', 'woocommerce' ),
+				'height'       => __( 'Height', 'woocommerce' ),
+				'length'       => __( 'Length', 'woocommerce' ),
+				'stock'        => __( 'Stock', 'woocommerce' ),
+				'stock_status' => __( 'Stock status', 'woocommerce' ),
+				'category'     => __( 'Category', 'woocommerce' ),
 			),
 		);
 		$conditions = apply_filters( 'was_conditions', $conditions );

@@ -82,10 +82,10 @@ class WC_Pos_Table_Users extends WP_List_Table {
   function get_columns() {
     $columns = array(
       'name'       => __( 'Display Name', 'wc_point_of_sale' ),
-      'username'   => __( 'Username' ),
+      'username'   => __( 'Username', 'wc_point_of_sale' ),
       'outlet'     => __( 'Outlet', 'wc_point_of_sale' ),
       'sales'      => __( 'Sales', 'wc_point_of_sale' ),
-      'orders'     => __( 'Orders', 'woocommerce' ),
+      'orders'     => __( 'Orders', 'wc_point_of_sale' ),
       'last_login' => __( 'Last Login', 'wc_point_of_sale' ),
       'logged_in'  => __( 'Logged In', 'wc_point_of_sale' ),
     );
@@ -147,7 +147,7 @@ class WC_Pos_Table_Users extends WP_List_Table {
     $current_page = $this->get_pagenum();
 
     $total_items = count( self::$data );
-    if( $_GET['page'] == 'wc_pos_users' ){
+    if( $_GET['page'] == WC_POS()->id_users ){
       // only ncessary because we have sample data
       $this->found_data = array_slice( self::$data,( ( $current_page-1 )* $per_page ), $per_page );
 

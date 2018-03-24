@@ -67,7 +67,7 @@ class WC_POS_Admin_Settings_Checkout extends WC_Settings_Page {
 			
 
 			array(
-				'name'    => __( 'Username' ),
+				'name'    => __( 'Username', 'wc_point_of_sale' ),
 				'desc_tip'    => __( 'Choose what the username should be when customer is created.', 'wc_point_of_sale' ),
 				'id'      => 'woocommerce_pos_end_of_sale_username_add_customer',
 				'type'    => 'select',

@@ -1,6 +1,6 @@
 /* global adminpage */
 // Interim login dialog
-var APP_auth_show;
+// var APP_auth_show;
 (function($){
 	var wrap, next;
 
@@ -155,27 +155,27 @@ var APP_auth_show;
 		next = ( new Date() ).getTime() + ( interval * 1000 );
 	}
 
-	$( document ).on( 'heartbeat-tick.wp-auth-check', function( e, data ) {
-		if ( 'wp-auth-check' in data ) {
-			schedule();
-			if ( ! data['wp-auth-check'] && wrap.hasClass('hidden') ) {
-				show();
-			} else if ( data['wp-auth-check'] && ! wrap.hasClass('hidden') ) {
-				hide();
-			}
-		}
-	}).on( 'heartbeat-send.wp-auth-check', function( e, data ) {
-		if ( ( new Date() ).getTime() > next ) {
-			data['wp-auth-check'] = true;
-		}
-	}).ready( function() {
-		schedule();
-		wrap = $('#wp-auth-check-wrap');
-		wrap.find('.wp-auth-check-close').on( 'click', function() {
-			hide();
-		});
-		APP_auth_show = show;
-	});
+	// $( document ).on( 'heartbeat-tick.wp-auth-check', function( e, data ) {
+	// 	if ( 'wp-auth-check' in data ) {
+	// 		schedule();
+	// 		if ( ! data['wp-auth-check'] && wrap.hasClass('hidden') ) {
+	// 			show();
+	// 		} else if ( data['wp-auth-check'] && ! wrap.hasClass('hidden') ) {
+	// 			hide();
+	// 		}
+	// 	}
+	// }).on( 'heartbeat-send.wp-auth-check', function( e, data ) {
+	// 	if ( ( new Date() ).getTime() > next ) {
+	// 		data['wp-auth-check'] = true;
+	// 	}
+	// }).ready( function() {
+	// 	schedule();
+	// 	wrap = $('#wp-auth-check-wrap');
+	// 	wrap.find('.wp-auth-check-close').on( 'click', function() {
+	// 		hide();
+	// 	});
+	// 	APP_auth_show = show;
+	// });
 
 
 }(jQuery));

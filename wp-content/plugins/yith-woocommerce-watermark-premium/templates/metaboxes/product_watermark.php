@@ -10,9 +10,8 @@ $is_enabled = get_post_meta( $post->ID, 'ywcwat_product_enabled_watermark', true
 ?>
 <div id="ywcwat_watermark_data" class="panel woocommerce_options_panel" xmlns="http://www.w3.org/1999/html">
         <div class="options_group ywcwat_enabled_custom_watermark">
-            <p class="form-field">
-                <label for="ywcwat_custom_watermark"><?php _e('Add Watermark','yith-woocommerce-watermark');?></label>
-               <button type="button" class="button add_product_watermark"><?php _e('Add','yith-woocommerce-watermark');?></button>
+            <p>
+               <button type="button" class="button button-primary add_product_watermark"><?php _e('Add','woocommerce');?></button>
             </p>
         </div>
         <div id="ywcwat_product_watermark_list">

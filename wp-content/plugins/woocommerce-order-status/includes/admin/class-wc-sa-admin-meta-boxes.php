@@ -91,7 +91,7 @@ class WC_SA_Admin_Meta_Boxes {
 		$screen = get_current_screen();
 
 		// data
-		add_meta_box( 'wc-sa-options', __( 'Status Data', 'wc_custom_statuses' ), 'WC_SA_Meta_Box_Status_Data::output_settings', 'wc_custom_statuses', 'normal', 'high' );
+		add_meta_box( 'wc-sa-options', __( 'Metadata' ), 'WC_SA_Meta_Box_Status_Data::output_settings', 'wc_custom_statuses', 'normal', 'high' );
 
 	}
 

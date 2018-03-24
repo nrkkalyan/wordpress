@@ -40,7 +40,7 @@
                 <?php _e('Time', 'wc_point_of_sale'); ?>
             </th>
             <th class="manage-column column-order_total" style="width: 25%;" scope="col">
-                <?php _e('Total', 'woocommerce'); ?>
+                <?php _e('Total', 'wc_point_of_sale'); ?>
             </th>
         </tr>
         </thead>
@@ -160,7 +160,7 @@
                     <?php _e('Time', 'wc_point_of_sale'); ?>
                 </th>
                 <th class="manage-column column-order_total" style="width: 25%;" scope="col">
-                    <?php _e('Total', 'woocommerce'); ?>
+                    <?php _e('Total', 'wc_point_of_sale'); ?>
                 </th>
             </tr>
             </thead>
@@ -250,7 +250,7 @@
                     <?php _e('Time', 'wc_point_of_sale'); ?>
                 </th>
                 <th class="manage-column column-order_total" style="width: 25%;" scope="col">
-                    <?php _e('Total', 'woocommerce'); ?>
+                    <?php _e('Total', 'wc_point_of_sale'); ?>
                 </th>
             </tr>
             </thead>

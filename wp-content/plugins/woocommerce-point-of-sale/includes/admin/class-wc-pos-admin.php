@@ -31,7 +31,7 @@ class WC_POS_Admin
         add_filter('woocommerce_product_class', array($this, 'pos_custom_product_class'), 9999, 4);
         add_filter('woocommerce_reports_charts', array($this, 'pos_reports_charts'), 20, 1);
 
-        if (isset($_GET['page']) && $_GET['page'] == 'wc_pos_registers' && isset($_GET['reg']) && $_GET['reg'] != '') {
+        if (isset($_GET['page']) && $_GET['page'] == WC_POS()->id_registers && isset($_GET['reg']) && $_GET['reg'] != '') {
             $company_logo = get_option('woocommerce_pos_register_layout_admin_bar', 'yes');
             if ($company_logo == 'yes') {
                 add_filter('init', array($this, 'hide_admin_bar'), 9);
@@ -58,13 +58,14 @@ class WC_POS_Admin
 
         add_filter('woocommerce_prevent_admin_access', array(__CLASS__, 'prevent_admin_access'), 10, 2);
 
+        add_action('add_meta_boxes', array(WC_POS()->grid(), 'add_meta_box'), 40, 1);
+        add_action('save_post', array(WC_POS()->grid(), 'save_meta_box'), 40, 1);
         add_action('save_post', array($this, 'save_order_rounding_amount'), 50, 3);
         add_filter('woocommerce_get_formatted_order_total', array($this, 'get_rounding_total'), 50, 2);
 
         add_action('wc_pos_restrict_list_users', array($this, 'restrict_list_users'));
 
         /******* product_grid *********/
-//         add_filter('manage_edit-product_columns', array($this, 'add_product_grid_column'), 9999);
         add_action('manage_product_posts_custom_column', array($this, 'display_product_grid_column'), 2);
         add_action('admin_footer', array($this, 'product_grid_bulk_actions'), 11);
         add_action('load-edit.php', array($this, 'product_grid_bulk_actions_handler'));
@@ -98,7 +99,7 @@ class WC_POS_Admin
                 ?></strong>
 
             <a href="#pos-visibility"
-               class="edit-pos-visibility hide-if-no-js"><?php _e('Edit'); ?></a>
+               class="edit-pos-visibility hide-if-no-js"><?php _e('Edit', 'wc_point_of_sale'); ?></a>
 
             <div id="pos-visibility-select" class="hide-if-js">
 
@@ -504,7 +505,7 @@ class WC_POS_Admin
 
     public static function parse_request($wp)
     {
-        if (isset($wp->query_vars['page']) && $wp->query_vars['page'] == 'wc_pos_registers' && isset($wp->query_vars['action']) && $wp->query_vars['action'] == 'view') {
+        if (isset($wp->query_vars['page']) && $wp->query_vars['page'] == WC_POS()->id_registers && isset($wp->query_vars['action']) && $wp->query_vars['action'] == 'view') {
             WC_POS()->is_pos = true;
         }
         if (isset($wp->query_vars['page']) && $wp->query_vars['page'] == 'wc_pos_bill_screen' && isset($wp->query_vars['reg'])) {
@@ -664,18 +665,6 @@ class WC_POS_Admin
         </select>
         <?php
     }
-
-    /******* product_grid *********/
-//     function add_product_grid_column($columns)
-//     {
-//         $new_columns = array();
-//         foreach ($columns as $key => $value) {
-//             $new_columns[$key] = $value;
-//             if ($key == 'product_tag')
-//                 $new_columns['wc_pos_product_grid'] = __('Product Grid', 'wc_point_of_sale');
-//         }
-//         return $new_columns;
-//     }
 
     function display_product_grid_column($column)
     {

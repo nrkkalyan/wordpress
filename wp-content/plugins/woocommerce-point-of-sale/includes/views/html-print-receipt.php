@@ -325,13 +325,13 @@
         <table class="receipt_items">
             <thead>
             <tr>
-                <th><?php _e('Qty', 'woocommerce'); ?></th>
+                <th><?php _e('Qty', 'wc_point_of_sale'); ?></th>
                 <?php if ($receipt_options['show_image_product'] == 'yes') { ?>
                     <th class="column-product-image"></th>
                 <?php } ?>
-                <th><?php _e('Product', 'woocommerce'); ?></th>
-                <th><?php _e('Cost', 'woocommerce'); ?></th>
-                <th><?php _e('Total', 'woocommerce'); ?></th>
+                <th><?php _e('Product', 'wc_point_of_sale'); ?></th>
+                <th><?php _e('Cost', 'wc_point_of_sale'); ?></th>
+                <th><?php _e('Total', 'wc_point_of_sale'); ?></th>
             </tr>
             </thead>
             <tbody>
@@ -456,17 +456,17 @@
                 foreach ($totals as $total_key => $total) {
                     switch ($total_key) {
                         case 'cart_subtotal':
-                            $total_label = __('Subtotal', 'woocommerce');
+                            $total_label = __('Subtotal', 'wc_point_of_sale');
                             break;
                         case 'order_total':
-                            $total_label = '<span id="print-total_label">' . __('Total', 'woocommerce') . '</span>';
+                            $total_label = '<span id="print-total_label">' . __('Total', 'wc_point_of_sale') . '</span>';
                             $total_order = $total['value'];
                             break;
                         case 'discount':
                             $total_label = __('Discount', 'wc_point_of_sale');;
                             break;
                         case 'shipping':
-                            $total_label = __('Shipping', 'woocommerce');
+                            $total_label = __('Shipping', 'wc_point_of_sale');
                             break;
                         case 'payment_method':
                             continue 2;
@@ -797,14 +797,14 @@
         <table class="receipt_items">
             <thead>
             <tr>
-                <th><?php _e('Qty', 'woocommerce'); ?></th>
+                <th><?php _e('Qty', 'wc_point_of_sale'); ?></th>
                 <?php if ($receipt_options['show_image_product'] == 'yes') { ?>
                     <th class="column-product-image"></th>
                 <?php } ?>
-                <th><?php _e('Product', 'woocommerce'); ?></th>
+                <th><?php _e('Product', 'wc_point_of_sale'); ?></th>
                 <?php if (!isset($_GET['gift_receipt']) || $_GET['gift_receipt'] == 'false') { ?>
-                    <th><?php _e('Cost', 'woocommerce'); ?></th>
-                    <th><?php _e('Total', 'woocommerce'); ?></th>
+                    <th><?php _e('Cost', 'wc_point_of_sale'); ?></th>
+                    <th><?php _e('Total', 'wc_point_of_sale'); ?></th>
                 <?php } ?>
             </tr>
             </thead>
@@ -929,14 +929,14 @@
                 $total_order = 0;
                 foreach ($totals as $total_key => $total) {
                     if ($total_key == 'cart_subtotal') {
-                        $total_label = __('Subtotal', 'woocommerce');
+                        $total_label = __('Subtotal', 'wc_point_of_sale');
                     } elseif ($total_key == 'order_total') {
-                        $total_label = '<span id="print-total_label">' . __('Total', 'woocommerce') . '</span>';
+                        $total_label = '<span id="print-total_label">' . __('Total', 'wc_point_of_sale') . '</span>';
                         $total_order = $total['value'];
                     } elseif ($total_key == 'discount') {
                         $total_label = __('Discount', 'wc_point_of_sale');
                     } elseif ($total_key == 'shipping') {
-                        $total_label = __('Shipping', 'woocommerce');
+                        $total_label = __('Shipping', 'wc_point_of_sale');
                     } else {
                         continue;
                     }

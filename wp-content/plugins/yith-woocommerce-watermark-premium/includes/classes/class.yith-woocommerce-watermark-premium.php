@@ -65,10 +65,14 @@ if (! class_exists('YITH_WC_Watermark_Premium')) {
                 $this,
                 'add_product_watermark_option'
             ));
-            add_filter('woocommerce_product_write_panel_tabs', array(
+            add_filter('woocommerce_product_data_tabs', array(
                 $this,
                 'print_watermark_panels'
             ), 98);
+            add_action('woocommerce_product_data_panels', array(
+                $this,
+                'write_watermark_panels'
+            ));
             add_action('woocommerce_process_product_meta', array(
                 $this,
                 'save_product_watermark_meta'
@@ -864,27 +868,15 @@ if (! class_exists('YITH_WC_Watermark_Premium')) {
          * @author YITHEMES
          * @since 1.0.0
          */
-        public function print_watermark_panels()
+        public function print_watermark_panels($tabs)
         {
-            ?>
-<style type="text/css">
-#woocommerce-product-data ul.wc-tabs .ywcwat_watermark_data_tab a:before
-	{
-	content: '\e00c';
-}
-</style>
-<li class="ywcwat_watermark_data_tab show_if_custom_watermark_enabled">
-	<a href="#ywcwat_watermark_data">
-                    <?php _e( 'Watermark', 'yith-woocommerce-watermark' ); ?>
-                </a>
-</li>
-
-
-<?php
-            add_action('woocommerce_product_write_panels', array(
-                $this,
-                'write_watermark_panels'
-            ));
+            $tabs['yith-woocommerce-watermark'] = array(
+                'label'    => __( 'Watermark', 'yith-woocommerce-watermark' ),
+                'target'   => 'ywcwat_watermark_data',
+                'class'    => array(),
+                'priority' => 90,
+            );
+            return $tabs;
         }
 
         /**

@@ -58,6 +58,99 @@ class WC_Pos_Grids {
 	}
 
 	/**
+	 * Adds the meta box container.
+	 */
+	public function add_meta_box( $post_type ) {
+    $post_types = array('product');     //limit meta box to certain post types
+    if ( in_array( $post_type, $post_types )) {
+			add_meta_box(
+				'product_grid_category',
+				__( 'Product grid', 'wc_point_of_sale' ),
+				array( $this, 'render_product_grid_category' ),
+				$post_type,
+				'side',
+				'core'
+			);
+    }
+	}
+	/**
+	 * Save the meta when the post is saved.
+	 *
+	 * @param int $post_id The ID of the post being saved.
+	 */
+	public function save_meta_box($post_id){
+
+		global $wpdb;
+		/*
+		 * Verify this came from the our screen and with proper authorization,
+		 * because save_post can be triggered at other times.
+		 */
+
+		// Check if our nonce is set.
+		if ( ! isset( $_POST['_ajax_nonce-add-product_grid'] ) )
+			return $post_id;
+
+		$nonce = $_POST['_ajax_nonce-add-product_grid'];
+
+		// Verify that the nonce is valid.
+		if ( ! wp_verify_nonce( $nonce, 'add-product_grid' ) )
+			return $post_id;
+
+		// If this is an autosave, our form has not been submitted,
+                //     so we don't want to do anything.
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+			return $post_id;
+
+		// Check the user's permissions.
+		if ( 'product' == $_POST['post_type'] ) {
+
+			if ( ! current_user_can( 'edit_page', $post_id ) )
+				return $post_id;
+
+			if($_REQUEST['_pos_visibility']){
+			    update_post_meta($post_id,'_pos_visibility',$_REQUEST['_pos_visibility']);
+            }
+
+			if(isset($_POST['pos_input']['product_grid'])){
+
+				$product_grids = wc_point_of_sale_get_grids_for_product($post_id);
+
+				if(!empty($_POST['pos_input']['product_grid'])){
+					foreach ($_POST['pos_input']['product_grid'] as $grid_id) {
+						if(in_array($grid_id, $product_grids)){
+							$pos = array_search($grid_id, $product_grids);
+							unset($product_grids[$pos]);
+							continue;
+						}
+						$order_position = 1;
+						$position = get_last_position_of_tile($grid_id);
+						if(!empty($position->max)) $order_position = $position->max + 1;
+						$data = array(
+							'grid_id'           => $grid_id,
+							'product_id'        => $post_id,
+							'colour'            => 'ffffff',
+							'background'        => '8E8E8E',
+							'default_selection' => 0,
+							'order_position'    => $order_position,
+							'style'             => 'image'
+						);
+						$wpdb->insert( $wpdb->prefix.'wc_poin_of_sale_tiles', $data );
+					}
+				}
+				if(!empty($product_grids)){
+					$ids = implode(',', $product_grids);
+					$remove_sql = "DELETE FROM {$wpdb->prefix}wc_poin_of_sale_tiles WHERE product_id = $post_id AND grid_id IN($ids)";
+					$wpdb->query($remove_sql);
+				}
+			}else{
+				$remove_sql = "DELETE FROM {$wpdb->prefix}wc_poin_of_sale_tiles WHERE product_id = $post_id";
+				$wpdb->query($remove_sql);
+			}
+		}
+		return $post_id;
+	}
+
+	/**
 	 * Render Meta Box content.
 	 *
 	 * @param WP_Post $post The post object.
@@ -286,7 +379,7 @@ class WC_Pos_Grids {
 		<div class="wrap woocommerce">
 			<div class="icon32 icon32-grids" id="icon-woocommerce"><br/></div>
 		    <h2><?php _e( 'Edit Product Grid', 'woocommerce' ) ?></h2>
-			<form action="admin.php?page=wc_pos_grids&amp;edit=<?php echo absint( $edit ); ?>" method="post">
+			<form action="admin.php?page=<?php echo WC_POS()->id_grids ?>&amp;edit=<?php echo absint( $edit ); ?>" method="post">
 				<table class="form-table">
 					<tbody>
 						<tr class="form-field form-required">
@@ -422,9 +515,29 @@ class WC_Pos_Grids {
 	}
 
 	public function get_data_names($ids = ''){
+    global $wpdb;
+        $filter = '';
+        if( !empty($ids) ){
+          if(is_array($ids)){
+            $ids = implode(',', array_map('intval', $ids));
+            $filter .= "WHERE ID IN  == ($ids)";
+          }else{
+            $filter .= "WHERE ID = $ids";
+          }
+        }
+        $table_name = $wpdb->prefix . "wc_poin_of_sale_grids";
+        $db_data = $wpdb->get_results("SELECT * FROM $table_name $filter");
+        $data = array();
+
+        foreach ($db_data as $value) {
+          $data[] = get_object_vars($value);
+        }
         $names_list = array();
-        $names_list['all'] = __('Products', 'woocommerce');
-        $names_list['categories'] = __('Categories', 'woocommerce');
+    foreach ($data as $value) {
+      $names_list[$value['ID']] = $value['name'];
+    }
+    $names_list['all'] = __('All Products', 'wc_point_of_sale');
+    $names_list['categories'] = __('Category Taxonomy', 'wc_point_of_sale');
     return $names_list;
   }
 

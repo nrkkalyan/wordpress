@@ -103,15 +103,15 @@ class WC_SA_Admin_Post_Types {
 		$columns                       = array();
 		$columns['sort']               = '';
 		$columns['cb']                 = $existing_columns['cb'];
-		$columns['title']              = __( 'Name', 'woocommerce_status_actions' );
-		$columns['label']              = __( 'Label', 'woocommerce_status_actions' );
+		$columns['title']              = __( 'Name', 'woocommerce' );
+		$columns['label']              = __( 'Slug', 'woocommerce' );
 		$columns['order_status']       = __( 'Icon', 'woocommerce_status_actions' );
-		$columns['order_actions']      = __( 'Action', 'woocommerce_status_actions' );
-		$columns['email_notification'] = __( 'Email', 'woocommerce_status_actions' );
-		$columns['display_in_reports'] = __( 'Reports', 'woocommerce_status_actions' );
-		$columns['item_editing']       = __( 'Editing', 'woocommerce_status_actions' );
+		$columns['order_actions']      = __( 'Action', 'woocommerce' );
+		$columns['email_notification'] = __( 'Email' );
+		$columns['display_in_reports'] = __( 'Reports', 'woocommerce' );
+		$columns['item_editing']       = __( 'Edit', 'woocommerce' );
 		$columns['automatic_trigger']  = __( 'Trigger', 'woocommerce_status_actions' );
-		$columns['orders']             = __( 'Orders', 'woocommerce_status_actions' );
+		$columns['orders']             = __( 'Orders', 'woocommerce' );
 
 		return $columns;
 	}
@@ -208,7 +208,7 @@ class WC_SA_Admin_Post_Types {
 			
 			if ( isset( $actions['inline hide-if-no-js'] ) ) {
 				unset( $actions['inline hide-if-no-js'] );
-				$actions['trash'] = sprintf('<a href="%1$s" aria-label="%2$s" class="submitdelete">%2$s</a>', admin_url('admin.php?page=wc_sa_delete_status&status_id[]=' . $post->ID), __('Delete permanently', 'woocommerce_status_actions') );
+				$actions['trash'] = sprintf('<a href="%1$s" aria-label="%2$s" class="submitdelete">%2$s</a>', admin_url('admin.php?page=wc_sa_delete_status&status_id[]=' . $post->ID), __('Delete permanently', 'woocommerce') );
 			}
 		}
 
@@ -315,7 +315,7 @@ class WC_SA_Admin_Post_Types {
 			jQuery(function() {
 				jQuery('select[name="action"] option[value="trash"], select[name="action2"] option[value="trash').remove();
 				jQuery('select[name="action"] option[value="edit"], select[name="action2"] option[value="edit').remove();
-				jQuery('<option>').val('wc_sa_delete_status').text('<?php _e('Delete permanently', 'woocommerce_status_actions'); ?>').appendTo('select[name="action"], select[name="action2"]');
+				jQuery('<option>').val('wc_sa_delete_status').text('<?php _e('Delete permanently', 'woocommerce'); ?>').appendTo('select[name="action"], select[name="action2"]');
 			});
 			</script>
 			<?php

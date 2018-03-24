@@ -90,7 +90,7 @@ class WC_Pos_Table_Sessions extends WP_List_Table
         $actions = array();
         if (current_user_can('manage_wc_point_of_sale')) {
             $actions = apply_filters('wc_pos_register_bulk_actions', array(
-                'delete' => __('Delete', 'woocommerce'),
+                'delete' => __('Delete', 'wc_point_of_sale'),
             ));
         }
         return $actions;
@@ -124,9 +124,12 @@ class WC_Pos_Table_Sessions extends WP_List_Table
         $sortable = $this->get_sortable_columns();
         $this->_column_headers = array($columns, $hidden, $sortable);
         $this->sort_columns();
+
+        $total_items = WC_POS()->session_reports()->get_total_items();
+
         $this->set_pagination_args(array(
-            'total_items' => WC_POS()->session_reports()->get_total_items(), //WE have to calculate the total number of items
-            'per_page' => $per_page //WE have to determine how many items to show on a page
+            'total_items' => $total_items,                  //WE have to calculate the total number of items
+            'per_page' => $per_page                     //WE have to determine how many items to show on a page
         ));
 
         $this->items = self::$data;

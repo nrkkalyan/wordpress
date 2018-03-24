@@ -62,7 +62,7 @@ if (!class_exists('WC_POS_Admin_Post_Actions')) :
         {
             if (!isset($_GET['page'])) return;
             if (!isset($_POST['action']) && !isset($_GET['action'])) return;
-            if (isset($_GET['page']) && $_GET['page'] != 'wc_pos_outlets') return;
+            if (isset($_GET['page']) && $_GET['page'] != WC_POS()->id_outlets) return;
 
             if (isset($_POST['action']) && $_POST['action'] == 'add-wc-pos-outlets') {
                 WC_POS()->outlet()->save_outlet();

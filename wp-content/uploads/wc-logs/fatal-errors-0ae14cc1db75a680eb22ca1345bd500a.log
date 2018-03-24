@@ -123,3 +123,12 @@ Stack trace:
 #5 /home/vagrant/hanghieu.test/wp-admin/menu.php(286): require_once('/home/vagrant/h...')
 #6 /home/vagrant/hanghieu.test/wp-admin/admin.php(140): require('/ho
 
+2018-03-23T17:15:44+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-advanced-shipping/includes/class-was-method.php:345
+Stack trace:
+#0 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-shipping-method.php(207): WAS_Advanced_Shipping_Method->calculate_shipping(Array)
+#1 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce/includes/class-wc-shipping.php(333): WC_Shipping_Method->get_rates_for_package(Array)
+#2 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce/includes/class-wc-shipping.php(260): WC_Shipping->calculate_shipping_for_package(Array, 0)
+#3 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce/includes/class-wc-cart.php(1251): WC_Shipping->calculate_shipping(Array)
+#4 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce/includes/class-wc-cart-totals.php(345): WC_Cart->calculate_shipping()
+#5 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce/includes/class-wc-cart-totals.php
+

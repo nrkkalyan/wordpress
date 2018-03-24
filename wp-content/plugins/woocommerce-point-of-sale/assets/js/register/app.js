@@ -1562,10 +1562,10 @@ jQuery(document).ready(function ($) {
                                             posPrintReceipt(data.order.print_url, $('#payment_print_gift_receipt').bootstrapSwitch('state'));
                                         }
                                     } else {
-                                        if (change_user) {
-                                            APP_auth_show();
-                                        }
-                                        wp.heartbeat.connectNow();
+                                        // if (change_user) {
+                                        //     APP_auth_show();
+                                        // }
+                                        // wp.heartbeat.connectNow();
                                     }
                                 }
                             }
@@ -1574,10 +1574,10 @@ jQuery(document).ready(function ($) {
                                 posPrintReceipt(data.order.print_url);
                             }
                         } else {
-                            if (change_user) {
-                                APP_auth_show();
-                            }
-                            wp.heartbeat.connectNow();
+                            // if (change_user) {
+                            //     APP_auth_show();
+                            // }
+                            // wp.heartbeat.connectNow();
                         }
 
                         //$('#payment_switch').bootstrapSwitch('state', print_receipt);

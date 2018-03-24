@@ -28,7 +28,7 @@ if (!class_exists('WC_Pos_Float_Cash')) :
             self::register_scripts();
 
             $this->register = $this->get_register_by_id(intval($register_id));
-            if (!isset($this->register)) {
+            if (!is_object($this->register)) {
                 $this->register = new stdClass();
             }
             $this->register->detail = json_decode($this->register->detail);
@@ -65,7 +65,7 @@ if (!class_exists('WC_Pos_Float_Cash')) :
             }
             $balance = 0;
             if (isset ($this->register->detail->opening_cash_amount) && $this->register->detail->opening_cash_amount && $this->register->detail->opening_cash_amount->status) {
-                $balance = $balance + $this->register->detail->opening_cash_amount->amount;
+                $balance = $balance + (float) $this->register->detail->opening_cash_amount->amount;
                 $this->cash_data[] = array(
                     'title' => __('Opening cash amount', 'wc_point_of_sale'),
                     'type' => 'opening_cash_amount',

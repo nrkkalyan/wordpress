@@ -15,48 +15,51 @@ function pos_admin_page()
     global $post_type;
     if ($post_type == 'product')
         return true;
+
     $pos_pages = array(
-        'wc_pos_settings',
-        'wc_pos_barcodes',
-        'wc_pos_receipts',
-        'wc_pos_users',
-        'wc_pos_tiles',
-        'wc_pos_outlets',
-        'wc_pos_registers',
-        'wc_pos_cash_management',
-        'wc_pos_bill_screen',
+        WC_POS()->id_settings,
+        WC_POS()->id_barcodes,
+        WC_POS()->id_receipts,
+        WC_POS()->id_users,
+        WC_POS()->id_tiles,
+        WC_POS()->id_grids,
+        WC_POS()->id_outlets,
+        WC_POS()->id_registers,
+        WC_POS()->id_stock_c,
+        WC_POS()->id_cash_management,
+        WC_POS()->id_bill_screen,
     );
     return isset($_GET['page']) && !empty($_GET['page']) && in_array($_GET['page'], $pos_pages);
 }
 
 function pos_tiles_admin_page()
 {
-    return isset($_GET['page']) && $_GET['page'] == 'wc_pos_tiles';
+    return isset($_GET['page']) && $_GET['page'] == WC_POS()->id_tiles;
 }
 
 function pos_receipts_admin_page()
 {
-    return isset($_GET['page']) && $_GET['page'] == 'wc_pos_receipts';
+    return isset($_GET['page']) && $_GET['page'] == WC_POS()->id_receipts;
 }
 
 function pos_barcodes_admin_page()
 {
-    return isset($_GET['page']) && $_GET['page'] == 'wc_pos_barcodes';
+    return isset($_GET['page']) && $_GET['page'] == WC_POS()->id_barcodes;
 }
 
 function pos_settings_admin_page()
 {
-    return isset($_GET['page']) && $_GET['page'] == 'wc_pos_settings';
+    return isset($_GET['page']) && $_GET['page'] == WC_POS()->id_settings;
 }
 
 function pos_cash_management_page()
 {
-    return isset($_GET['page']) && $_GET['page'] == 'wc_pos_cash_management';
+    return isset($_GET['page']) && $_GET['page'] == WC_POS()->id_cash_management;
 }
 
 function pos_bill_screen_page()
 {
-    return isset($_GET['page']) && $_GET['page'] == 'wc_pos_bill_screen';
+    return isset($_GET['page']) && $_GET['page'] == WC_POS()->id_bill_screen;
 }
 
 function pos_shop_order_page()
@@ -270,7 +273,9 @@ function pos_check_register_lock($register_id)
         return false;
 
     $row = $db_data[0];
+
     $user = $row->_edit_last;
+
     if (strtotime($row->opened) >= strtotime($row->closed) && $user != get_current_user_id()) {
         return $user;
     }
@@ -324,7 +329,7 @@ function set_outlet_taxable_address($address)
     $register_id = 0;
     if (isset($_POST['register_id']) && !empty($_POST['register_id'])) {
         $register_id = absint($_POST['register_id']);
-    } elseif (isset($_GET['page']) && $_GET['page'] == 'wc_pos_registers' && isset($_GET['action']) && $_GET['action'] == 'view' && isset($_GET['id']) && !empty($_GET['action'])) {
+    } elseif (isset($_GET['page']) && $_GET['page'] == WC_POS()->id_registers && isset($_GET['action']) && $_GET['action'] == 'view' && isset($_GET['id']) && !empty($_GET['action'])) {
         $register_id = absint($_GET['id']);
     }
     if ($register_id) {
@@ -844,7 +849,7 @@ if (!function_exists('is_pos')) {
         global $wp;
         if (isset($wp->query_vars)) {
             $q = $wp->query_vars;
-            if (isset($q['page']) && $q['page'] == 'wc_pos_registers' && isset($q['action']) && $q['action'] == 'view') {
+            if (isset($q['page']) && $q['page'] == WC_POS()->id_registers && isset($q['action']) && $q['action'] == 'view') {
                 return true;
             }
         }
@@ -1093,7 +1098,7 @@ function pos_logout($register_id = 0)
             $data = $data[0];
             if ($data['settings']['change_user']) {
                 pos_close_register($register_id);
-                wp_logout();
+                // wp_logout();
                 return true;
             }
         }

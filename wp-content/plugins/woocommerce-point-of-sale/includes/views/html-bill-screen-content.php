@@ -18,7 +18,7 @@
     </div>
     <div class="cart-total">
         <div class="row">
-            <?php _e('Subtotal', 'woocommerce') ?>
+            <?php _e('Subtotal', 'wc_point_of_sale') ?>
             <?php echo wc_price($register_cart['subtotal_ex_tax']); ?>
         </div>
         <div class="row">
@@ -26,7 +26,7 @@
             <?php echo wc_price($register_cart['tax_total']); ?>
         </div>
         <div class="row">
-            <?php _e('Total', 'woocommerce') ?>
+            <?php _e('Total', 'wc_point_of_sale') ?>
             <?php echo wc_price($register_cart['total']); ?>
         </div>
     </div>

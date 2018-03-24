@@ -23,13 +23,6 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
             'date' => '',
             'log' => array()
         );
-        private $force_updates = array(
-            '3.2.1' => 'wp-content/plugins/woocommerce-point-of-sale/includes/updates/wc_pos-update-3.2.1.php',
-            '3.2.2.0' => 'wp-content/plugins/woocommerce-point-of-sale/includes/updates/wc_pos-update-3.2.2.0.php',
-            '4.0.0' => 'wp-content/plugins/woocommerce-point-of-sale/includes/updates/wc_pos-update-4.0.0.php',
-            '4.1.9' => 'wp-content/plugins/woocommerce-point-of-sale/includes/updates/wc_pos-update-4.1.9.php',
-            '4.1.9.10' => 'wp-content/plugins/woocommerce-point-of-sale/includes/updates/wc_pos-update-4.1.9.10.php',
-        );
 
         /**
          * Constructor.
@@ -37,7 +30,7 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
         public function __construct()
         {
             $this->id = 'system_status';
-            $this->label = __('Advanced');
+            $this->label = __('Advanced', 'wc_point_of_sale');
 
             add_filter('wc_pos_settings_tabs_array', array($this, 'add_settings_page'), 20);
             add_action('woocommerce_sections_' . $this->id, array($this, 'output_sections'));
@@ -69,7 +62,7 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
                 <tbody>
                 <tr>
                     <td style="width: 30%;">
-                        <?php _e('Site URL', 'woocommerce') ?>:
+                        <?php _e('Site URL:', 'wc_point_of_sale') ?>
                     </td>
                     <td>
                         <?php echo get_site_url(); ?>
@@ -85,7 +78,7 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
                 </tr>
                 <tr>
                     <td>
-                        <?php _e('WordPress Version') ?>:
+                        <?php _e('WordPress Version:', 'wc_point_of_sale') ?>
                     </td>
                     <td>
                         <?php echo get_bloginfo('version'); ?>
@@ -93,7 +86,7 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
                 </tr>
                 <tr>
                     <td>
-                        <?php _e('Language') ?>:
+                        <?php _e('Language:', 'wc_point_of_sale') ?>
                     </td>
                     <td>
                         <?php echo get_locale(); ?>
@@ -221,14 +214,14 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
                 <thead>
                 <tr>
                     <th colspan="2">
-                        <b><?php _e('API', 'woocommerce') ?></b>
+                        <b><?php _e('API', 'wc_point_of_sale') ?></b>
                     </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td style="width: 30%;">
-                        <?php _e( 'Enable the REST API', 'woocommerce' ) ?>:
+                        <?php _e('API Enabled:', 'wc_point_of_sale') ?>
                     </td>
                     <td>
                         <?php echo 'yes' === get_option('woocommerce_api_enabled') ? '<mark class="yes"><span class="dashicons dashicons-yes"></span></mark>' : '<mark class="no">&ndash;</mark>'; ?>
@@ -246,11 +239,11 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
                 <tbody>
                 <tr>
                     <td style="width: 30%;">
-                        <?php _e('Setup wizard', 'woocommerce') ?>
+                        <?php _e('Setup Wizard:', 'wc_point_of_sale') ?>
                     </td>
                     <td>
                         <a class="button"
-                           href="<?php echo $admin_url; ?>admin.php?page=wc_pos-setup"><?php _e('Go', 'woocommerce' ); ?></a>
+                           href="<?php echo $admin_url; ?>admin.php?page=wc_pos-setup"><?php _e('Run Setup Wizard', 'wc_point_of_sale'); ?></a>
                     </
                     <br><span class="description"
                               style="margin-top: .5em; display: inline-block;"></<?php echo __('This tool will update the database to the latest version - useful when settings are not being applied as per configured in settings, registers, receipts and outlets.', 'wc_point_of_sale') ?></span>
@@ -267,13 +260,6 @@ if (!class_exists('WC_POS_Admin_System_Status')) :
         public function save()
         {
             $last_update['date'] = date('Y-m-d H:i');
-            foreach ($this->force_updates as $version => $update) {
-                include(ABSPATH . $update);
-                if (isset($result)) {
-                    $last_update['log'][$version] = $result;
-                    unset($result);
-                }
-            }
             update_option('wc_pos_last_force_db_update', $last_update);
         }
 

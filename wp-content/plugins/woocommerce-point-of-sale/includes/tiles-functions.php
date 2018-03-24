@@ -59,7 +59,7 @@ function the_grid_layout_cycle($grid, $ret = false)
         $is_all = true;
         $grid = (object)array(
             'ID' => 1,
-            'name' => __('Products', 'woocommerce'),
+            'name' => __('All Products', 'wc_point_of_sale'),
         );
         global $wpdb;
         $default_order = get_option('wc_pos_default_tile_orderby');

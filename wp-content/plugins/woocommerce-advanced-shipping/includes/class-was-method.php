@@ -338,13 +338,13 @@ class WAS_Advanced_Shipping_Method extends WC_Shipping_Method
         
         if (false == $this->matched_methods || ! is_array($this->matched_methods) || 'no' == $this->enabled)
             return;
-        
+
         foreach ($this->matched_methods as $method_id) :
-            
+            $match_post = get_post($method_id);
             $match_details = get_post_meta($method_id, '_was_shipping_method', true);
-            $label = empty($match_details['shipping_title']) ? __('Shipping', 'woocommerce-advanced-shipping') : $match_details['shipping_title'];
-            if (! empty($match_details['shipping_description'])) {
-                $label .= ' (' . $match_details['shipping_description'] . ')';
+            $label = empty($match_post->post_title) ? __('Shipping', 'woocommerce-advanced-shipping') : $match_post->post_title;
+            if (! empty($match_details['shipping_title'])) {
+                $label .= ' (' . $match_details['shipping_title'] . ')';
             }
             $this->fee = str_replace(',', '.', $match_details['handling_fee']);
             $this->cost = str_replace(',', '.', $match_details['shipping_cost']);

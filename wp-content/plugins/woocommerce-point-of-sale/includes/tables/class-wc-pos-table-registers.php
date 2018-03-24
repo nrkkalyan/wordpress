@@ -77,7 +77,7 @@ class WC_Pos_Table_Registers extends WP_List_Table
             'print_receipt' => '<span class="print_receipt_head tips" data-tip="' . esc_attr__('Print Receipt', 'wc_point_of_sale') . '">' . esc_attr__('Print Receipt', 'wc_point_of_sale') . '</span>',
             'note_request' => '<span class="note_request_head tips" data-tip="' . esc_attr__('Note Request', 'wc_point_of_sale') . '">' . esc_attr__('Note Request', 'wc_point_of_sale') . '</span>',
             'cash_management' => '<span class="cash_management_head tips" data-tip="' . esc_attr__('Cash Management', 'wc_point_of_sale') . '">' . esc_attr__('Cash Management', 'wc_point_of_sale') . '</span>',
-            'access' => __('Login', 'woocommerce'),
+            'access' => __('Access', 'wc_point_of_sale'),
         );
         if (!current_user_can('manage_wc_point_of_sale')) {
             unset($columns['cb']);
@@ -106,7 +106,7 @@ class WC_Pos_Table_Registers extends WP_List_Table
         $actions = array();
         if (current_user_can('manage_wc_point_of_sale')) {
             $actions = apply_filters('wc_pos_register_bulk_actions', array(
-                'delete' => __('Delete', 'woocommerce'),
+                'delete' => __('Delete', 'wc_point_of_sale'),
             ));
         }
         return $actions;
@@ -125,8 +125,8 @@ class WC_Pos_Table_Registers extends WP_List_Table
         $actions = array();
         if (current_user_can('manage_wc_point_of_sale')) {
             $actions = array(
-                'edit' => sprintf('<a href="?page=%s&action=%s&id=%s">' . __('Edit') . '</a>', WC_POS()->id_registers, 'edit', $item['ID']),
-                'delete' => sprintf('<a href="?page=%s&action=%s&id=%s">' . __('Delete') . '</a>', WC_POS()->id_registers, 'delete', $item['ID']),
+                'edit' => sprintf('<a href="?page=%s&action=%s&id=%s">Edit</a>', WC_POS()->id_registers, 'edit', $item['ID']),
+                'delete' => sprintf('<a href="?page=%s&action=%s&id=%s">Delete</a>', WC_POS()->id_registers, 'delete', $item['ID']),
             );
         }
         if (current_user_can('manage_wc_point_of_sale')) {
@@ -284,11 +284,13 @@ class WC_Pos_Table_Registers extends WP_List_Table
         $error_string = '';
         $detail_fields = WC_Pos_Registers::$register_detail_fields;
         $detail_data = $item['detail'];
-        $grid_template = '';
         if (isset($detail_fields['grid_template']['options'][$detail_data['grid_template']]))
             $grid_template = $detail_fields['grid_template']['options'][$detail_data['grid_template']];
+        else
+            $grid_template = '';
 
         $receipt_template = $detail_fields['receipt_template']['options'][$detail_data['receipt_template']];
+
         $outlets_name = WC_POS()->outlet()->get_data_names();
 
         if (!$grid_template)
@@ -299,14 +301,12 @@ class WC_Pos_Table_Registers extends WP_List_Table
             $error_string .= '<b>Outlet </b> is required';
 
         if (!empty($error_string)) {
-            return '<a class="button tips closed-register" data-tip="' . $error_string . '" class="register_not_full" >' . __('Close', 'woocommerce') . '</button> <span style="display: none;">' . $error_string . '</span>';
-        }
-
-        if (pos_check_user_can_open_register($item['ID']) && !pos_check_register_lock($item['ID']) && WC_POS()->wc_api_is_active) {
+            return '<a class="button tips closed-register" data-tip="' . $error_string . '" class="register_not_full" >Closed Register</button> <span style="display: none;">' . $error_string . '</span>';
+        } elseif (pos_check_user_can_open_register($item['ID']) && !pos_check_register_lock($item['ID']) && WC_POS()->wc_api_is_active) {
 
             $btn_text = __('Open', 'wc_point_of_sale');
             if (pos_check_register_is_open($item['ID'])) {
-                $btn_text = __('Open', 'wc_point_of_sale');
+                $btn_text = __('Enter', 'wc_point_of_sale');
             }
             $outlet = sanitize_title($outlets_name[$item['outlet']]);
             $register = $item['slug'];
@@ -325,23 +325,25 @@ class WC_Pos_Table_Registers extends WP_List_Table
             if (is_ssl() || get_option('woocommerce_pos_force_ssl_checkout') == 'yes') {
                 $register_url = str_replace('http:', 'https:', $register_url);
             }
-            return '<a class="button tips ' . $btn_text . '-register" href="' . $register_url . '" data-tip="' . $btn_text . '" >' . $btn_text . '</a>';
+            return '<a class="button tips ' . $btn_text . '-register" href="' . $register_url . '" data-tip="' . $btn_text . ' Register" >' . $btn_text . '</a>';
 
         } else {
             if (!WC_POS()->wc_api_is_active) {
                 $btn_text = __('Open', 'wc_point_of_sale');
                 return '<a class="button tips open-register" data-tip="' . __('The WooCommerce API is disabled on this site.', 'wc_point_of_sale') . '" disabled>' . $btn_text . '</button>';
-            } 
-            $userid = pos_check_register_lock($item['ID']);
-            $user = get_userdata($userid);
-            $btn_text = __('Open', 'wc_point_of_sale');
-            if ($user) {
-                $name = trim($user->first_name . ' ' . $user->last_name);
-                if ($name == '')
-                    $name = $user->user_nicename;
-                return '<a class="button tips open-register" data-tip="' . $name . ' is currently logged on this register." disabled>' . $btn_text . '</button>';
+            } else {
+                $userid = pos_check_register_lock($item['ID']);
+                $user = get_userdata($userid);
+                $btn_text = __('Open', 'wc_point_of_sale');
+                if ($user) {
+                    $name = trim($user->first_name . ' ' . $user->last_name);
+                    if ($name == '')
+                        $name = $user->user_nicename;
+                    return '<a class="button tips open-register" data-tip="' . $name . ' is currently logged on this register." disabled>' . $btn_text . '</button>';
+                } else {
+                    return '<a class="button tips open-register" data-tip="You are not assigned to this outlet" disabled>' . $btn_text . '</button>';
+                }
             }
-            return '<a class="button tips open-register" data-tip="You are not assigned to this outlet" disabled>' . $btn_text . '</button>';
         }
     }
 

@@ -133,7 +133,7 @@ if (!class_exists('WC_Pos_Tiles')) :
                         <tbody>
                         <tr class="form-field form-required">
                             <th valign="top" scope="row">
-                                <label for="product_id"><?php _e('Product', 'woocommerce'); ?></label>
+                                <label for="product_id"><?php _e('Product', 'wc_point_of_sale'); ?></label>
                             </th>
                             <td>
                                 <?php
@@ -410,31 +410,26 @@ if (!class_exists('WC_Pos_Tiles')) :
         function save_tile($data, $cat = false)
         {
             global $wpdb;
-            
             extract($data);
-            
             // Error checking
             $grid_exists = wc_point_of_sale_tiles_product_exists($grid_id, $product_id, $default_selection);
-            if (!$product_id) :
-                if (!$cat) :
+            if (!$product_id) {
+                if (!$cat)
                     $error = sprintf(__('Please select product.', 'wc_point_of_sale'), sanitize_title(' '));
-                else :
+                else
                     return false;
-                endif;
-            else :
-                if ($grid_exists) :
-                    if (!$cat) :
+            } else
+                if ($grid_exists) {
+                    if (!$cat)
                         $error = sprintf(__('Selected product is already added. Change it, please.', 'wc_point_of_sale'), sanitize_title(' '));
-                    else :
+                    else
                         return true;
-                    endif;
-                endif;
-            endif;
-            
+                }
+
             // Show the error message if any
-            if (!empty($error)) :
+            if (!empty($error)) {
                 echo '<div id="woocommerce_errors" class="error fade"><p>' . $error . '</p></div>';
-            else :
+            } else {
                 $table_name = $wpdb->prefix . 'wc_poin_of_sale_tiles';
                 $order_position = 1;
                 $position = get_last_position_of_tile($grid_id);
@@ -451,7 +446,7 @@ if (!class_exists('WC_Pos_Tiles')) :
                 );
                 // insert gird layout data  its table "wp_wc_poin_of_sale_grids"
                 return $wpdb->insert($table_name, $tiles);
-            endif;
+            }
         }
 
         /**
@@ -520,26 +515,24 @@ if (!class_exists('WC_Pos_Tiles')) :
                                                     $product_id = $title->default_selection;
                                                 else
                                                     $product_id = $title->product_id;
-                                                
                                                 $i++;
                                                 $t++;
-                                                
-                                                if ($t == 1) echo '<div><table><tbody>';
+                                                if ($t == 1) {
+                                                    echo '<div><table><tbody>';
+                                                }
                                                 if ($i == 1) echo '<tr>';
-                                                
-                                                if ($title->style == 'image') :
+                                                if ($title->style == 'image') {
                                                     $image = '';
                                                     $size = 'shop_thumbnail';
-                                                    if (has_post_thumbnail($product_id)) :
+                                                    if (has_post_thumbnail($product_id)) {
                                                         $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($product_id), $size);
                                                         $image = $thumbnail[0];
-                                                    elseif (($parent_id = wp_get_post_parent_id($product_id)) && has_post_thumbnail($parent_id)) :
+                                                    } elseif (($parent_id = wp_get_post_parent_id($product_id)) && has_post_thumbnail($parent_id)) {
                                                         $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($parent_id), $size);
                                                         $image = $thumbnail[0];
-                                                    else :
+                                                    } else {
                                                         $image = wc_placeholder_img_src();
-                                                    endif;
-                                                    
+                                                    }
                                                     if (!$image || $image == NULL) $image = wc_placeholder_img_src();
 
                                                     ?>
@@ -550,7 +543,7 @@ if (!class_exists('WC_Pos_Tiles')) :
                                                            data-id="<?php echo $product_id; ?>"><?php echo get_the_title($title->product_id); ?></a>
                                                     </td>
                                                     <?php
-                                                else : ?>
+                                                } else { ?>
                                                     <td id="title_<?php echo $title->ID ?>"
                                                         style="background: #<?php echo $title->background; ?>; "
                                                         class="title_product">
@@ -558,20 +551,20 @@ if (!class_exists('WC_Pos_Tiles')) :
                                                            data-id="<?php echo $product_id; ?>"><?php echo get_the_title($title->product_id); ?></a>
                                                     </td>
                                                     <?php
-                                                endif;
+                                                }
 
-                                                if ($i == 5) :
+                                                if ($i == 5) {
                                                     echo '</tr>';
                                                     $i = 0;
 
-                                                    if ($t == 25) :
+                                                    if ($t == 25) {
                                                         $t = 0;
                                                         echo '</tbody></table></div>';
-                                                    endif;
-                                                endif;
+                                                    }
+                                                };
 
                                             endforeach;
-                                            if ($i != 0) :
+                                            if ($i != 0) {
                                                 $j = $i + 1;
                                                 for ($j; $j <= 5; $j++) :
                                                     ?>
@@ -580,12 +573,12 @@ if (!class_exists('WC_Pos_Tiles')) :
                                                     if ($j == 5) echo '</tr>';
                                                 endfor;
                                                 echo '</tbody></table></div>';
-                                            else :
-                                                if ($t != 0) :
+                                            } else {
+                                                if ($t != 0) {
                                                     $t = 0;
                                                     echo '</tbody></table></div>';
-                                                endif;
-                                            endif;
+                                                }
+                                            }
                                         endif;
                                         ?>
                                     </div>
@@ -626,14 +619,14 @@ if (!class_exists('WC_Pos_Tiles')) :
                                                 <label for="products_opt">
                                                     <input type="radio" id="products_opt" name="products_or_cat"
                                                            value="product" checked/>
-                                                    <?php _e('Product', 'woocommerce'); ?>
+                                                    <?php _e('Product', 'wc_point_of_sale'); ?>
                                                 </label>
                                             </li>
                                             <li>
                                                 <label for="category_opt">
                                                     <input type="radio" id="category_opt" name="products_or_cat"
                                                            value="category"/>
-                                                    <?php _e('Category', 'woocommerce'); ?>
+                                                    <?php _e('Category', 'wc_point_of_sale'); ?>
                                                 </label>
                                             </li>
                                         </ul>
@@ -656,12 +649,12 @@ if (!class_exists('WC_Pos_Tiles')) :
                                                     name="category_id">
                                                 <option value=""><? _e('Select category', 'wc_point_of_sale'); ?></option>
                                                 <?php
-                                                if (!empty($terms)) :
-                                                    foreach ($terms as $term) : ?>
+                                                if (!empty($terms)) {
+                                                    foreach ($terms as $term) { ?>
                                                         <option value="<?php echo $term->term_id; ?>"><?php echo $term->name; ?></option>
                                                         <?php
-                                                    endforeach;
-                                                endif;
+                                                    }
+                                                }
                                                 ?>
                                             </select>
                                             <p class="description"><?php _e('Select the product category which contains the products you want to add.', 'wc_point_of_sale'); ?></p>
@@ -669,7 +662,7 @@ if (!class_exists('WC_Pos_Tiles')) :
                                     </div>
                                     <div id="products_opt_wrap">
                                         <div class="form-field">
-                                            <label for="product_id"><?php _e('Product', 'woocommerce'); ?></label>
+                                            <label for="product_id"><?php _e('Product', 'wc_point_of_sale'); ?></label>
                                             <select id="product_id" name="product_id"
                                                     class="wc-product-search ajax_chosen_input_products"
                                                     style="width: 400px;"
@@ -768,35 +761,34 @@ if (!class_exists('WC_Pos_Tiles')) :
             $orderby = '';
             $join = '';
             $grid_id = 0;
-            if (!empty($ids)) :
-                if (is_array($ids)) :
+            if (!empty($ids)) {
+                if (is_array($ids)) {
                     $ids = implode(',', array_map('intval', $ids));
                     $filter .= "WHERE ID IN  == ($ids)";
-                else :
+                } else {
                     $filter .= "WHERE ID = $ids";
-                endif;
-            else:
-                if (isset($_GET['grid_id']) && !empty($_GET['grid_id'])) :
-                    $grid_id = $_GET['grid_id'];
-                    $grid_t = $wpdb->prefix . "wc_poin_of_sale_grids";
-                    $sort = $wpdb->get_var("SELECT sort_order FROM $grid_t WHERE ID = {$grid_id} LIMIT 1");
-                    switch ($sort) :
-                        case 'name':
-                            $join .= " LEFT JOIN {$wpdb->posts} prod ON (prod.ID = tiles_t.product_id)";
-                            $orderby .= ' ORDER BY prod.post_title ASC';
-                            break;
-                        default:
-                            $orderby .= ' ORDER BY order_position ASC';
-                            break;
-                    endswitch;
-    
-                    if (empty($filter))
-                        $filter .= "WHERE grid_id = $grid_id";
-                    else
-                        $filter .= " AND grid_id = $grid_id";
-    
-                endif;
-            endif;
+                }
+            } else if (isset($_GET['grid_id']) && !empty($_GET['grid_id'])) {
+                $grid_id = $_GET['grid_id'];
+
+                $grid_t = $wpdb->prefix . "wc_poin_of_sale_grids";
+                $sort = $wpdb->get_var("SELECT sort_order FROM $grid_t WHERE ID = {$grid_id} LIMIT 1");
+                switch ($sort) {
+                    case 'name':
+                        $join .= " LEFT JOIN {$wpdb->posts} prod ON (prod.ID = tiles_t.product_id)";
+                        $orderby .= ' ORDER BY prod.post_title ASC';
+                        break;
+                    default:
+                        $orderby .= ' ORDER BY order_position ASC';
+                        break;
+                }
+
+                if (empty($filter))
+                    $filter .= "WHERE grid_id = $grid_id";
+                else
+                    $filter .= " AND grid_id = $grid_id";
+
+            }
 
             if (empty($orderby))
                 $orderby = ' ORDER BY order_position ASC';
@@ -804,10 +796,10 @@ if (!class_exists('WC_Pos_Tiles')) :
             $table_name = $wpdb->prefix . "wc_poin_of_sale_tiles";
             $db_data = $wpdb->get_results("SELECT tiles_t.* FROM {$table_name} as tiles_t {$join} {$filter} {$orderby}");
             $data = array();
-            foreach ($db_data as $value) :
+
+            foreach ($db_data as $value) {
                 $data[] = get_object_vars($value);
-            endforeach;
-            
+            }
             return $data;
         }
 

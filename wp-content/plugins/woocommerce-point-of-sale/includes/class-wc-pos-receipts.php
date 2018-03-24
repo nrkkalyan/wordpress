@@ -127,7 +127,7 @@ if (!class_exists('WC_Pos_Receipts')) :
                 'served_by_label' => __('Served by', 'wc_point_of_sale'),
                 'served_by_type' => 'username',
                 'tax_label' => __('Tax', 'wc_point_of_sale'),
-                'total_label' => __('Total', 'woocommerce'),
+                'total_label' => __('Total', 'wc_point_of_sale'),
                 'payment_label' => __('Sales', 'wc_point_of_sale'),
                 'print_number_items' => 'yes',
                 'items_label' => __('Number of Items', 'wc_point_of_sale'),
@@ -741,7 +741,7 @@ if (!class_exists('WC_Pos_Receipts')) :
                                                         <select id="receipt_served_by_type"
                                                                 name="receipt_served_by_type">
                                                             <option value="username" <?php selected($receipt_options['served_by_type'], 'username', true); ?> >
-                                                                <?php _e('Username'); ?>
+                                                                <?php _e('Username', 'wc_point_of_sale'); ?>
                                                             </option>
                                                             <option value="display_name" <?php selected($receipt_options['served_by_type'], 'display_name', true); ?> >
                                                                 <?php _e('Display Name', 'wc_point_of_sale'); ?>
@@ -800,7 +800,7 @@ if (!class_exists('WC_Pos_Receipts')) :
                                                 <tr>
                                                     <td>
                                                         <label class="receipt_labels"
-                                                               for="receipt_total_label"><?php _e('Total Label', 'woocommerce'); ?></label>
+                                                               for="receipt_total_label"><?php _e('Total Label', 'wc_point_of_sale'); ?></label>
                                                     </td>
                                                     <td>
                                                         <input type="text" id="receipt_total_label"

@@ -16,19 +16,6 @@ if (!defined('ABSPATH')) {
  */
 class WC_POS_Install
 {
-
-    /** @var array DB updates that need to be run */
-    public static $db_updates = array(
-        '3.0.9' => 'updates/wc_pos-update-3.0.9.php',
-        '3.1.4' => 'updates/wc_pos-update-3.1.4.php',
-        '3.2.1' => 'updates/wc_pos-update-3.2.1.php',
-        '3.2.2.0' => 'updates/wc_pos-update-3.2.2.0.php',
-        '3.2.6.4' => 'updates/wc_pos-update-3.2.6.4.php',
-        '4.0.0' => 'updates/wc_pos-update-4.0.0.php',
-        '4.1.9' => 'updates/wc_pos-update-4.1.9.php',
-        '4.1.9.10' => 'updates/wc_pos-update-4.1.9.10.php',
-    );
-
     /**
      * Hook in tabs.
      */
@@ -94,8 +81,6 @@ class WC_POS_Install
 
         // Queue upgrades/setup wizard
         $current_version = get_option('wc_pos_db_version', null);
-        #$major_cur_version = substr( $current_version, 0, strrpos( $current_version, '.' ) );
-        #$major_version     = substr( WC_POS_VERSION, 0, strrpos( WC_POS_VERSION, '.' ) );
 
         // No versions? This is a new install :)
         if (is_null($current_version) && apply_filters('wc_pos_enable_setup_wizard', true)) {
@@ -127,9 +112,6 @@ class WC_POS_Install
 
         // Trigger action
         do_action('wc_pos_installed');
-        /*if (self::check_major_update()) {
-            wp_redirect(admin_url('admin.php?page=wc_pos_update_log'));
-        }*/
     }
 
     /**
@@ -137,13 +119,6 @@ class WC_POS_Install
      */
     public static function update()
     {
-        $current_db_version = get_option('wc_pos_db_version');
-        foreach (self::$db_updates as $version => $updater) {
-            if (version_compare($current_db_version, $version, '<')) {
-                include($updater);
-                self::update_pos_version($version);
-            }
-        }
         self::update_pos_version();
     }
 
@@ -445,11 +420,6 @@ class WC_POS_Install
     public static function update_options()
     {
         add_option('wc_pos_guest_checkout', 'yes');
-        /*$pos_base_country = get_option('wc_pos_default_country');
-        if( !$pos_base_country || empty($pos_base_country) ){
-          $wc_base_country  = WC()->countries->get_base_country();
-          update_option('wc_pos_default_country', $wc_base_country);
-        }*/
     }
 
     /**

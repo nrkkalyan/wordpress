@@ -75,7 +75,7 @@ class WC_Pos_Table_Outlets extends WP_List_Table {
 
   function get_bulk_actions() {
     $actions = apply_filters( 'wc_pos_outlet_bulk_actions', array(
-      'delete' => __( 'Delete', 'woocommerce' ),
+      'delete' => __( 'Delete', 'wc_point_of_sale' ),
     ) );
     return $actions;
   }
@@ -92,9 +92,9 @@ class WC_Pos_Table_Outlets extends WP_List_Table {
 
   function column_name( $item ) {
     
-    $actions['edit'] = sprintf('<a href="?page=%s&action=%s&id=%s">' . __('Edit') . '</a>','wc_pos_outlets','edit', $item['ID']);
+    $actions['edit'] = sprintf('<a href="?page=%s&action=%s&id=%s">Edit</a>','wc_pos_outlets','edit', $item['ID']);
     if(wc_pos_check_can_delete('outlet', $item['ID'])){
-      $actions['delete'] = sprintf('<a href="?page=%s&action=%s&id=%s">' . __('Delete') . '</a>','wc_pos_outlets','delete', $item['ID']);
+      $actions['delete'] = sprintf('<a href="?page=%s&action=%s&id=%s">Delete</a>','wc_pos_outlets','delete', $item['ID']);
     }
     $item['contact']['first_name'] = '';
     $item['contact']['last_name'] = '';
@@ -172,7 +172,7 @@ class WC_Pos_Table_Outlets extends WP_List_Table {
     $current_page = $this->get_pagenum();
 
     $total_items = count( self::$data );
-    if( $_GET['page'] == 'wc_pos_outlets' ){
+    if( $_GET['page'] == WC_POS()->id_outlets ){
       // only ncessary because we have sample data
       $this->found_data = array_slice( self::$data,( ( $current_page-1 )* $per_page ), $per_page );
 

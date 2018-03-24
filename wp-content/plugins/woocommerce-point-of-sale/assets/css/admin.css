@@ -1879,12 +1879,9 @@ td.dafault_selection #variation {
     text-align: left;
 }
 
-#modal-add_product_custom_meta #product_custom_title td.product_title input {
-    width: 100%;
-}
-
+#modal-add_product_custom_meta #product_custom_title td.product_title input,
 #modal-add_product_custom_meta #product_custom_title th.product_title {
-    min-width: 80%;
+    width: 100%;
 }
 
 #custom_shipping_table th.shipping_price,
@@ -1941,8 +1938,7 @@ table#selected-variation-data td {
     padding: 1em;
     border-bottom: 1px solid #e5e5e5;
 }
-#modal-add_product_custom_meta td.product_is_taxable,
-#modal-add_product_custom_meta td.product_tax_class {
+#modal-add_product_custom_meta td.product_is_taxable {
     text-align: center;
 }
 

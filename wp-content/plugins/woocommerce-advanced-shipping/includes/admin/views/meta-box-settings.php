@@ -19,29 +19,18 @@ $settings = get_post_meta( $post->ID, '_was_shipping_method', true );
 ?><div class="was was_settings was_meta_box was_settings_meta_box">
 
 	<p class="was-option">
-		<label for="shipping_title"><?php _e( 'Shipping title', 'woocommerce-advanced-shipping' ); ?></label>
-		<input
+		<label for="shipping_title"><?php _e( 'Description', 'woocommerce' ); ?></label>
+		<textarea
 			type="text"
 			id="shipping_title"
 			name="_was_shipping_method[shipping_title]"
 			style="width: 190px;"
-			value="<?php echo esc_attr( @$settings['shipping_title'] ); ?>" placeholder="<?php _e( 'e.g. Shipping', 'woocommerce-advanced-shipping' ); ?>"
-		>
-	</p>
-	
-	<p class="was-option">
-		<label for="shipping_description"><?php _e( 'Shipping description', 'woocommerce-advanced-shipping' ); ?></label>
-		<textarea
-			type="text"
-			id="shipping_description"
-			name="_was_shipping_method[shipping_description]"
-			style="width: 190px;"
-			placeholder="<?php _e( 'e.g. Shipping', 'woocommerce-advanced-shipping' ); ?>"><?php echo esc_attr( @$settings['shipping_description'] ); ?></textarea>
+            placeholder="<?php _e( 'e.g. Shipping', 'woocommerce-advanced-shipping' ); ?>"><?php echo esc_attr( @$settings['shipping_title'] ); ?></textarea>
 	</p>
 
 
 	<p class="was-option">
-		<label for="cost"><?php _e( 'Shipping cost', 'woocommerce-advanced-shipping' ); ?></label>
+		<label for="cost"><?php _e( 'Cost', 'woocommerce' ); ?></label>
 		<span class="wpc-currency"><?php echo get_woocommerce_currency_symbol(); ?></span>
 		<input
 			type="text"
@@ -97,10 +86,10 @@ $settings = get_post_meta( $post->ID, '_was_shipping_method', true );
 
 
 	<p class="was-option">
-		<label for="tax"><?php _e( 'Tax status', 'woocommerce-advanced-shipping' ); ?></label>
+		<label for="tax"><?php _e( 'Taxable', 'woocommerce' ); ?></label>
 		<select name="_was_shipping_method[tax]" style="width: 189px;">
-			<option value="taxable" <?php @selected( $settings['tax'], 'taxable' ); ?>><?php _e( 'Taxable', 'woocommerce-advanced-shipping' ); ?></option>
-			<option value="not_taxable" <?php @selected( $settings['tax'], 'not_taxable' ); ?>><?php _e( 'Not taxable', 'woocommerce-advanced-shipping' ); ?></option>
+			<option value="taxable" <?php @selected( $settings['tax'], 'taxable' ); ?>><?php _e( 'Yes', 'woocommerce' ); ?></option>
+			<option value="not_taxable" <?php @selected( $settings['tax'], 'not_taxable' ); ?>><?php _e( 'No', 'woocommerce' ); ?></option>
 		</select>
 	</p><?php
 

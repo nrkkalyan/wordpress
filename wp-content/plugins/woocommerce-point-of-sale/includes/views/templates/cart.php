@@ -7,9 +7,9 @@
 <script type="text/template" id="tmpl-cart-product-item">
     <tr class="item new_row {{{cart_item_data.data.type}}}" id="{{cart_item_key}}">
         <td class="name">
-            <a href="#" class="remove_order_item button tips" data-tip="<?php _e('Remove', 'woocommerce'); ?>"></a>
+            <a href="#" class="remove_order_item button tips" data-tip="<?php _e('Remove', 'wc_point_of_sale'); ?>"></a>
             {{#if editable}}
-            <a href="#" class="add_custom_meta button tips" data-tip="<?php _e('Edit'); ?>"></a>
+            <a href="#" class="add_custom_meta button tips" data-tip="<?php _e('Edit', 'wc_point_of_sale'); ?>"></a>
             {{/if}}
 	        {{displayProductItemImage}}
             <span class="product_name_register">{{displayProductItemTitle}}</span>
@@ -94,13 +94,15 @@
                 <input type="hidden" id="pos_c_billing_addr" value='<?php echo esc_attr(json_encode($b_addr)); ?>'/>
                 <input type="hidden" id="pos_c_shipping_addr" value='<?php echo esc_attr(json_encode($s_addr)); ?>'/>
             </td>
-            <?php if (isset($GLOBALS['wc_points_rewards'])) :
+            <?php if (isset($GLOBALS['wc_points_rewards'])) {
                 global $wc_points_rewards;
                 $points_label = $wc_points_rewards->get_points_label(2);
                 $points_balance = WC_Points_Rewards_Manager::get_users_points($user_to_add);
                 ?>
-                <td class="customer_points"><span class="customer_points_label"><b><?php echo $points_balance; ?></b> <?php echo $points_label; ?></span></td>
-            <?php endif; ?>
+                <td class="customer_points"><span
+                            class="customer_points_label"><b><?php echo $points_balance; ?></b> <?php echo $points_label; ?></span>
+                </td>
+            <?php } ?>
 
             <td class="remove_customer">
                 <a href="#" class="remove_customer_row tips" data-tip="<?php _e('Remove', 'wc_point_of_sale'); ?>"></a>
@@ -111,7 +113,7 @@
         <tr class="item new_row" data-customer_id="0">
             <td class="avatar">
                 <?php echo get_avatar(0, 64); ?>
-            <td class="name"><?php _e('Guest', 'woocommerce'); ?></td>
+            <td class="name"><?php _e('Guest', 'wc_point_of_sale'); ?></td>
             <?php if (isset($GLOBALS['wc_points_rewards'])) { ?>
                 <td class="customer_points"></td>
             <?php } ?>
@@ -126,7 +128,7 @@
     <tr class="item" data-customer_id="0">
         <td class="avatar">
             <?php echo get_avatar(0, 64); ?>
-        <td class="name"><?php _e('Guest', 'woocommerce'); ?></td>
+        <td class="name"><?php _e('Guest', 'wc_point_of_sale'); ?></td>
         <?php if (isset($GLOBALS['wc_points_rewards'])) { ?>
             <td class="customer_points"></td>
         <?php } ?>

@@ -50,7 +50,7 @@ class WAS_Post_Type {
 		$labels = array(
 			'name'               => __( 'Advanced Shipping methods', 'woocommerce-advanced-shipping' ),
 			'singular_name'      => __( 'Advanced Shipping method', 'woocommerce-advanced-shipping' ),
-			'add_new'            => __( 'Add New', 'woocommerce-advanced-shipping' ),
+			'add_new'            => __( 'Add New', 'woocommerce' ),
 			'add_new_item'       => __( 'Add New Advanced Shipping method', 'woocommerce-advanced-shipping' ),
 			'edit_item'          => __( 'Edit Advanced Shipping method', 'woocommerce-advanced-shipping' ),
 			'new_item'           => __( 'New Advanced Shipping method', 'woocommerce-advanced-shipping' ),
@@ -133,8 +133,8 @@ class WAS_Post_Type {
 	 */
 	public function was_post_type_meta_box() {
 
-		add_meta_box( 'was_conditions', __( 'Advanced Shipping conditions', 'woocommerce-advanced-shipping' ), array( $this, 'render_was_conditions' ), 'was', 'normal' );
-		add_meta_box( 'was_settings', __( 'Shipping settings', 'woocommerce-advanced-shipping' ), array( $this, 'render_was_settings' ), 'was', 'normal' );
+		add_meta_box( 'was_conditions', __( 'Conditions', 'woocommerce' ), array( $this, 'render_was_conditions' ), 'was', 'normal' );
+		add_meta_box( 'was_settings', __( 'Settings', 'woocommerce' ), array( $this, 'render_was_settings' ), 'was', 'normal' );
 
 	}
 
@@ -205,7 +205,6 @@ class WAS_Post_Type {
 
 		$shipping_method                    = $_POST['_was_shipping_method'];
 		$shipping_method['shipping_title']  = sanitize_text_field( $shipping_method['shipping_title'] );
-		$shipping_method['shipping_description']  = sanitize_text_field( $shipping_method['shipping_description'] );
 		$shipping_method['shipping_cost']   = preg_replace( '/[^0-9\%\.\,\-]/', '', $shipping_method['shipping_cost'] );
 		$shipping_method['handling_fee']    = preg_replace( '/[^0-9\%\.\,\-]/', '', $shipping_method['handling_fee'] );
 		$shipping_method['cost_per_weight'] = wc_format_decimal( $shipping_method['cost_per_weight'] );

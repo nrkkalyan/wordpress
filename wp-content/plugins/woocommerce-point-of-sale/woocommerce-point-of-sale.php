@@ -1,6 +1,7 @@
 <?php
 /**
  * Plugin Name: WooCommerce Point of Sale
+ * Plugin URI: http://codecanyon.net/item/woocommerce-point-of-sale-pos/7869665&ref=actualityextensions/
  * Description: WooCommerce Point of Sale is an extension which allows you to place orders through a Point of Sale interface swiftly using the WooCommerce products and orders database. This extension is most suitable for retailers who have both an online and offline store.
  * Version: 4.2.6
  * Author: Actuality Extensions
@@ -45,7 +46,8 @@ require_once('includes/class-wc-pos.php');
  * @return object WC_POS
  */
 add_filter('woocommerce_stock_amount', 'floatval', 1);
-function WC_POS() {
+function WC_POS()
+{
     return WC_POS::instance(__FILE__, '4.2.5.8');
 }
 
@@ -58,6 +60,6 @@ $GLOBALS['wc_pos'] = WC_POS();
 
 register_deactivation_hook(__FILE__,  'wc_pos_deactivate');
 
-function wc_pos_deactivate() {
+function wc_pos_deactivate(){
     wp_delete_post((int)get_option('wc_pos_custom_product_id'), true);
 }

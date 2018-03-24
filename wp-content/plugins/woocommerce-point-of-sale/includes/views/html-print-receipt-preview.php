@@ -238,11 +238,11 @@
     <table class="receipt_items">
         <thead>
         <tr>
-            <th><?php _e('Qty', 'woocommerce'); ?></th>
+            <th><?php _e('Qty', 'wc_point_of_sale'); ?></th>
             <th class="column-product-image"></th>
-            <th><?php _e('Product', 'woocommerce'); ?></th>
-            <th><?php _e('Cost', 'woocommerce'); ?></th>
-            <th><?php _e('Total', 'woocommerce'); ?></th>
+            <th><?php _e('Product', 'wc_point_of_sale'); ?></th>
+            <th><?php _e('Cost', 'wc_point_of_sale'); ?></th>
+            <th><?php _e('Total', 'wc_point_of_sale'); ?></th>
         </tr>
         </thead>
         <tbody>
@@ -264,7 +264,7 @@
         <tr>
             <th class="column-product-image"></th>
             <th scope="row" colspan="3">
-                <?php _e('Subtotal', 'woocommerce'); ?>
+                <?php _e('Subtotal', 'wc_point_of_sale'); ?>
             </th>
             <td>£118.00</td>
         </tr>
@@ -286,7 +286,7 @@
         <tr>
             <th class="column-product-image"></th>
             <th scope="row" colspan="3">
-                <span id="print-total_label"><?php _e('Total', 'woocommerce'); ?></span>
+                <span id="print-total_label"><?php _e('Total', 'wc_point_of_sale'); ?></span>
             </th>
             <td>£141.60</td>
         </tr>

@@ -24,7 +24,7 @@ class WC_POS_Admin_Settings_Payment_Methods extends WC_Settings_Page {
 	 */
 	public function __construct() {
 		$this->id    = 'payment_methods_pos';
-		$this->label = __( 'Payment methods', 'woocommerce' );
+		$this->label = __( 'Payment Methods', 'woocommerce' );
 
 		add_filter( 'wc_pos_settings_tabs_array', array( $this, 'add_settings_page' ), 20 );
 		add_action( 'woocommerce_sections_' . $this->id, array( $this, 'output_sections' ) );
@@ -142,7 +142,7 @@ class WC_POS_Admin_Settings_Payment_Methods extends WC_Settings_Page {
 		global $woocommerce;
 		return apply_filters( 'woocommerce_point_of_sale_payment_methods_settings_fields', array(
 
-			array( 'title' => __( 'Payment gateways', 'woocommerce' ), 'type' => 'title', 'id' => 'payment_gateways_options' ),
+			array( 'title' => __( 'Payment Gateways', 'woocommerce' ), 'type' => 'title', 'id' => 'payment_gateways_options' ),
 
 			array( 'type' => 'installed_payment_gateways' ),			
 

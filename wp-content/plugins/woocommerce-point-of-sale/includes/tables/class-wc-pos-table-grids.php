@@ -95,7 +95,7 @@ class WC_Pos_Table_Grids extends WP_List_Table {
 
   function get_bulk_actions() {
     $actions = apply_filters( 'wc_pos_grid_bulk_actions', array(
-      'delete' => __( 'Delete', 'woocommerce' ),
+      'delete' => __( 'Delete', 'wc_point_of_sale' ),
     ) );
     return $actions;
   }
@@ -110,9 +110,9 @@ class WC_Pos_Table_Grids extends WP_List_Table {
   }
 
   function column_layouts_name( $item ) {
-    $actions['edit'] = sprintf('<a href="?page=%s&edit=%s">Edit</a>','wc_pos_grids', $item['ID']);
+    $actions['edit'] = sprintf('<a href="?page=%s&edit=%s">Edit</a>',WC_POS()->id_grids, $item['ID']);
     if(wc_pos_check_can_delete('grid', $item['ID']))
-      $actions['delete'] = sprintf('<a class="delete" href="?page=%s&delete=%s">Delete</a>','wc_pos_grids', $item['ID']);
+      $actions['delete'] = sprintf('<a class="delete" href="?page=%s&delete=%s">Delete</a>',WC_POS()->id_grids, $item['ID']);
 
 
     return sprintf('<strong><a href="admin.php?page=%1$s&amp;grid_id=%2$s">%3$s</a></strong> %4$s', 'wc_pos_tiles', $item['ID'], $item['name'], $this->row_actions($actions) );
@@ -158,7 +158,7 @@ class WC_Pos_Table_Grids extends WP_List_Table {
     $current_page = $this->get_pagenum();
 
     $total_items = count( self::$data );
-    if( $_GET['page'] == 'wc_pos_grids' ){
+    if( $_GET['page'] == WC_POS()->id_grids ){
       // only ncessary because we have sample data
       $this->found_data = array_slice( self::$data,( ( $current_page-1 )* $per_page ), $per_page );
 

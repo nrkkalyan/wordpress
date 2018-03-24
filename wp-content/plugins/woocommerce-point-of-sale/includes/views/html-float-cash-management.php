@@ -1,4 +1,4 @@
-<?php if ($this->register->opened > $this->register->closed) : ?>
+<?php if ($this->register->opened > $this->register->closed) { ?>
     <script>
         <?php echo 'var register_cash_management = ' . json_encode($this) ?>
     </script>
@@ -36,6 +36,6 @@
             </tfoot>
         </table>
     </div>
-<?php else : ?>
+<?php } else { ?>
     <h2 class="closed-register"><?php _e('Register is closed.') ?></h2>
-<?php endif; ?>
+<?php } ?>

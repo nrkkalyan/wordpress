@@ -101,9 +101,11 @@ class WC_POS
     public $id_users = 'wc_pos_users';
     public $id_receipts = 'wc_pos_receipts';
     public $id_barcodes = 'wc_pos_barcodes';
+    public $id_stock_c = 'wc_pos_stock_controller';
     public $id_settings = 'wc_pos_settings';
     public $id_session_reports = 'wc_pos_session_reports';
     public $id_cash_management = 'wc_pos_cash_management';
+    public $id_bill_screen = 'wc_pos_bill_screen';
 
     /**
      * Constructor function.
@@ -123,7 +125,6 @@ class WC_POS
         $this->assets_dir = trailingslashit($this->dir) . 'assets';
         $this->assets_url = esc_url(trailingslashit(plugins_url('/assets/', $this->file)));
 
-        //$this->script_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
         $this->script_suffix = '';
 
         $this->define_constants();
@@ -140,8 +141,6 @@ class WC_POS
      */
     private function define_constants()
     {
-        $upload_dir = wp_upload_dir();
-
         $this->define('WC_POS_FILE', $this->file);
         $this->define('WC_POS_PLUGIN_FILE', $this->file);
         $this->define('WC_POS_BASENAME', plugin_basename($this->file));
@@ -200,6 +199,7 @@ class WC_POS
         if (!is_admin()) {
             include_once('class-wc-pos-sell.php');
         }
+
         if (defined('DOING_AJAX')) {
             $this->ajax_includes();
         }
@@ -224,41 +224,36 @@ class WC_POS
 
 
         register_activation_hook($this->file, array($this, 'install'));
+
         add_action('init', array($this, 'load_localisation'), 0);
         add_action('admin_init', array($this, 'print_report'), 100);
         add_action('init', array($this, 'check_pos_custom_product_exists'));
         add_action('init', array($this, 'check_pos_visibility_products'));
-        //add_action('init', array($this, 'check_db_updates'));
         add_action('init', array($this, 'check_connection_status_option'));
-        //Pos only products
         add_action('init', array($this, 'wc_pos_visibility_action'));
         add_action('woocommerce_loaded', array($this, 'change_stock_amount'), 0);
-
         add_action('admin_notices', array($this, 'admin_notices'), 20);
 
-        if ((isset($_POST['register_id']) && !empty($_POST['register_id'])) || (isset($_GET['page']) && $_GET['page'] == 'wc_pos_registers' && isset($_GET['action']) && $_GET['action'] == 'view' && isset($_GET['id']) && !empty($_GET['action']))) {
+        if ((isset($_POST['register_id']) && !empty($_POST['register_id'])) || (isset($_GET['page']) && $_GET['page'] == $this->id_registers && isset($_GET['action']) && $_GET['action'] == 'view' && isset($_GET['id']) && !empty($_GET['action']))) {
             add_filter('woocommerce_customer_taxable_address', array($this, 'set_outlet_taxable_address'));
         }
 
         add_filter('woocommerce_attribute_label', array($this, 'tile_attribute_label'));
         add_filter('woocommerce_get_checkout_order_received_url', array($this, 'order_received_url'));
         add_filter('woocommerce_email_actions', array($this, 'woocommerce_email_actions'), 150, 1);
-
         add_filter('request', array($this, 'orders_by_order_type'));
-
         add_filter('woocommerce_admin_order_actions', array($this, 'order_actions_reprint_receipts'), 2, 20);
         add_filter('woocommerce_order_number', array($this, 'add_prefix_suffix_order_number'), 10, 2);
-
         add_action('woocommerce_loaded', array($this, 'woocommerce_delete_shop_order_transients'));
         add_action('admin_init', array($this, 'add_caps'), 20, 4);
-
         add_action('woocommerce_hidden_order_itemmeta', array($this, 'hidden_order_itemmeta'), 150, 1);
 
         //WC_Subscriptions Compatibility
         if (in_array('woocommerce-subscriptions/woocommerce-subscriptions.php', get_option('active_plugins'))) {
             add_filter('woocommerce_subscription_payment_method_to_display', array($this, 'get_subscription_payment_method'), 10, 2);
         }
-        //Pos custom product
+
+        // Pos custom product
         add_action('pre_get_posts', array($this, 'hide_pos_custom_product'), 15, 1);
 
 
@@ -297,12 +292,7 @@ class WC_POS
                     'key' => '_pos_visibility',
                     'value' => 'pos',
                     'compare' => '!=',
-                ),
-                //UberMenu conflict - query with NOT EXISTS statements very slow. Added check_pos_visibility_products() function to improve speed.
-                /*array(
-                    'key' => '_pos_visibility',
-                    'compare' => 'NOT EXISTS',
-                ),*/
+                )
             );
             $query->set('meta_query', $meta_query);
         }
@@ -455,6 +445,9 @@ class WC_POS
             pos_localize_script('wc-pos-script-admin');
             wp_enqueue_script('wc-pos-shop-order-page-script', $this->plugin_url() . '/assets/js/shop-order-page-script.js', array('jquery'), $wc_pos_version);
         }
+        if (isset($_GET['page']) && $_GET['page'] == $this->id_stock_c) {
+            wp_enqueue_script('jquery_barcodelistener', $this->plugin_url() . '/assets/plugins/anysearch.js', array('jquery'), $wc_pos_version);
+        }
 
     } // End admin_enqueue_scripts ()
 
@@ -569,15 +562,17 @@ class WC_POS
         if ($post_type == 'product')
             return true;
         if (isset($_GET['page']) && (
-                $_GET['page'] == 'wc_pos_settings' ||
-                $_GET['page'] == 'wc_pos_barcodes' ||
-                $_GET['page'] == 'wc_pos_receipts' ||
-                $_GET['page'] == 'wc_pos_users' ||
-                $_GET['page'] == 'wc_pos_tiles' ||
-                $_GET['page'] == 'wc_pos_outlets' ||
-                $_GET['page'] == 'wc_pos_registers' ||
-                $_GET['page'] == 'wc_pos_cash_management' ||
-                $_GET['page'] == 'wc_pos_bill_screen'
+                $_GET['page'] == $this->id_settings ||
+                $_GET['page'] == $this->id_barcodes ||
+                $_GET['page'] == $this->id_receipts ||
+                $_GET['page'] == $this->id_users ||
+                $_GET['page'] == $this->id_tiles ||
+                $_GET['page'] == $this->id_grids ||
+                $_GET['page'] == $this->id_outlets ||
+                $_GET['page'] == $this->id_registers ||
+                $_GET['page'] == $this->id_stock_c||
+                $_GET['page'] == $this->id_cash_management ||
+                $_GET['page'] == $this->id_bill_screen
             )
         ) {
             return true;
@@ -645,7 +640,7 @@ class WC_POS
 
     function order_received_url($order_received_url)
     {
-        if (isset($_GET['page']) && $_GET['page'] == 'wc_pos_registers' && isset($_GET['reg']) && !empty($_GET['reg']) && isset($_GET['outlet']) && !empty($_GET['outlet'])) {
+        if (isset($_GET['page']) && $_GET['page'] == $this->id_registers && isset($_GET['reg']) && !empty($_GET['reg']) && isset($_GET['outlet']) && !empty($_GET['outlet'])) {
             $register = $_GET['reg'];
             $outlet = $_GET['outlet'];
 
@@ -802,7 +797,7 @@ class WC_POS
             return $this->is_pos;
         } else {
             $q = $wp_query->query;
-            if (isset($q['page']) && $q['page'] == 'wc_pos_registers' && isset($q['action']) && $q['action'] == 'view') {
+            if (isset($q['page']) && $q['page'] == $this->id_registers && isset($q['action']) && $q['action'] == 'view') {
                 $this->is_pos = true;
             } else {
                 $this->is_pos = false;
@@ -1008,10 +1003,10 @@ class WC_POS
      * @since 1.9
      * @return WC_Pos_Table_Grids
      */
-//     public function grids_table()
-//     {
-//         return new WC_Pos_Table_Grids;
-//     }
+    public function grids_table()
+    {
+        return new WC_Pos_Table_Grids;
+    }
 
     /**
      * Get Tiles class
@@ -1162,11 +1157,6 @@ class WC_POS
             WC_POS_Install::create_product();
         }
     }
-
-    /*public function check_db_updates()
-    {
-        WC_POS_Install::update();
-    }*/
 
     public function check_pos_visibility_products()
 

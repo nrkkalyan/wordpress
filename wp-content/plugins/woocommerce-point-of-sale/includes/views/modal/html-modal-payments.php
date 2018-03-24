@@ -127,7 +127,7 @@ $available_gateways = wc_pos_get_available_payment_gateways();
                 <input name="" type="button" class="back_to_sale md-close"
                        value="<?php _e('Back', 'wc_point_of_sale'); ?>"/>
                 <input name="" type="button" class="go_payment "
-                       value="<?php _e('Pay', 'woocommerce'); ?>"/>
+                       value="<?php _e('Pay', 'wc_point_of_sale'); ?>"/>
                 
             </div>
         <?php } ?>

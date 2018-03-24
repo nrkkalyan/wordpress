@@ -12,13 +12,13 @@ $c = isset($checkout->checkout_fields['pos_acf']) ? count($checkout->checkout_fi
 ?>
 <div class="md-modal md-dynamicmodal md-close-by-overlay md-register" id="modal-order_customer">
     <div class="md-content woocommerce">
-        <h1><?php _e('Customer', 'woocommerce'); ?><span class="md-close"></span></h1>
+        <h1><?php _e('Customer Details', 'wc_point_of_sale'); ?><span class="md-close"></span></h1>
         <h2 class="nav-tab-wrapper woo-nav-tab-wrapper">
             <a href="#pos_billing_details"
-               class="nav-tab nav-tab-active"><?php _e('Billing', 'woocommerce'); ?></a>
-            <a href="#pos_shipping_details" class="nav-tab"><?php _e('Shipping', 'woocommerce'); ?></a>
+               class="nav-tab nav-tab-active"><?php _e('Billing Details', 'wc_point_of_sale'); ?></a>
+            <a href="#pos_shipping_details" class="nav-tab"><?php _e('Shipping Details', 'wc_point_of_sale'); ?></a>
             <a href="#pos_additional_fields"
-               class="nav-tab" <?php echo !$a ? 'style="display:none;"' : ''; ?> ><?php _e('Add note', 'woocommerce' ); ?></a>
+               class="nav-tab" <?php echo !$a ? 'style="display:none;"' : ''; ?> ><?php _e('Additional Fields', 'wc_point_of_sale'); ?></a>
             <a href="#pos_custom_fields"
                class="nav-tab" <?php echo !$c ? 'style="display:none;"' : ''; ?>><?php _e('Custom Fields', 'wc_point_of_sale'); ?></a>
             <a href="#pos_order_fields"
@@ -28,7 +28,7 @@ $c = isset($checkout->checkout_fields['pos_acf']) ? count($checkout->checkout_fi
         </div>
         <div class="wrap-button">
             <button class="button button-primary wp-button-large alignright" type="button" id="save_customer">
-                <?php _e('Save', 'woocommerce'); ?>
+                <?php _e('Save Customer', 'wc_point_of_sale'); ?>
             </button>
 
             <label for="createaccount" class="checkbox alignright" id="create_new_account">

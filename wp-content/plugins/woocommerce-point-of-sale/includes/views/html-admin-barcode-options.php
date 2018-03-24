@@ -14,11 +14,11 @@ $products = array();
                 <th class="item_cost sortable" data-sort="float"><?php _e('SKU', 'wc_point_of_sale'); ?></th>
                 <th class="item sortable" colspan="2"
                     data-sort="string-ins"><?php _e('Item', 'wc_point_of_sale'); ?></th>
-                <th class="item_cost sortable" data-sort="float"><?php _e('Cost', 'woocommerce'); ?></th>
+                <th class="item_cost sortable" data-sort="float"><?php _e('Cost', 'wc_point_of_sale'); ?></th>
                 <th class="item_cost sortable" data-sort="float"><?php _e('Type', 'wc_point_of_sale'); ?></th>
                 <th class="line_cost sortable"
                     data-sort="float"><?php _e('Barcode Preview', 'wc_point_of_sale'); ?></th>
-                <th class="item_cost sortable" data-sort="float"><?php _e('Qty', 'woocommerce'); ?></th>
+                <th class="item_cost sortable" data-sort="float"><?php _e('Qty', 'wc_point_of_sale'); ?></th>
                 <th class="wc-order-edit-line-item" width="1%">&nbsp;</th>
             </tr>
             </thead>
@@ -42,10 +42,6 @@ $products = array();
             </tbody>
         </table>
     </div>
-    <!-- <div class="wc-order-data-row wc-order-item-bulk-edit" style="display:none;">
-		<button type="button" class="button bulk-delete-items"><?php _e('Delete selected row(s)', 'wc_point_of_sale'); ?></button>
-		<button type="button" class="button bulk-add-variations"><?php _e('Add all variations', 'woocommerce'); ?></button>
-	</div> -->
     <div class="wc-order-data-row wc-order-bulk-actions wc-order-data-row-toggle">
         <button type="button" class="button bulk-delete-items"
                 style="display:none;"><?php _e('Delete selected row(s)', 'wc_point_of_sale'); ?></button>
@@ -76,17 +72,19 @@ $products = array();
                     </header>
                     <article>
                         <form action="" method="post">
-                            <?php if (WC_VERSION >= 3) { ?>
+                            <?php if (WC_VERSION >= 3) : ?>
                                 <select id="add_item_id" name="add_order_items" class="wc-product-search"
                                         style="width: 100%;"
                                         data-placeholder="<?php esc_attr_e('Search for a product&hellip;', 'woocommerce'); ?>"
+                                        data-minimum_input_length="2"
                                         multiple="multiple"></select>
-                            <?php } else { ?>
+                            <?php else : ?>
                                 <input type="hidden" id="add_item_id" name="add_order_items" class="wc-product-search"
                                        style="width: 100%;"
                                        data-placeholder="<?php esc_attr_e('Search for a product&hellip;', 'woocommerce'); ?>"
+                                       data-minimum_input_length="2"
                                        data-multiple="true"/>
-                            <?php } ?>
+                            <?php endif; ?>
                         </form>
                     </article>
                     <footer>

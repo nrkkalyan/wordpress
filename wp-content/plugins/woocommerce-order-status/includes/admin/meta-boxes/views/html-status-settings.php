@@ -1,22 +1,22 @@
 <div class="panel-wrap">
 	<ul class="wc-sa-tabs wc-tabs">
 		<li class="general_options active">
-			<a href="#general_options_tab"><?php _e('General', 'woocommerce_status_actions'); ?></a>
+			<a href="#general_options_tab"><?php _e('General', 'woocommerce'); ?></a>
 		</li>
 		<li class="style_options">
 			<a href="#style_options_tab"><?php _e('Style', 'woocommerce_status_actions'); ?></a>
 		</li>
 		<li class="email_options">
-			<a href="#email_options_tab"><?php _e('Email', 'woocommerce_status_actions'); ?></a>
+			<a href="#email_options_tab"><?php _e('Email' ); ?></a>
 		</li>
 		<li class="customer_options">
-			<a href="#customer_options_tab"><?php _e('Customer', 'woocommerce_status_actions'); ?></a>
+			<a href="#customer_options_tab"><?php _e('Customer', 'woocommerce'); ?></a>
 		</li>
 		<li class="product_options">
-			<a href="#product_options_tab"><?php _e('Product', 'woocommerce_status_actions'); ?></a>
+			<a href="#product_options_tab"><?php _e('Product', 'woocommerce'); ?></a>
 		</li>
 		<li class="action_options">
-			<a href="#action_options_tab"><?php _e('Action', 'woocommerce_status_actions'); ?></a>
+			<a href="#action_options_tab"><?php _e('Action', 'woocommerce'); ?></a>
 		</li>
 	</ul>
 	<div class="panel wc_sa_options_panel woocommerce_options_panel" style="display: block;" id="general_options_tab">
@@ -25,12 +25,12 @@
 			<span class="description"><?php _e( 'The following options affect how statuses are displayed on the front and back end.', 'woocommerce_status_actions' ); ?></span>
 			</p>
 			<p class="form-field">
-				<label for="status_label"><?php _e( 'Label', 'woocommerce_status_actions' ); ?><span class="required">*</span></label>
+				<label for="status_label"><?php _e( 'Slug', 'woocommerce' ); ?><span class="required">*</span></label>
 				<input type="text" name="post_name" id="status_label" value="<?php echo $status->label; ?>" maxlength="17">
 				<span class="woocommerce-help-tip" data-tip="<?php _e( 'Enter the label of the status which you would like to add. This should be lower case as will be displayed on the status label.', 'woocommerce_status_actions' ); ?>"</span>
 			</p>
 			<p class="form-field">
-				<label for="status_reports"><?php _e( 'Reports', 'woocommerce_status_actions' ); ?></label>
+				<label for="status_reports"><?php _e( 'Reports', 'woocommerce' ); ?></label>
 				<input type="checkbox" name="display_in_reports" id="status_reports" <?php checked('yes', $status->display_in_reports, true); ?> value="yes">
 				<span class="description"><?php _e( 'Check this box allow this status to be considered as a placed order in the reports.', 'woocommerce_status_actions' ); ?></span>
 			</p>
@@ -114,7 +114,7 @@
 				</span>
 			</p>
 			<p class="form-field">
-				<label for="status_email_notification"><?php _e( 'Email Notification', 'woocommerce_status_actions' ); ?></label>
+				<label for="status_email_notification"><?php _e( 'Email notifications', 'woocommerce' ); ?></label>
 				<input type="checkbox" name="email_notification" id="status_email_notification" <?php checked('yes', $status->email_notification, true); ?> value="yes">
 				<span class="description"><?php _e( 'Enable email notification', 'woocommerce_status_actions' ); ?></span>
 			</p>
@@ -216,7 +216,7 @@
 				<span class="description"><?php _e( 'Enable this to allow customer to cancel orders when this status is applied.', 'woocommerce_status_actions' ); ?></span>
 			</p>			
 			<p class="form-field">
-				<label for="status_customer_account"><?php _e( 'My Account', 'woocommerce_status_actions' ); ?></label>
+				<label for="status_customer_account"><?php _e( 'My account', 'woocommerce' ); ?></label>
 				<input type="checkbox" name="customer_account" id="status_customer_account" <?php checked('yes', $status->customer_account, true); ?> value="yes">
 				<span class="description"><?php _e( 'Check this box to allow customer to set this status from the My Account page.', 'woocommerce_status_actions' ); ?></span>
 			</p>
@@ -246,7 +246,7 @@
 			</p>
 
 			<p class="form-field">
-				<label for="status_product_reviews"><?php _e( 'Product Reviews', 'woocommerce_status_actions' ); ?></label>
+				<label for="status_product_reviews"><?php _e( 'Enable product reviews', 'woocommerce' ); ?></label>
 				<input type="checkbox" name="product_reviews" id="status_product_reviews" <?php checked('yes', $status->product_reviews, true); ?> value="yes">
 				<span class="description"><?php _e( 'Check this box to allow customers to leave a review for the products purchased in the order when this status set.', 'woocommerce_status_actions' ); ?></span>
 			</p>
@@ -270,7 +270,7 @@
 				<span class="description"><?php _e( 'Enable to allow item editing in the order. If unchecked, the order would be considered paid and no edits can be made.', 'woocommerce_status_actions' ); ?></span>
 			</p>
 			<p class="form-field">
-				<label for="status_stock_status"><?php _e( 'Stock Status', 'woocommerce_status_actions' ); ?></label>
+				<label for="status_stock_status"><?php _e( 'Stock status', 'woocommerce' ); ?></label>
 				<select name="stock_status" id="status_stock_status">
 					<?php
 					$stock_status_act = array(
