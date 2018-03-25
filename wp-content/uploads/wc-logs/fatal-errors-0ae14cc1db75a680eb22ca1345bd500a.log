@@ -132,3 +132,5 @@ Stack trace:
 #4 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce/includes/class-wc-cart-totals.php(345): WC_Cart->calculate_shipping()
 #5 /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce/includes/class-wc-cart-totals.php
 
+2018-03-25T15:25:53+00:00 CRITICAL Cannot redeclare get_editable_roles() (previously declared in /home/vagrant/hanghieu.test/wp-content/plugins/woocommerce-create-customer-on-order/includes/settings.php:55)
+

@@ -42,6 +42,14 @@ if ( ! class_exists( 'YITH_WCBR' ) ) {
 		 * @since 1.0.0
 		 */
 		public static $brands_taxonomy = 'yith_product_brand';
+		
+		/**
+		 * Rewrite for brands
+		 *
+		 * @var string
+		 * @since 1.2.0
+		 */
+		public static $brands_rewrite = 'product-brands';
 
 		/**
 		 * Constructor.
@@ -64,10 +72,16 @@ if ( ! class_exists( 'YITH_WCBR' ) ) {
 			add_action( 'woocommerce_product_meta_end', array( $this, 'add_single_product_brand_template' ) );
 
 			// add description to archive page
-			add_action( 'woocommerce_archive_description', array( $this, 'add_archive_brand_template' ), 10 );
+			add_action( 'woocommerce_archive_description', array( $this, 'add_archive_brand_template' ), 7 );
 
 			// enqueue styles
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
+
+			// register taxonomy as product taxonomy for YIT Layout
+			add_filter( 'yit_layout_option_is_product_tax', array( $this, 'register_layout' ) );
+
+			// add brand taxonomy to ones WooCommerce uses to alter count basing on products visibility
+			add_filter( 'woocommerce_change_term_counts', array( $this, 'change_term_counts' ) );
 		}
 
 		/* === PLUGIN FW LOADER === */
@@ -97,6 +111,8 @@ if ( ! class_exists( 'YITH_WCBR' ) ) {
 		 * @since 1.0.0
 		 */
 		 public function register_taxonomy(){
+			 self::$brands_taxonomy = apply_filters( 'yith_wcbr_taxonomy_slug', self::$brands_taxonomy );
+			 
 			 $taxonomy_labels = array(
 				 'name' => __( 'Brands', 'yith-woocommerce-brands-add-on' ),
 				 'singular_name' => __( 'Brand', 'yith-woocommerce-brands-add-on' ),
@@ -115,12 +131,12 @@ if ( ! class_exists( 'YITH_WCBR' ) ) {
 
 			 $taxonomy_args = array(
 				 'label' => apply_filters( 'yith_wcbr_taxonomy_label', __( 'Brands', 'yith-woocommerce-brands-add-on' ) ),
-				 'labels' => $taxonomy_labels,
+				 'labels' => apply_filters( 'yith_wcbr_taxonomy_labels', $taxonomy_labels ),
 				 'public' => true,
 				 'show_admin_column' => true,
 				 'hierarchical' => true,
 				 'rewrite' => array(
-					 'slug' => apply_filters( 'yith_wcbr_taxonomy_rewrite', 'product-brands' ),
+					 'slug' => apply_filters( 'yith_wcbr_taxonomy_rewrite', self::$brands_rewrite ),
 					 'hierarchical' => true,
 					 'with_front' => apply_filters( 'yith_wcbr_taxonomy_with_front', true )
 				 ),
@@ -130,13 +146,36 @@ if ( ! class_exists( 'YITH_WCBR' ) ) {
                          'delete_terms' => 'delete_product_terms',
                          'assign_terms' => 'assign_product_terms',
                      )
-                 )
-
+                 ),
+				 'update_count_callback' => '_wc_term_recount',
 			 );
 
-			 register_taxonomy( self::$brands_taxonomy, 'product', $taxonomy_args );
-			 register_taxonomy_for_object_type( self::$brands_taxonomy, 'product' );
+			 $object_type = apply_filters( 'yith_wcbr_taxonomy_object_type', 'product' );
+
+			 register_taxonomy( self::$brands_taxonomy, $object_type, $taxonomy_args );
+
+			 if( is_array( $object_type ) && ! empty( $object_type ) ){
+				 foreach( $object_type as $type ){
+					 register_taxonomy_for_object_type( self::$brands_taxonomy, $type );
+				 }
+			 }
+			 else{
+				 register_taxonomy_for_object_type( self::$brands_taxonomy, $object_type );
+			 }
 		 }
+
+		/**
+		 * Register brand taxonomy to change term counts depending on product visibility
+		 *
+		 * @param $taxonomies array Array of registered taxonomies
+		 * @return array Filtered array of registered taxonomies
+		 * @since 1.1.2
+		 */
+		public function change_term_counts( $taxonomies ) {
+			$taxonomies[] = self::$brands_taxonomy;
+
+			return $taxonomies;
+		}
 
 		/**
 		 * Add compatibility to Ajax Navigation, forcing widget to display on brands archive pages
@@ -205,7 +244,7 @@ if ( ! class_exists( 'YITH_WCBR' ) ) {
 
 			$single_thumb_width = apply_filters( 'yith_wcbr_single_thumb_width', $stored_values['width'] );
 			$single_thumb_height = apply_filters( 'yith_wcbr_single_thumb_height', $stored_values['height'] );
-			$single_thumb_crop = apply_filters( 'yith_wcbr_single_thumb_crop', $stored_values['crop'] );
+			$single_thumb_crop = apply_filters( 'yith_wcbr_single_thumb_crop', isset( $stored_values['crop'] ) ? $stored_values['crop'] : false );
 
 			add_image_size( 'yith_wcbr_logo_size', $single_thumb_width, $single_thumb_height, $single_thumb_crop );
 		}
@@ -213,11 +252,16 @@ if ( ! class_exists( 'YITH_WCBR' ) ) {
 		/**
 		 * Include template for brands on single product page
 		 *
+		 * @param $product_id int|bool Current product id; leave empty to use global product
+		 *
 		 * @return void
 		 * @since 1.0.0
 		 */
-		public function add_single_product_brand_template() {
+		public function add_single_product_brand_template( $product_id = false ) {
 			global $product;
+			
+			$current_product = $product_id ? wc_get_product( $product_id ) : $product;
+			$current_product_id = yit_get_product_id( $current_product );
 
 			// retrieve data to use in template
 			$brands_taxonomy = self::$brands_taxonomy;
@@ -225,10 +269,12 @@ if ( ! class_exists( 'YITH_WCBR' ) ) {
 			$after_term_list = apply_filters( 'yith_wcbr_single_product_after_term_list', '' );
 			$term_list_sep = apply_filters( 'yith_wcbr_single_product_term_list_sep', ', ' );
 			$brands_label = get_option( 'yith_wcbr_brands_label' );
-			$product_brands = get_the_terms( $product->id, self::$brands_taxonomy );
+			$product_brands = get_the_terms( $current_product_id, self::$brands_taxonomy );
 			$product_has_brands = ! is_wp_error( $product_brands ) && $product_brands;
 
 			$args = array(
+				'product' => $current_product,
+				'product_id' => $current_product_id,
 				'brands_taxonomy' => $brands_taxonomy,
 				'before_term_list' => $before_term_list,
 				'after_term_list' => $after_term_list,
@@ -253,6 +299,15 @@ if ( ! class_exists( 'YITH_WCBR' ) ) {
 		public function add_archive_brand_template() {
 			if( is_tax( self::$brands_taxonomy ) && get_query_var( 'paged' ) == 0 ){
 
+				/**
+				 * From WC 2.7, WooCommerce adds description for each product taxonomy
+				 * We remove default WooCommerce action, to keep using our template
+				 * Maybe in a future this function could be remove at all, to leave just WooCommerce behaviour
+				 */
+				if( version_compare( WC()->version, '2.7.0', '>=' ) ) {
+					remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description' );
+				}
+
 				// retrieve data to use in template
 				$qo = get_queried_object();
 				$term_id = $qo->term_id;
@@ -276,6 +331,23 @@ if ( ! class_exists( 'YITH_WCBR' ) ) {
 
 				include( $template );
 			}
+		}
+
+		/**
+		 * Register Brands as product taxonomy for YIT Layout
+		 *
+		 * @param $is_product_taxonomy bool Whether current queried object is a product taxonomy
+		 *
+		 * @return bool Filtered value
+		 */
+		public function register_layout( $is_product_taxonomy ) {
+			global $wp_query;
+
+			if ( $wp_query->is_tax( self::$brands_taxonomy ) ) {
+				return true;
+			}
+
+			return $is_product_taxonomy;
 		}
 
 		/**

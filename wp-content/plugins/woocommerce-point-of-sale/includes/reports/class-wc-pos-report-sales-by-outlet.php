@@ -516,9 +516,9 @@ class WC_POS_Report_Sales_By_Outlet extends WC_Admin_Report {
 
 		$ranges = array(
 			'year'         => __( 'Year', 'woocommerce' ),
-			'last_month'   => __( 'Last Month', 'woocommerce' ),
-			'month'        => __( 'This Month', 'woocommerce' ),
-			'7day'         => __( 'Last 7 Days', 'woocommerce' )
+			'last_month'   => __( 'Last month', 'woocommerce' ),
+			'month'        => __( 'This month', 'woocommerce' ),
+			'7day'         => __( 'Last 7 days', 'woocommerce' )
 		);
 
 		$this->chart_colours = array(
@@ -660,7 +660,7 @@ class WC_POS_Report_Sales_By_Outlet extends WC_Admin_Report {
 						</tr>';
 					}
 				} else {
-					echo '<tr><td colspan="3">' . __( 'No outlets found in range', 'wc_point_of_sale' ) . '</td></tr>';
+					echo '<tr><td colspan="3">' . __( 'No items found.' ) . '</td></tr>';
 				}
 				?>
 			</table>
@@ -714,7 +714,7 @@ class WC_POS_Report_Sales_By_Outlet extends WC_Admin_Report {
 						</tr>';
 					}
 				} else {
-					echo '<tr><td colspan="3">' . __( 'No outlets found in range', 'wc_point_of_sale' ) . '</td></tr>';
+					echo '<tr><td colspan="3">' . __( 'No items found.' ) . '</td></tr>';
 				}
 				?>
 			</table>
@@ -878,7 +878,7 @@ class WC_POS_Report_Sales_By_Outlet extends WC_Admin_Report {
 			data-xaxes="<?php _e( 'Date', 'wc_point_of_sale' ); ?>"
 			data-groupby="<?php echo $this->chart_groupby; ?>"
 		>
-			<?php _e( 'Export CSV', 'wc_point_of_sale' ); ?>
+			<?php _e( 'Export CSV', 'woocommerce' ); ?>
 		</a>
 		<?php
 	}

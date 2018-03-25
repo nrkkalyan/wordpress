@@ -97,7 +97,7 @@ class WC_POS_Admin_Orders_Page {
         <select name='shop_order_wc_pos_order_type' id='dropdown_shop_order_wc_pos_order_type'>
             <option value=""><?php _e( 'All types', 'wc_point_of_sale' ); ?></option>
             <option value="online" <?php selected($req_type, 'online', true); ?> ><?php _e( 'Online', 'wc_point_of_sale' ); ?></option>
-            <option value="POS" <?php selected($req_type, 'POS', true); ?> ><?php _e( 'POS', 'wc_point_of_sale' ); ?></option>
+            <option value="POS" <?php selected($req_type, 'POS', true); ?> ><?php _e( 'Point of Sale', 'wc_point_of_sale' ); ?></option>
         </select>
         <?php
         $filters = get_option('woocommerce_pos_order_filters');

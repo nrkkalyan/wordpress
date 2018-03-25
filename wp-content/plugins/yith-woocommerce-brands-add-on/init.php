@@ -1,13 +1,15 @@
 <?php
 /**
- * Plugin Name: YITH WooCommerce Brands Add-on Premium
+ * Plugin Name: YITH WooCommerce Brands Add-on
  * Plugin URI: http://yithemes.com/themes/plugins/yith-woocommerce-brands-add-on/
  * Description: YITH WooCommerce Brands Add-on allows you to add brands functionality to default WooCommerce plugin
- * Version: 1.0.9
+ * Version: 1.2.1
  * Author: Yithemes
  * Author URI: http://yithemes.com/
  * Text Domain: yith-woocommerce-brands-add-on
  * Domain Path: /languages/
+ * WC requires at least: 2.4.0
+ * WC tested up to: 3.3.1
  *
  * @author Your Inspiration Themes
  * @package YITH WooCommerce Brands Add-on
@@ -37,7 +39,7 @@ if ( ! defined( 'YITH_WCBR' ) ) {
 }
 
 if ( ! defined( 'YITH_WCBR_VERSION' ) ) {
-	define( 'YITH_WCBR_VERSION', '1.0.9' );
+	define( 'YITH_WCBR_VERSION', '1.2.1' );
 }
 
 if ( ! defined( 'YITH_WCBR_URL' ) ) {
@@ -56,16 +58,8 @@ if ( ! defined( 'YITH_WCBR_INIT' ) ) {
 	define( 'YITH_WCBR_INIT', plugin_basename( __FILE__ ) );
 }
 
-if ( ! defined( 'YITH_WCBR_SECRET_KEY' ) ) {
-	define( 'YITH_WCBR_SECRET_KEY', '03CgkyQ8Lb3iXrkPzi6t' );
-}
-
-if ( ! defined( 'YITH_WCBR_SLUG' ) ) {
-	define( 'YITH_WCBR_SLUG', 'yith-woocommerce-brands-add-on' );
-}
-
-if ( ! defined( 'YITH_WCBR_PREMIUM_INIT' ) ) {
-	define( 'YITH_WCBR_PREMIUM_INIT', plugin_basename( __FILE__ ) );
+if ( ! defined( 'YITH_WCBR_FREE_INIT' ) ) {
+	define( 'YITH_WCBR_FREE_INIT', plugin_basename( __FILE__ ) );
 }
 
 /* Plugin Framework Version Check */
@@ -80,17 +74,14 @@ if( ! function_exists( 'yith_brands_constructor' ) ) {
 
 		require_once( YITH_WCBR_INC . 'functions.yith-wcbr.php' );
 		require_once( YITH_WCBR_INC . 'class.yith-wcbr.php' );
-		require_once( YITH_WCBR_INC . 'class.yith-wcbr-shortcode.php' );
-		require_once( YITH_WCBR_INC . 'class.yith-wcbr-premium.php' );
 
 		// Let's start the game
-		YITH_WCBR_Premium();
+		YITH_WCBR();
 
 		if( is_admin() ){
 			require_once( YITH_WCBR_INC . 'class.yith-wcbr-admin.php' );
-			require_once( YITH_WCBR_INC . 'class.yith-wcbr-admin-premium.php' );
 
-			YITH_WCBR_Admin_Premium();
+			YITH_WCBR_Admin();
 		}
 	}
 }
@@ -103,13 +94,12 @@ if( ! function_exists( 'yith_brands_install' ) ) {
 			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		}
 
-		if ( ! function_exists( 'yit_deactive_free_version' ) ) {
-			require_once 'plugin-fw/yit-deactive-plugin.php';
-		}
-		yit_deactive_free_version( 'YITH_WCBR_FREE_INIT', plugin_basename( __FILE__ ) );
-
 		if ( ! function_exists( 'WC' ) ) {
 			add_action( 'admin_notices', 'yith_wcbr_install_woocommerce_admin_notice' );
+		}
+		elseif( defined( 'YITH_WCBR_PREMIUM' ) ) {
+			add_action( 'admin_notices', 'yith_wcbr_install_free_admin_notice' );
+			deactivate_plugins( plugin_basename( __FILE__ ) );
 		}
 		else {
 			do_action( 'yith_wcbr_init' );

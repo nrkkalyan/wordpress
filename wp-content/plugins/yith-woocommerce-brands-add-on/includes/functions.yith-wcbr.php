@@ -63,6 +63,28 @@ if( ! function_exists( 'yith_wcbr_get_terms' ) ){
 	function yith_wcbr_get_terms( $taxonomy, $args ){
 		global $wp_version;
 		$terms = array();
+
+		// is no orderby param is set, user order
+		if( ! isset( $args['orderby'] ) || $args['orderby'] == 'none' ){
+			$args['meta_query'] = isset( $args['meta_query'] ) ? $args['meta_query'] : array();
+			$args['meta_query'][] = array(
+				'relation' => 'OR',
+				array(
+					'key' => 'order',
+					'compare' => 'EXISTS'
+				),
+				array(
+					'key' => 'order',
+					'compare' => 'NOT EXISTS'
+				)
+			);
+			$args['orderby'] = 'meta_value_num';
+		}
+
+		// remove empty terms when hide_empty is set
+		if( isset( $args['hide_empty'] ) && $args['hide_empty'] ){
+			add_filter( 'get_terms', '_yith_wcbr_remove_empty_terms', 15, 2 );
+		}
 		
 		if( version_compare( $wp_version, '4.5', '<' ) ){
 			$terms = get_terms( $taxonomy, $args );
@@ -73,6 +95,11 @@ if( ! function_exists( 'yith_wcbr_get_terms' ) ){
 			) );
 			
 			$terms = get_terms( $args );
+		}
+
+		// remove empty terms when hide_empty is set
+		if( isset( $args['hide_empty'] ) && $args['hide_empty'] ){
+			add_filter( 'get_terms', '_yith_wcbr_remove_empty_terms', 15, 2 );
 		}
 		
 		return $terms;
@@ -158,5 +185,33 @@ if( ! function_exists( 'yith_wcbr_update_term_meta' ) ){
 		else{
 			return update_metadata( 'woocommerce_term', $term_id, $meta_key, $meta_value, $prev_value );
 		}
+	}
+}
+
+if( ! function_exists( '_yith_wcbr_remove_empty_terms' ) ){
+	/**
+	 * Remove empty terms when required
+	 * Do not call this function directly; this is only intended to by used by the plugin internally
+	 *
+	 * @param $terms array Array of retrieved terms
+	 * @param $taxonomies array Array of current taxonomies
+	 *
+	 * @return array Array of filtered terms
+	 * @since 1.1.2
+	 */
+	function _yith_wcbr_remove_empty_terms( $terms, $taxonomies ){
+		if( $taxonomies[0] != YITH_WCBR::$brands_taxonomy ){
+			return $terms;
+		}
+
+		if( ! empty( $terms ) ){
+			foreach( $terms as $id => $term ){
+				if( ! is_object( $term ) || ! isset( $term->count ) || ! $term->count ){
+					unset( $terms[ $id ] );
+				}
+			}
+		}
+
+		return $terms;
 	}
 }

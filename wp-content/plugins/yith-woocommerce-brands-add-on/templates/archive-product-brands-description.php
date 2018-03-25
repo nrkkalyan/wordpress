@@ -16,11 +16,11 @@ global $product;
 ?>
 
 <?php if( apply_filters( 'yith_wcbr_print_brand_description', true, $term ) ): ?>
-<p class="yith-wcbr-archive-header term-description">
+<div class="yith-wcbr-archive-header term-description">
 	<?php
 	if( ! empty( $term_description ) ){
-		echo $term_description;
+		echo wpautop( do_shortcode( $term_description ) );
 	}
 	?>
-</p>
+</div>
 <?php endif; ?>

@@ -147,17 +147,22 @@ class WCCM_CustomerImport
 						
 						$user_id = username_exists( $user[ 'Login' ] );
 						$is_valid_id = isset($user[ 'ID' ]) ? is_numeric($user[ 'ID' ]) : true;
-						
-						//update if exists (not used)
-						if($user_id != false)
+						if($is_valid_id)
 						{
-							if($mail_exists_id == false || ($mail_exists_id == $user_id))
+							$wp_user = get_userdata( $user[ 'ID' ]);
+							$user_id = ( $wp_user === false ) ? false : $user[ 'ID' ];
+						}
+					
+						//update if exists (not used)
+						if($is_valid_id && $user_id != false)
+						{
+							//if($mail_exists_id == false || ($mail_exists_id == $user_id) || (isset($user[ 'ID' ]) && $mail_exists_id == $user[ 'ID' ]))
 							{
 								//Update
-								$user_id = wp_update_user( array( 'ID' => $user_id, 'user_email' => $user[ 'Email' ] ) );
+								/*$user_id = wp_update_user( array( 'ID' => $user_id  , 'user_email' => $user[ 'Email' ], 'user_login' => $user[ 'Login' ]  ) ); 
 								if(is_wp_error( $user_id ))
 									array_push( $this->error, $result->get_error_message());
-								else
+								else*/
 									$wccm_customer_model->update_user_metas($user_id, $user);
 								
 								if(isset($user['Password']))
@@ -174,8 +179,8 @@ class WCCM_CustomerImport
 								$customerUpdated++;
 								
 							}
-							else
-								array_push($this->errors, new WP_Error('empty', __('Mail already taken for user: $user_id', 'woocommerce-customers-manager')));
+							/* else
+								array_push($this->errors, new WP_Error('empty', __('Mail already taken for user: $user_id', 'woocommerce-customers-manager'))); */
 						
 						}						
 						else
@@ -238,7 +243,7 @@ class WCCM_CustomerImport
 								else if(!$is_valid_id)
 									array_push( $this->errors, new WP_Error('user', sprintf(__("ID %s is not valid.", 'woocommerce-customers-manager'), isset($user[ 'ID' ]) ? $user[ 'ID' ] : "")));
 								else if($mail_exists_id != false)
-									array_push( $this->errors, new WP_Error('user', sprintf(__("Mail %s for user: %s already taken.", 'woocommerce-customers-manager'), $user[ 'Email' ], $user[ 'Login' ])));
+									array_push( $this->errors, new WP_Error('user', sprintf(__("Email address %s for user %s already taken.", 'woocommerce-customers-manager'), $user[ 'Email' ], $user[ 'Login' ])));
 								else //if(!isset($user['Password']) || $user['Password'] == '')
 									array_push( $this->errors, new WP_Error('user', sprintf(__("Password for user %s is not valid.", 'woocommerce-customers-manager'), $user[ 'Login' ])));
 								
@@ -313,19 +318,19 @@ class WCCM_CustomerImport
 			
 			<div tabindex="0" aria-label="Main content" id="import-box-content">	
 				<div id="upload-istruction-box">
-					<p>
-						<h3><?php _e('NOTE: The .csv file must use "," as field separator. Data will be imported only for columns with following titles (all columns can be left empty or omitted except for the Email):', 'woocommerce-customers-manager'); ?></h3>
-						
+					<h3 class="wccm_section_title wccm_no_margin_top"><?php _e('Instruction', 'woocommerce-customers-manager'); ?></h3>
+					<p class="wccm_description">
+						<?php _e('The .csv file must use "," as field separator. To <strong>update</strong> an user, use the special <strong>ID</strong> column. Data will be imported if any of the following column titles are present in your csv:', 'woocommerce-customers-manager'); ?>
 					</p>
 					<ul>
-						<!-- <li>ID <span class="normal"><?php _e('(if not specified the plugin will generate a random ID)', 'woocommerce-customers-manager'); ?></span></li>-->
+						<li>ID <span class="normal"><?php _e('(If present, the existing user will be <strong>updated</strong> with the new data. Login and Email fields cannot be updated with new ones)', 'woocommerce-customers-manager'); ?></span></li>
 						<li>Name</li>
 						<li>Surname </li>
 						<li>Login <span class="normal"><?php _e('(if not specified the plugin will generate an automatic username. If the login <strong>already exists</strong> the associated user will be updated)', 'woocommerce-customers-manager'); ?></span></li> 
 						<li>Role <span class="normal"><?php _e('(Example: "shop_manager","customer","subscriber",etc. If not specified the default value will be "customer". In case of multiple roles specify them separating by single space. Ex: "role_1 role_2 role_3")', 'woocommerce-customers-manager'); ?></span></li>
 						<li>Password <span class="normal"><?php _e('(If not present the "Password hash" column will be used instead. If both columns are empty a random password will be generated)', 'woocommerce-customers-manager'); ?></span></li>
 						<li>Password hash <span class="normal"><?php _e('(Used for importing already encrypted passwords. Usefull if you have a .csv export file generated with this plugin)', 'woocommerce-customers-manager'); ?></span></li>
-						<li>Email <span class="normal"><?php _e('(This <strong>must</strong> be specified. If not, random one will be generated)', 'woocommerce-customers-manager'); ?></span></li>
+						<li>Email <span class="normal"><?php _e('(If not present, a random one will be generated)', 'woocommerce-customers-manager'); ?></span></li>
 						<li>Notes</li>
 						<li>Billing name</li>
 						<li>Billing surname</li>
@@ -354,7 +359,7 @@ class WCCM_CustomerImport
 					<ul>
 					<div style="display:block; height:25px; width:400px; "></div>
 					<form class="import-form" method="post" enctype="multipart/form-data">
-						<h4><?php  _e('Send an email to customer with login info? (This feature is not available if you import password using "Password Hash" column)', 'woocommerce-customers-manager');?></h4>
+						<h4><?php  _e('Send an email to customer with login info? (This feature is not available if you import password using "Password Hash" column or if updating users data)', 'woocommerce-customers-manager');?></h4>
 						<p>
 							<select id="wccm-send-notification-email">
 							  <option value="no">No</option>

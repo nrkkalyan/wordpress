@@ -62,6 +62,7 @@ if ( !class_exists( 'YITH_WCDN_Register_Notifications' ) ) {
          * @param  $notifications
          */
         public function add_notification($type,$is_parent_order = true ) {
+            error_log(print_r("Estamos en la Free",true));
             global $wpdb;
                 $key_notification = uniqid();
                 $type_notificacion = "placed";

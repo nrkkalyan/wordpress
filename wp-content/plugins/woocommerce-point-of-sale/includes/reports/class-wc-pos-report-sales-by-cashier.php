@@ -529,9 +529,9 @@ public $chart_colours      = array();
 
 		$ranges = array(
 			'year'         => __( 'Year', 'woocommerce' ),
-			'last_month'   => __( 'Last Month', 'woocommerce' ),
-			'month'        => __( 'This Month', 'woocommerce' ),
-			'7day'         => __( 'Last 7 Days', 'woocommerce' )
+			'last_month'   => __( 'Last month', 'woocommerce' ),
+			'month'        => __( 'This month', 'woocommerce' ),
+			'7day'         => __( 'Last 7 days', 'woocommerce' )
 		);
 
 		$this->chart_colours = array(
@@ -683,7 +683,7 @@ public $chart_colours      = array();
 						</tr>';
 					}
 				} else {
-					echo '<tr><td colspan="3">' . __( 'No cashiers found in range', 'wc_point_of_sale' ) . '</td></tr>';
+					echo '<tr><td colspan="3">' . __( 'No items found.' ) . '</td></tr>';
 				}
 				?>
 			</table>
@@ -742,7 +742,7 @@ public $chart_colours      = array();
 						</tr>';
 					}
 				} else {
-					echo '<tr><td colspan="3">' . __( 'No cashiers found in range', 'wc_point_of_sale' ) . '</td></tr>';
+					echo '<tr><td colspan="3">' . __( 'No items found.' ) . '</td></tr>';
 				}
 				?>
 			</table>
@@ -907,7 +907,7 @@ public $chart_colours      = array();
 			data-xaxes="<?php _e( 'Date', 'wc_point_of_sale' ); ?>"
 			data-groupby="<?php echo $this->chart_groupby; ?>"
 		>
-			<?php _e( 'Export CSV', 'wc_point_of_sale' ); ?>
+			<?php _e( 'Export CSV', 'woocommerce' ); ?>
 		</a>
 		<?php
 	}

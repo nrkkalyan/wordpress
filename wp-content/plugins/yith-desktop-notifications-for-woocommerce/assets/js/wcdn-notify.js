@@ -9,7 +9,8 @@
 jQuery(document).ready( function($) {
     
     var looping_sound = yith_wcdn.looping_sound;
-    if ( typeof Notification !== 'undefined' && Notification.requestPermission()) {
+
+    if ( typeof Notification !== "undefined" ) {
         Notification.requestPermission().then(function (result) {
             if (result === 'denied') {
                 console.log('Permission wasn\'t granted. Allow a retry.');
@@ -23,19 +24,16 @@ jQuery(document).ready( function($) {
             var post_data = {
                 action: 'yith_wcdn_display_notifications'
             };
-            var title_bar;
             setInterval(function () {
                 $.ajax({
                     type: "POST",
                     data: post_data,
                     url: yith_wcdn.ajaxurl,
                     success: function (response) {
-                        if (typeof response == 'object' && typeof response != 'undefined') {
-
+                        if (response != 0) {
                             for (x = 0; x < response.length; x++) {
 
                                 var theTitle = response[x].title;
-                                title_bar = response[x].title;
                                 var options = {
                                     body: response[x].description,
                                     icon: response[x].icon,
@@ -46,9 +44,11 @@ jQuery(document).ready( function($) {
                                     url: response[x].url,
                                 }
                                 n.onclick = function (event) {
+                                    console.log('Chick on notification');
                                     event.preventDefault(); // prevent the browser from focusing the Notification's tab
                                     window.open(n.custom_options.url, '_blank');
                                 };
+
 
                                 //add audio notify because, this property is not currently supported in any browser.
                                 if ('yes' == looping_sound) {
@@ -75,12 +75,8 @@ jQuery(document).ready( function($) {
                                     event.preventDefault();
                                     $('.yith_wcdn_audio').remove();
                                 };
+
                             }
-
-                            //Integration with yith title bar effects
-                            $(document).trigger('yith-wtbe-stop-animation');
-                            $(document).trigger('yith-wtbe-start-animation',[title_bar]);
-
                         }
 
                     },

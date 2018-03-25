@@ -9,12 +9,14 @@
 
 jQuery( document ).ready( function( $ ){
     var file_frame = [],
-        use_logo_default = $( '#yith_wcbr_use_logo_default'),
-        logo_default = $( '#yith_wcbr_logo_default'),
-        single_product_brands_position = $( '#yith_wcbr_single_product_brands_position'),
-        single_product_brands_content = $( '#yith_wcbr_single_product_brands_content'),
-        loop_product_brands_position = $( '#yith_wcbr_loop_product_brands_position'),
-        loop_product_brands_content = $( '#yith_wcbr_loop_product_brands_content');
+        brands_taxonomy = $( '#yith_wcbr_brands_taxonomy' ),
+        brands_taxonomy_rewrite = $( '#yith_wcbr_brands_taxonomy_rewrite' ),
+        use_logo_default = $( '#yith_wcbr_use_logo_default' ),
+        logo_default = $( '#yith_wcbr_logo_default' ),
+        single_product_brands_position = $( '#yith_wcbr_single_product_brands_position' ),
+        single_product_brands_content = $( '#yith_wcbr_single_product_brands_content' ),
+        loop_product_brands_position = $( '#yith_wcbr_loop_product_brands_position' ),
+        loop_product_brands_content = $( '#yith_wcbr_loop_product_brands_content' );
 
     // handles upload image
     $( '.yith_wcbr_upload_image_button').on( 'click', function( event ){
@@ -73,6 +75,17 @@ jQuery( document ).ready( function( $ ){
     } );
 
     // handle panel dependencies
+    brands_taxonomy.on( 'change', function(){
+        var t = $(this);
+
+        if( t.val() == 'yith_product_brand' ){
+            brands_taxonomy_rewrite.parents( 'tr' ).show();
+        }
+        else{
+            brands_taxonomy_rewrite.parents( 'tr' ).hide();
+        }
+    }).change();
+
     use_logo_default.on( 'change', function(){
         var t = $(this);
 

@@ -1,13 +1,15 @@
 <?php
 
 /*
-Plugin Name: YITH Desktop Notifications for WooCommerce Premium
+Plugin Name: YITH Desktop Notifications for WooCommerce
 Plugin URI: https://yithemes.com/themes/plugins/yith-woocommerce-desktop-notifications/
 Description: YITH Desktop Notifications for WooCommerce allows you to receive real time notifications right on your PC screen letting you know about orders and sales, a quick and easy way to feel connected to your customers and their needs.
 Author: YITHEMES
 Text Domain: yith-desktop-notifications-for-woocommerce
-Version: 1.0.1
+Version: 1.2.0
 Author URI: http://yithemes.com/
+WC requires at least: 3.0.0
+WC tested up to: 3.3.0
 */
 
 /*
@@ -47,30 +49,23 @@ if( ! function_exists( 'yith_wcdn_install_woocommerce_admin_notice' ) ) {
  * @return void
  * @use admin_notices hooks
  */
-function yith_wcdn_install() {
+function yith_wcdn_install_free() {
 
     if ( !function_exists( 'WC' ) ) {
         add_action( 'admin_notices', 'yith_wcdn_install_woocommerce_admin_notice' );
     } else {
-        do_action( 'yith_wcdn_init' );
+        do_action( 'yith_wcdn_init_free' );
         YITH_WCDN_DB::install();
     }
 }
 
-add_action( 'plugins_loaded', 'yith_wcdn_install', 11 );
-
-if( ! function_exists( 'yit_deactive_free_version' ) ) {
-    require_once 'plugin-fw/yit-deactive-plugin.php';
-}
-yit_deactive_free_version( 'YITH_WCDN_FREE_INIT', plugin_basename( __FILE__ ) );
+add_action( 'plugins_loaded', 'yith_wcdn_install_free', 11 );
 
 
 /* === DEFINE === */
-! defined( 'YITH_WCDN_VERSION' )            && define( 'YITH_WCDN_VERSION', '1.0.1' );
-! defined( 'YITH_WCDN_PREMIUM' )            && define( 'YITH_WCDN_PREMIUM', true );
-! defined( 'YITH_WCDN_INIT' )               && define( 'YITH_WCDN_INIT', plugin_basename( __FILE__ ) );
+! defined( 'YITH_WCDN_VERSION' )            && define( 'YITH_WCDN_VERSION', '1.2.0' );
+! defined( 'YITH_WCDN_FREE_INIT' )          && define( 'YITH_WCDN_FREE_INIT', plugin_basename( __FILE__ ) );
 ! defined( 'YITH_WCDN_SLUG' )               && define( 'YITH_WCDN_SLUG', 'yith-desktop-notifications-for-woocommerce' );
-! defined( 'YITH_WCDN_SECRETKEY' )          && define( 'YITH_WCDN_SECRETKEY', '67WiDt54JQy26P0jVJqE' );
 ! defined( 'YITH_WCDN_FILE' )               && define( 'YITH_WCDN_FILE', __FILE__ );
 ! defined( 'YITH_WCDN_PATH' )               && define( 'YITH_WCDN_PATH', plugin_dir_path( __FILE__ ) );
 ! defined( 'YITH_WCDN_URL' )                && define( 'YITH_WCDN_URL', plugins_url( '/', __FILE__ ) );
@@ -86,7 +81,7 @@ if( ! function_exists( 'yit_maybe_plugin_fw_loader' ) && file_exists( YITH_WCDN_
 yit_maybe_plugin_fw_loader( YITH_WCDN_PATH  );
 
 
-function yith_wcdn_init() {
+function yith_wcdn_init_free() {
     load_plugin_textdomain( 'yith-desktop-notifications-for-woocommerce', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 
@@ -99,14 +94,15 @@ function yith_wcdn_init() {
          */
         function YITH_Desktop_Notifications() {
             // Load required classes and functions
-            require_once(YITH_WCDN_PATH . 'includes/class.yith-wcdn-desktop-notifications.php' );
 
-
-            if ( defined( 'YITH_WCDN_PREMIUM' ) && file_exists(YITH_WCDN_PATH . 'includes/class.yith-wcdn-desktop-notifications-premium.php' ) ) {
+            if ( defined( 'YITH_WCDN_PREMIUM' ) && file_exists( YITH_WCDN_PATH . 'includes/class.yith-wcdn-desktop-notifications-premium.php' ) ) {
                 require_once( YITH_WCDN_PATH . 'includes/class.yith-wcdn-desktop-notifications-premium.php' );
-                return YITH_Desktop_Notifications_Premium::get_instance();
+                return YITH_Desktop_Notifications_Premium::instance();
             }
-            return YITH_Desktop_Notifications::get_instance();
+            require_once(YITH_WCDN_PATH . 'includes/class.yith-wcdn-desktop-notifications.php' );
+            return YITH_Desktop_Notifications::instance();
+
+
         }
     }
 
@@ -114,4 +110,4 @@ function yith_wcdn_init() {
     YITH_Desktop_Notifications();
 }
 
-add_action( 'yith_wcdn_init', 'yith_wcdn_init' );
+add_action( 'yith_wcdn_init_free', 'yith_wcdn_init_free' );

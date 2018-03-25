@@ -28,3 +28,21 @@ display:none;
   background: #a46497 none repeat scroll 0 0;
   border: 1px solid #a46497;
 }
+.wccm_section_title {
+	margin-top: 50px;
+	margin-bottom: 10px;
+	font-size: 20px;
+	padding: 7px;
+	text-transform: uppercase;
+	color: white;
+	background: #96588a;
+}
+.wccm_no_margin_top
+{
+	margin-top: 0px !important;
+}
+.wccm_description
+{
+	font-size: 16px;
+	margin-bottom: 30px;
+}

@@ -215,15 +215,15 @@ class WC_Create_Customer_On_Order {
 						
 						<?php
 						if ( 'yes' == cxccoo_get_option( 'cxccoo_user_role_selection' ) ) {
-							
+
 							$roles = WC_Create_Customer_On_Order::get_all_user_roles( 'names' );
-							
+
 							// If empty then make sure at least Customer is available.
 							if ( empty( $roles ) ) $roles = array( 'customer' => 'Customer' );
-							
+
 							// Get the default role selection.
 							$role_default = cxccoo_get_option( 'cxccoo_user_role_default' );
-							
+
 							if ( ! array_key_exists( $role_default, $roles ) ) $role_default = 'customer';
 							?>
 							<div class="cxccoo-modal-form-row">
@@ -244,7 +244,7 @@ class WC_Create_Customer_On_Order {
 							<?php
 						}
 						else {
-							
+
 							// Get the default role selection.
 							$role_default = cxccoo_get_option( 'cxccoo_user_role_default' );
 							?>
@@ -252,7 +252,7 @@ class WC_Create_Customer_On_Order {
 							<?php
 						}
 						?>
-						
+
 						<?php
 						/*
 						 * To auto pretick the disable registration email checkbox, add the following line to your theme functions.php
@@ -586,7 +586,7 @@ class WC_Create_Customer_On_Order {
 	public static function current_user_is_equal_or_higher_than( $role_check = 'administrator' ) {
 		
 		// Get all the user roles.
-		$heirarchy = self::get_all_user_roles( 'heirarchy' );
+		$hierarchy = self::get_all_user_roles( 'hierarchy' );
 		
 		// Get the current user info - so we can get his roles.
 		$user_info = wp_get_current_user();
@@ -597,9 +597,9 @@ class WC_Create_Customer_On_Order {
 		foreach ( $user_info->roles as $role ) {
 			
 			// Skip if these role types are not accounted for in our role Setting
-			if ( ! isset( $heirarchy[$role] ) || ! isset( $heirarchy[$role_check] ) ) continue;
+			if ( ! isset( $hierarchy[$role] ) || ! isset( $hierarchy[$role_check] ) ) continue;
 			
-			if ( $heirarchy[$role_check] >= $heirarchy[$role] ) $passed = TRUE;
+			if ( $hierarchy[$role_check] >= $heirarchy[$role] ) $passed = TRUE;
 		}
 		
 		// Special check for Super Admin.

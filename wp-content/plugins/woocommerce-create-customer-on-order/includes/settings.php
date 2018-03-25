@@ -52,6 +52,16 @@ function cxccoo_admin_page()
 <?php
 }
 
+function cxccoo_get_editable_roles() {
+    $r = array();
+    $editable_roles = array_reverse( get_editable_roles() );
+    foreach ( $editable_roles as $role => $details ) {
+        $r[$role] = translate_user_role($details['name'] );
+    }
+
+    return $r;
+}
+
 /**
  * Get settings array
  *
@@ -70,13 +80,7 @@ function cxccoo_get_settings()
         if (isset($r_value['capabilities']['edit_shop_order']))
             $available_users[$r_key] = $r_value['name'];
     }
-    $role_values = array(
-        'super_admin',
-        'administrator',
-        'shop_manager | custom_role',
-        'customer',
-        'subscriber'
-    );
+    $role_options = cxccoo_get_editable_roles();
     $settings = array(
         
         // --------------------
@@ -90,13 +94,8 @@ function cxccoo_get_settings()
             'name' => __('Minimum User Role', 'create-customer-order'),
             'desc' => __('Set the minimum user role which is allowed to create users.', 'create-customer-order'),
             'type' => 'select',
-            'options' => array(
-                'super_admin' => 'Super Admin',
-                'administrator' => 'Administrator',
-                'shop_manager' => 'Shop Manager'
-            ),
-            'options' => $available_users,
-            'default' => '0'
+            'options' => $role_options,
+            'default' => 'customer'
         ),
         array(
             'id' => 'cxccoo_settings',
@@ -128,7 +127,7 @@ function cxccoo_get_settings()
             'default' => 'no'
         ),
         array(
-            'id' => 'cxccoo_user_role_heirarchy',
+            'id' => 'cxccoo_user_role_hierarchy',
             'name' => __('User Role Hierarchy', 'create-customer-order'),
             'desc' => __('In order to use the User Role Selection feature, we need to know the hierarchy of your user roles, so we can prevent less privileged users creating more privileged users. Please make sure all your role types are represented here in order from most privileged to least privileged. Roles on the same row, separated using pipe "|", have equal privileges. e.g. "custom_role" role has the same capabilities as the "shop_manager" (if you are using custom roles). If you are not using any custom user roles then you can leave this as is.', 'create-customer-order'),
             'type' => 'textarea',
@@ -152,9 +151,9 @@ function cxccoo_get_settings()
             'id' => 'cxccoo_user_role_default',
             'name' => __('Default User Role', 'create-customer-order'),
             'desc' => __('Set the default user role for all new users created. Most likely "customer" (all lowercase)', 'create-customer-order'),
-            'type' => 'text',
+            'type' => 'select',
+            'options' => $role_options,
             'default' => 'customer',
-            'placeholder' => 'customer'
         ),
         array(
             'id' => 'cxccoo_feature_settings_title',

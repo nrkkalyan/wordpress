@@ -110,7 +110,7 @@ if ( ! class_exists( 'YITH_Desktop_Notifications' ) ) {
          * @return YITH_Desktop_Notifications
          * @author Carlos Rodríguez <carlos.rodriguez@yourinspiration.it>
          */
-        public static function get_instance() {
+        public static function instance() {
             $self = __CLASS__ . ( class_exists( __CLASS__ . '_Premium' ) ? '_Premium' : '' );
 
             if ( is_null( $self::$_instance ) ) {

@@ -47,6 +47,11 @@ class WC_Stock_Management_List_Table extends WP_List_Table {
 				return $product->get_image();
 			break;
 			case 'title' :
+			    $ID = $product->get_id();
+                if ( ! $product->is_type( 'variation' ) ) {
+                    $this->last_product_id = $product->get_id();
+                    $ID = $this->last_product_id;
+                }
 				$title     = $product->get_title();
 				$bwc = version_compare( WC_VERSION, '3.0', '<' );
 
@@ -68,12 +73,6 @@ class WC_Stock_Management_List_Table extends WP_List_Table {
 				$edit_link = admin_url( 'post.php?post=' . $parent_id . '&action=edit' );
 
 				return '<a href="' . esc_url( $edit_link ) . '">' . esc_html( strip_tags( $title ) ) . '</a>';
-			break;
-			case 'id' :
-				if ( ! $product->is_type( 'variation' ) ) {
-					$this->last_product_id = $product->get_id();
-				}
-				return $product->get_id();
 			break;
 			case 'sku':
 				return $product->get_sku() ? $product->get_sku() : '<span class="na">&ndash;</span>';
@@ -113,11 +112,11 @@ class WC_Stock_Management_List_Table extends WP_List_Table {
 			break;
 			case 'backorders' :
 				if ( $product->backorders_allowed() && $product->backorders_require_notification() ) {
-					echo '<mark class="yes">' . __( 'Notify', 'woocommerce-bulk-stock-management' ) . '</mark>';
+					echo '<mark class="yes">' . __( 'Allow, but notify customer', 'woocommerce' ) . '</mark>';
 				} elseif ( $product->backorders_allowed() ) {
-					echo '<mark class="yes">' . __( 'Yes', 'woocommerce' ) . '</mark>';
+					echo '<mark class="yes">' . __( 'Allow', 'woocommerce' ) . '</mark>';
 				} else {
-					echo '<span class="na">' . __( 'No', 'woocommerce' ) . '</span>';
+					echo '<span class="na">' . __( 'Do not allow', 'woocommerce' ) . '</span>';
 				}
 			break;
 		} // End switch().
@@ -144,13 +143,12 @@ class WC_Stock_Management_List_Table extends WP_List_Table {
 		$columns = array(
 			'cb'           => '<input type="checkbox" />',
 			'thumb'        => __( 'Image', 'woocommerce' ),
-			'id'           => __( 'ID', 'woocommerce' ),
 			'title'        => __( 'Name', 'woocommerce' ),
 			'sku'          => __( 'SKU', 'woocommerce' ),
 			'manage_stock' => __( 'Manage stock?', 'woocommerce' ),
 			'stock_status' => __( 'Stock status', 'woocommerce' ),
 			'backorders'   => __( 'Backorders?', 'woocommerce' ),
-			'stock'        => __( 'Qty', 'woocommerce' ),
+			'stock'        => __( 'Stock qty', 'woocommerce' ),
 		);
 
 		if ( ! wc_product_sku_enabled() ) {
@@ -189,13 +187,13 @@ class WC_Stock_Management_List_Table extends WP_List_Table {
 	public function get_bulk_actions() {
 		return array(
             'save'                    => __( 'Save stock quantities', 'woocommerce-bulk-stock-management' ),
-            'manage_stock'            => __( 'Selected: Turn on stock management', 'woocommerce-bulk-stock-management' ),
-            'do_not_manage_stock'     => __( 'Selected: Turn off stock management', 'woocommerce-bulk-stock-management' ),
-            'in_stock'                => __( 'Selected: Mark "In stock"', 'woocommerce-bulk-stock-management' ),
-            'out_of_stock'            => __( 'Selected: Mark "Out of stock"', 'woocommerce-bulk-stock-management' ),
-            'allow_backorders'        => __( 'Selected: Allow backorders', 'woocommerce-bulk-stock-management' ),
-            'allow_backorders_notify' => __( 'Selected: Allow backorders, but notify customer', 'woocommerce-bulk-stock-management' ),
-            'do_not_allow_backorders' => __( 'Selected: Do not allow backorders', 'woocommerce-bulk-stock-management' ),
+            'manage_stock'            => __( 'Manage stock', 'woocommerce' ) . ' -> ' . __( 'Allow' ),
+            'do_not_manage_stock'     => __( 'Manage stock', 'woocommerce' ) . ' -> ' . __( 'Do not allow' ),
+            'in_stock'                => __( 'Set Status - In stock', 'woocommerce' ),
+            'out_of_stock'            => __( 'Set Status - Out of stock', 'woocommerce' ),
+            'allow_backorders'        => __( 'Available on backorder', 'woocommerce' ) . ' -> ' . __( 'Yes', 'woocommerce' ),
+            'do_not_allow_backorders' => __( 'No', 'woocommerce' ),
+            'allow_backorders_notify' => __( 'Available on backorder', 'woocommerce' ) . ' -> ' . __( 'Allow, but notify customer', 'woocommerce' )
         );
 	}
 
@@ -251,7 +249,7 @@ class WC_Stock_Management_List_Table extends WP_List_Table {
 				<li class="variation"><a href="<?php echo admin_url( 'edit.php?post_type=product&page=woocommerce-bulk-stock-management&filter_product_type=product_variation' ) ?>" class="<?php if ( ! empty( $_REQUEST['filter_product_type'] ) && 'product_variation' == $_REQUEST['filter_product_type'] ) { echo 'current'; } ?>"><?php _e( 'Variations', 'woocommerce' ); ?></a></li>
 			</ul>
 
-			<?php $this->search_box( __( 'Search', 'woocommerce-bulk-stock-management' ), 'search-products' );
+			<?php $this->search_box( __( 'Search', 'woocommerce' ), 'search-products' );
 		}
 		?>
 		<div class="tablenav <?php echo esc_attr( $which ); ?>">
@@ -264,8 +262,8 @@ class WC_Stock_Management_List_Table extends WP_List_Table {
 					<input type="hidden" name="filter_product_type" value="<?php if ( ! empty( $_REQUEST['filter_product_type'] ) ) { echo $_REQUEST['filter_product_type']; } ?>" />
 					<select name="filter_manage_stock">
 						<option value=""><?php _e( 'All products', 'woocommerce' ); ?></option>
-						<option value="yes" <?php if ( ! empty( $_REQUEST['filter_manage_stock'] ) && 'yes' == $_REQUEST['filter_manage_stock'] ) { selected( 1 ); } ?>><?php _e( 'Managing stock', 'woocommerce-bulk-stock-management' ); ?></option>
-						<option value="no" <?php if ( ! empty( $_REQUEST['filter_manage_stock'] ) && 'no' == $_REQUEST['filter_manage_stock'] ) { selected( 1 ); } ?>><?php _e( 'Not managing stock', 'woocommerce-bulk-stock-management' ); ?></option>
+						<option value="yes" <?php if ( ! empty( $_REQUEST['filter_manage_stock'] ) && 'yes' == $_REQUEST['filter_manage_stock'] ) { selected( 1 ); } ?>><?php echo __( 'Manage stock', 'woocommerce' ) . ' -> ' . __( 'Allow' ); ?></option>
+						<option value="no" <?php if ( ! empty( $_REQUEST['filter_manage_stock'] ) && 'no' == $_REQUEST['filter_manage_stock'] ) { selected( 1 ); } ?>><?php echo __( 'Manage stock', 'woocommerce' ) . ' -> ' . __( 'Do not llow' ); ?></option>
 					</select>
 					<select name="filter_stock_status">
 						<option value=""><?php _e( 'Any stock status', 'woocommerce-bulk-stock-management' ); ?></option>
@@ -287,7 +285,7 @@ class WC_Stock_Management_List_Table extends WP_List_Table {
 					if ( $terms ) {
 							?>
 							<select name='filter_product_cat' id='dropdown_product_cat'>
-								<option value=""><?php _e( 'Any category', 'woocommerce-bulk-stock-management' ); ?></option>
+								<option value=""><?php _e( 'All categories', 'woocommerce' ); ?></option>
 						<?php
 						echo wc_walk_category_dropdown_tree( $terms, 0, $r );
 
@@ -298,7 +296,7 @@ class WC_Stock_Management_List_Table extends WP_List_Table {
 					}
 					?>
 					<input type="hidden" name="paged" value="<?php echo absint( ! empty( $_REQUEST['paged'] ) ? $_REQUEST['paged'] : 1 ); ?>" />
-					<input type="submit" name="filter" value="<?php _e( 'Filter', 'woocommerce-bulk-stock-management' ); ?>" class="button" />
+					<input type="submit" name="filter" value="<?php _e( 'Filter', 'woocommerce' ); ?>" class="button" />
 				</div>
 			<?php else : ?>
 				<div class="alignleft actions">

@@ -68,7 +68,7 @@ $name  = 'yit_wcdn_options[id]';
                                     }
                                     ?>
                                     <select>
-                                        <img src="" class="_yith_list_notification_logo" width="50"/>
+                                    <img src="" class="_yith_list_notification_logo" width="50"/>
                             </td>
                             <td>
                                 <input type="hidden" name="section-sound" value="<?php echo YITH_WCDN_ASSETS_URL.'yith-notifications/notification-sounds/melody.mp3'?>" id="_yith_desktop_notifications_sound"/>

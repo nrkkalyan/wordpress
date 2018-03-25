@@ -63,7 +63,9 @@ if ( !class_exists( 'YITH_WCDN_Desktop_Notifications_Admin' ) ) {
          */
         protected static $instance;
 
-        
+
+        public $product_meta_array = array();
+
         /**
          * Returns single instance of the class
          *

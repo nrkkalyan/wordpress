@@ -17,11 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
             <tr>
                 <td>
                     <?php do_action( 'yith_wcdn_print_notifications', $type ); ?>
-
                 </td>
             </tr>
             </tbody>
         </table>
-
     </div>
 </div>

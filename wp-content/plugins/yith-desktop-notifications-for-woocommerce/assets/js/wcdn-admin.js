@@ -70,7 +70,6 @@ jQuery(document).ready( function($) {
             sound: $('#_yith_desktop_notifications_sound').val(),
         }
         var n = new Notification(theTitle,options);
-        n.trigger('yith-wtbe-start-animation',theTitle);
         //add audio notify
         $("<audio id='yith_wcdn_preview_notification'></audio>").attr({
             'src': $('#_yith_desktop_notifications_sound').val() ,

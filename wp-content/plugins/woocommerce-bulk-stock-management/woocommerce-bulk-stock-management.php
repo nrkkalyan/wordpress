@@ -55,14 +55,26 @@ if ( is_woocommerce_active() && ! class_exists( 'WC_Bulk_Stock_Management' ) ) {
 		public function __construct() {
 			// set the screen option
 			add_filter( 'set-screen-option', array( $this, 'set_screen_option' ), 99, 3 );
-
+            add_filter( 'woocommerce_register_post_type_product', array( $this, 'woocommerce_enable_product_revisions') );
 			add_filter( 'woocommerce_screen_ids', array( $this, 'add_screen_id' ) );
+
 			add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 			add_action( 'admin_menu', array( $this, 'register_menu' ) );
 			add_action( 'init', array( $this, 'print_stock_report' ) );
-
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+
 		}
+
+        /**
+         * Enable product revisions
+         *
+         * @param $args
+         * @return mixed
+         */
+        public function woocommerce_enable_product_revisions( $args ) {
+            $args['supports'][] = 'revisions';
+            return $args;
+        }
 
 		/**
 		 * Add screen ID to WC
@@ -101,7 +113,7 @@ if ( is_woocommerce_active() && ! class_exists( 'WC_Bulk_Stock_Management' ) ) {
 		 * Add menus to WP admin
 		 */
 		public function register_menu() {
-			$page = add_submenu_page( 'edit.php?post_type=product', __( 'Stocks', 'woocommerce-bulk-stock-management' ), __( 'Stocks', 'woocommerce-bulk-stock-management' ), apply_filters( 'wc_bulk_stock_cap', 'edit_others_products' ), 'woocommerce-bulk-stock-management', array( $this, 'stock_management_page' ) );
+			$page = add_submenu_page( 'edit.php?post_type=product', __( 'Stock', 'woocommerce' ), __( 'Stock', 'woocommerce' ), apply_filters( 'wc_bulk_stock_cap', 'edit_others_products' ), 'woocommerce-bulk-stock-management', array( $this, 'stock_management_page' ) );
 
 			add_action( 'admin_print_styles-' . $page, array( $this, 'admin_css' ) );
 
@@ -121,7 +133,7 @@ if ( is_woocommerce_active() && ! class_exists( 'WC_Bulk_Stock_Management' ) ) {
 			$option = 'per_page';
 
 			$args = array(
-				'label'   => __( 'Products', 'woocommerce-product-vendors' ),
+				'label'   => __( 'Products', 'woocommerce' ),
 				'default' => apply_filters( 'wc_bulk_stock_default_items_per_page', 50 ),
 				'option'  => 'wc_bulk_stock_products_per_page',
 			);
@@ -221,13 +233,16 @@ if ( is_woocommerce_active() && ! class_exists( 'WC_Bulk_Stock_Management' ) ) {
 			if ( 'save' === $action ) {
 				$quantities         = ! empty( $_POST['stock_quantity'] ) ? $_POST['stock_quantity'] : array();
 				$current_quantities = ! empty( $_POST['current_stock_quantity'] ) ? $_POST['current_stock_quantity'] : array();
+                $quantities = array_map( 'intval', $quantities );
+                $current_quantities = array_map( 'intval', $current_quantities );
 
-				foreach ( $quantities as $id => $qty ) {
+                foreach ( $quantities as $id => $qty ) {
 					if ( '' === $qty ) {
 						continue;
 					}
 
 					$id                 = absint( $id );
+                    $product            = wc_get_product( $id );
 					$qty                = wc_stock_amount( $qty );
 					$current_qty        = wc_stock_amount( get_post_meta( $id, '_stock', true ) );
 					$posted_current_qty = wc_stock_amount( isset( $current_quantities[ $id ] ) ? $current_quantities[ $id ] : $current_qty );

@@ -82,8 +82,7 @@ if ( ! class_exists( 'YITH_WCBR_Admin' ) ) {
 			add_filter( 'plugin_row_meta', array( $this, 'add_plugin_meta' ), 10, 2 );
 
 			// register taxonomy custom fields
-			add_action( YITH_WCBR::$brands_taxonomy . '_add_form_fields', array( $this, 'add_brand_taxonomy_fields' ), 15, 1 );
-			add_action( YITH_WCBR::$brands_taxonomy . '_edit_form_fields', array( $this, 'edit_brand_taxonomy_fields' ), 15, 1 );
+			add_action( 'init', array( $this, 'init_brand_taxonomy_fields' ), 15 );
 			add_action( 'created_term', array( $this, 'save_brand_taxonomy_fields' ), 10, 3 );
 			add_action( 'edit_term', array( $this, 'save_brand_taxonomy_fields' ), 10, 3 );
 
@@ -127,6 +126,17 @@ if ( ! class_exists( 'YITH_WCBR_Admin' ) ) {
 		/* === PLUGIN TAXONOMY METHODS === */
 
 		/**
+		 * Init custom fields for brand taxonomy
+		 *
+		 * @return void
+		 * @since 1.1.2
+		 */
+		public function init_brand_taxonomy_fields() {
+			add_action( YITH_WCBR::$brands_taxonomy . '_add_form_fields', array( $this, 'add_brand_taxonomy_fields' ), 15, 1 );
+			add_action( YITH_WCBR::$brands_taxonomy . '_edit_form_fields', array( $this, 'edit_brand_taxonomy_fields' ), 15, 1 );
+		}
+
+		/**
 		 * Prints custom term fields on "Add Brand" page
 		 *
 		 * @param $term string Current taxonomy id
@@ -157,7 +167,7 @@ if ( ! class_exists( 'YITH_WCBR_Admin' ) ) {
 		 * Save custom term fields
 		 *
 		 * @param $term_id int Currently saved term id
-		 * @param $tt_id int Term Taxonomy id
+		 * @param $tt_id int|string Term Taxonomy id
 		 * @param $taxonomy string Current taxonomy slug
 		 *
 		 * @return void
@@ -179,10 +189,12 @@ if ( ! class_exists( 'YITH_WCBR_Admin' ) ) {
 		 */
 		public function brand_taxonomy_columns( $columns ) {
 			$new_columns          = array();
-			$new_columns['cb']    = $columns['cb'];
-			$new_columns['thumb'] = __( 'Image', 'yith-woocommerce-brands-add-on' );
+			if( isset( $columns['cb'] ) ) {
+				$new_columns['cb'] = $columns['cb'];
+				unset( $columns['cb'] );
+			}
 
-			unset( $columns['cb'] );
+			$new_columns['thumb'] = __( 'Image', 'yith-woocommerce-brands-add-on' );
 
 			return array_merge( $new_columns, $columns );
 		}

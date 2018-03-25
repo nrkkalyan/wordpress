@@ -11,14 +11,14 @@ $products = array();
         <table cellspacing="0" cellpadding="0" class="woocommerce_order_items wp-list-table">
             <thead>
             <tr>
-                <th class="item_cost sortable" data-sort="float"><?php _e('SKU', 'wc_point_of_sale'); ?></th>
+                <th class="item_cost sortable" data-sort="float"><?php _e('SKU', 'woocommerce'); ?></th>
                 <th class="item sortable" colspan="2"
-                    data-sort="string-ins"><?php _e('Item', 'wc_point_of_sale'); ?></th>
-                <th class="item_cost sortable" data-sort="float"><?php _e('Cost', 'wc_point_of_sale'); ?></th>
-                <th class="item_cost sortable" data-sort="float"><?php _e('Type', 'wc_point_of_sale'); ?></th>
+                    data-sort="string-ins"><?php _e('Product', 'woocommerce'); ?></th>
+                <th class="item_cost sortable" data-sort="float"><?php _e('Price', 'woocommerce'); ?></th>
+                <th class="item_cost sortable" data-sort="float"><?php _e('Type', 'woocommerce'); ?></th>
                 <th class="line_cost sortable"
-                    data-sort="float"><?php _e('Barcode Preview', 'wc_point_of_sale'); ?></th>
-                <th class="item_cost sortable" data-sort="float"><?php _e('Qty', 'wc_point_of_sale'); ?></th>
+                    data-sort="float"><?php _e('Preview', 'woocommerce'); ?></th>
+                <th class="item_cost sortable" data-sort="float"><?php _e('Qty', 'woocommerce'); ?></th>
                 <th class="wc-order-edit-line-item" width="1%">&nbsp;</th>
             </tr>
             </thead>
@@ -27,7 +27,7 @@ $products = array();
             if (empty($products)) {
                 ?>
                 <tr class="no_products">
-                    <td colspan="8"><?php _e('Add products to generate barcodes', 'wc_point_of_sale'); ?></td>
+                    <td colspan="8"><?php _e('No items found.'); ?></td>
                 </tr>
                 <?php
             } else {
@@ -44,12 +44,12 @@ $products = array();
     </div>
     <div class="wc-order-data-row wc-order-bulk-actions wc-order-data-row-toggle">
         <button type="button" class="button bulk-delete-items"
-                style="display:none;"><?php _e('Delete selected row(s)', 'wc_point_of_sale'); ?></button>
+                style="display:none;"><?php _e('Delete selected row(s)', 'woocommerce'); ?></button>
         <button type="button" class="button bulk-add-variations"
                 style="display:none;"><?php _e('Add all variations', 'woocommerce'); ?></button>
-        <button class="button add-line-item" type="button"><?php _e('Add product(s)', 'wc_point_of_sale'); ?></button>
+        <button class="button add-line-item" type="button"><?php _e('Add new product', 'woocommerce'); ?></button>
         <button class="button add-line-item-category"
-                type="button"><?php _e('Add category', 'wc_point_of_sale'); ?></button>
+                type="button"><?php _e('Add new category', 'woocommerce'); ?></button>
 
 
         <div class="barcode-edit-item">
@@ -101,6 +101,6 @@ $products = array();
 </script>
 <script type="text/template" id="wc_pos_barcode_no_products">
     <tr class="no_products">
-        <td colspan="8"><?php _e('Add products to generate barcodes', 'wc_point_of_sale'); ?></td>
+        <td colspan="8"><?php _e('No items found.'); ?></td>
     </tr>
 </script>

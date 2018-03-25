@@ -1,14 +1,13 @@
 <?php
 /**
  * Framework Name: YIT Plugin Framework
- * Version: 2.9.39
+ * Version: 3.0.12
  * Author: Yithemes
  * Text Domain: yith-plugin-fw
  * Domain Path: /languages/
  *
  * @author  Your Inspiration Themes
- * @package YITH WooCommerce Ajax Navigation
- * @version 2.0
+ * @version 3.0.12
  */
 /**
  * This file belongs to the YIT Plugin Framework.
@@ -18,44 +17,41 @@
  * It is also available through the world-wide-web at this URL:
  * http://www.gnu.org/licenses/gpl-3.0.txt
  */
-if (! defined('ABSPATH')) {
-    exit();
+
+if ( ! defined ( 'ABSPATH' ) ) {
+    exit;
 } // Exit if accessed directly
 
-if (! function_exists('yit_maybe_plugin_fw_loader')) {
-
+if ( ! function_exists ( 'yit_maybe_plugin_fw_loader' ) ) {
     /**
-     * YITH WooCommerce Ajax Navigation
+     * yit_maybe_plugin_fw_loader
      *
      * @since 1.0.0
      */
-    function yit_maybe_plugin_fw_loader($plugin_path)
-    {
+    function yit_maybe_plugin_fw_loader ( $plugin_path ) {
         global $plugin_fw_data;
-        
-        $default_headers = array(
-            'Name' => 'Framework Name',
-            'Version' => 'Version',
-            'Author' => 'Author',
+
+        $default_headers = array (
+            'Name'       => 'Framework Name',
+            'Version'    => 'Version',
+            'Author'     => 'Author',
             'TextDomain' => 'Text Domain',
-            'DomainPath' => 'Domain Path'
+            'DomainPath' => 'Domain Path',
         );
-        
-        $framework_data = get_file_data(trailingslashit($plugin_path) . 'plugin-fw/init.php', $default_headers);
-        $plugin_fw_main_file = trailingslashit($plugin_path) . 'plugin-fw/yit-plugin.php';
-        
-        if (! empty($plugin_fw_data)) {
-            foreach ($plugin_fw_data as $version => $path) {
-                if (version_compare($version, $framework_data['Version'], '<')) {
-                    $plugin_fw_data = array(
-                        $framework_data['Version'] => $plugin_fw_main_file
-                    );
+
+        $framework_data      = get_file_data ( trailingslashit ( $plugin_path ) . 'plugin-fw/init.php', $default_headers );
+        $plugin_fw_main_file = trailingslashit ( $plugin_path ) . 'plugin-fw/yit-plugin.php';
+
+        if ( ! empty( $plugin_fw_data ) ) {
+            foreach ( $plugin_fw_data as $version => $path ) {
+                if ( version_compare ( $version, $framework_data[ 'Version' ], '<' ) ) {
+                    $plugin_fw_data = array ( $framework_data[ 'Version' ] => $plugin_fw_main_file );
                 }
             }
         } else {
-            $plugin_fw_data = array(
-                $framework_data['Version'] => $plugin_fw_main_file
-            );
+            $plugin_fw_data = array ( $framework_data[ 'Version' ] => $plugin_fw_main_file );
         }
     }
 }
+
+

@@ -58,8 +58,6 @@ class WC_POS_Admin
 
         add_filter('woocommerce_prevent_admin_access', array(__CLASS__, 'prevent_admin_access'), 10, 2);
 
-        add_action('add_meta_boxes', array(WC_POS()->grid(), 'add_meta_box'), 40, 1);
-        add_action('save_post', array(WC_POS()->grid(), 'save_meta_box'), 40, 1);
         add_action('save_post', array($this, 'save_order_rounding_amount'), 50, 3);
         add_filter('woocommerce_get_formatted_order_total', array($this, 'get_rounding_total'), 50, 2);
 
@@ -254,7 +252,7 @@ class WC_POS_Admin
     function pos_reports_charts($reports)
     {
         $reports['pos'] = array(
-            'title' => __('POS', 'wc_point_of_sale'),
+            'title' => __('Point of Sale', 'wc_point_of_sale'),
             'reports' => array(
                 "sales_by_register" => array(
                     'title' => __('Sales by register', 'wc_point_of_sale'),

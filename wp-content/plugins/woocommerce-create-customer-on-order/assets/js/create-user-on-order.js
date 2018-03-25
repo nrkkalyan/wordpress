@@ -5,7 +5,7 @@ jQuery( function($){
 	 */
 	
 	// Toggle Settings
-	var expiration_row = $('#cxccoo_user_role_heirarchy').closest('tr');
+	var expiration_row = $('#cxccoo_user_role_hierarchy').closest('tr');
 	var expiration_checked = $("#cxccoo_user_role_selection:checked").length;
 
 	var expiration_opt_in = $("#cxccoo_user_role_selection");

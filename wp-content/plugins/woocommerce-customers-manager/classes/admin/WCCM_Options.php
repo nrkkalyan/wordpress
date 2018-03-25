@@ -89,14 +89,13 @@ class WCCM_Options
 				<input type="checkbox" name="wccm_general_options[hide_total_spent_column]" value="true" <?php if(isset($options['hide_total_spent_column'])) echo 'checked="checked"'; ?>></input>
 				</p> -->
 				
-				<h3><?php _e('Guest customer list & export pages', 'woocommerce-customers-manager');?></h3>
+				<h3 class="wccm_section_title wccm_no_margin_top"><?php _e('Guest customer list & export pages', 'woocommerce-customers-manager');?></h3>
 				<p>
 					<label><?php _e('Hide guest customers who have not purchased anything (Customers who has only cancelled and/or refounded orders)', 'woocommerce-customers-manager');?></label>
 					<input type="checkbox" name="wccm_general_options[hide_not_purchasing_guest_customers]" value="true" <?php if(isset($options['hide_not_purchasing_guest_customers'])) echo 'checked="checked"'; ?>></input>
 				</p>
-				<div class="spacer"></div>
 				
-				<h3><?php _e('Customer list page', 'woocommerce-customers-manager');?></h3>
+				<h3 class="wccm_section_title"><?php _e('Customer list page', 'woocommerce-customers-manager');?></h3>
 				<p>
 					<label><?php _e('Select which colum has to be used for default sorting', 'woocommerce-customers-manager');?></label>
 					<select name="wccm_general_options[customer_list_default_sorting_column]">						
@@ -135,7 +134,7 @@ class WCCM_Options
 				</p>
 				<div class="spacer"></div>
 				
-				<h3><?php _e('Customer details page', 'woocommerce-customers-manager');?></h3>
+				<h3 class="wccm_section_title wccm_no_margin_top"><?php _e('Customer details page', 'woocommerce-customers-manager');?></h3>
 				<p>
 					<label><?php _e('Hide map');?></label>
 					<input type="checkbox" name="wccm_general_options[hide_map_on_customer_detail_page]" value="true" <?php if(isset($options['hide_map_on_customer_detail_page'])) echo 'checked="checked"'; ?>></input>
@@ -146,7 +145,7 @@ class WCCM_Options
 				</p>
 				
 				<div class="spacer"></div>
-				<h3><?php _e('Email', 'woocommerce-customers-manager');?></h3>
+				<h3 class="wccm_section_title wccm_no_margin_top"><?php _e('Email', 'woocommerce-customers-manager');?></h3>
 				<p>
 					<label><?php _e('Disable visual editor');?></label>
 					<input type="checkbox" name="wccm_general_options[disable_email_visual_editor]" value="true" <?php if(isset($options['disable_email_visual_editor'])) echo 'checked="checked"'; ?>></input>
@@ -163,7 +162,7 @@ class WCCM_Options
 				</p>
 				<div class="spacer"></div>
 				
-				<h3><?php _e('Roles', 'woocommerce-customers-manager');?></h3>
+				<h3 class="wccm_section_title wccm_no_margin_top"><?php _e('Roles', 'woocommerce-customers-manager');?></h3>
 				<p>
 					<label><?php _e('Select which user roles you want to display on customer list and relation between roles (customers have one of selected roles (OR) or have all of the selected roles (AND))' ,'woocommerce-customers-manager');?></label>
 					<strong><?php _e('The default WooCommerce user role is: CUSTOMER', 'woocommerce-customers-manager');?></strong> <br/>
@@ -200,8 +199,9 @@ class WCCM_Options
 							<option value="and" <?php if(!empty($options['roles_relation']) && $options['roles_relation'] =='and') echo 'selected="selected"'; ?>>AND</option>
 						</select>
 					</p>
+					<div class="spacer"></div>
 					
-				<h3><?php _e('Automatic guest conversion - Checkout page', 'woocommerce-customers-manager');?></h3>
+				<h3 class="wccm_section_title wccm_no_margin_top"><?php _e('Automatic guest conversion - Checkout page', 'woocommerce-customers-manager');?></h3>
 				<p>
 					<label><?php _e('Convert guest user to registered after an order has been placed?', 'woocommerce-customers-manager');?></label>
 					<p><?php _e('The plugin will automatically convert guest user to registered after an order has been placed. <strong>In case	the billing email used by the guest is already associated to a register user, the guest orders will be assigned to that registered user</strong>', 'woocommerce-customers-manager');?></p>

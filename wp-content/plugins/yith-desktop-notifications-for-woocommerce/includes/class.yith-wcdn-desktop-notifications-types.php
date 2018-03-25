@@ -51,7 +51,7 @@ if ( !class_exists( 'YITH_WCDN_Desktop_Notifications_Types' ) ) {
 
 
                 $url_order = admin_url('post.php?post=' . absint($order_id) . '&action=edit');
-                $customer_user = get_post_meta($order_id, '_customer_user', true);
+                $customer_user = yit_get_prop($order, '_customer_user', true);
 
                 $placeholder = array(
                     "{order_id}" => $order_id,
