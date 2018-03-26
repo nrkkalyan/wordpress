@@ -186,15 +186,28 @@ class WC_Stock_Management_List_Table extends WP_List_Table {
 	 */
 	public function get_bulk_actions() {
 		return array(
-            'save'                    => __( 'Save stock quantities', 'woocommerce-bulk-stock-management' ),
             'manage_stock'            => __( 'Manage stock', 'woocommerce' ) . ' -> ' . __( 'Allow' ),
             'do_not_manage_stock'     => __( 'Manage stock', 'woocommerce' ) . ' -> ' . __( 'Do not allow' ),
             'in_stock'                => __( 'Set Status - In stock', 'woocommerce' ),
             'out_of_stock'            => __( 'Set Status - Out of stock', 'woocommerce' ),
             'allow_backorders'        => __( 'Available on backorder', 'woocommerce' ) . ' -> ' . __( 'Yes', 'woocommerce' ),
-            'do_not_allow_backorders' => __( 'No', 'woocommerce' ),
+		    'do_not_allow_backorders' => __( 'Available on backorder', 'woocommerce' ) . ' -> ' . __( 'No', 'woocommerce' ),
             'allow_backorders_notify' => __( 'Available on backorder', 'woocommerce' ) . ' -> ' . __( 'Allow, but notify customer', 'woocommerce' )
         );
+	}
+	
+	/**
+	 * Get the current action selected from the bulk actions dropdown.
+	 *
+	 * @since 3.1.0
+	 *
+	 * @return string|false The action name or False if no action was selected
+	 */
+	public function current_action() {
+	    if ( ! empty( $_POST['bulk-save-stock-quantities'] ) )
+	        return $_POST['bulk-save-stock-quantities'];
+	        
+        return parent::current_action();
 	}
 
 	/**
@@ -304,6 +317,9 @@ class WC_Stock_Management_List_Table extends WP_List_Table {
 				</div>
 				<?php $this->extra_tablenav( $which ); ?>
 			<?php endif; ?>
+			<div class="alignleft actions">
+				<button type="submit" class="button button-bulk-save-stock-quantities" name="bulk-save-stock-quantities" id="bulk-save-stock-quantities" value="bulk-save-stock-quantities"><?php _e( 'Save stock quantities', 'woocommerce-bulk-stock-management' ) ?></button>
+			</div>
 			<?php $this->pagination( 'bottom' ); ?>
 			<br class="clear" />
 		</div>

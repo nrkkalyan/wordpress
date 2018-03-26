@@ -169,7 +169,7 @@ if ( is_woocommerce_active() && ! class_exists( 'WC_Bulk_Stock_Management' ) ) {
 		    $this->maybe_show_notice();
 		    ?>
 		    <div class="wrap">
-		        <h2><?php _e( 'Stocks', 'woocommerce-bulk-stock-management' ); ?> <a href="<?php echo wp_nonce_url( add_query_arg( 'print', 'stock_report' ), 'print-stock' ) ?>" class="add-new-h2"><?php _e( 'View stock report', 'woocommerce-bulk-stock-management' ); ?></a></h2>
+		        <h2><?php _e( 'Stocks', 'woocommerce-bulk-stock-management' ); ?> <a href="<?php echo wp_nonce_url( add_query_arg( 'print', 'stock_report' ), 'print-stock' ) ?>" class="add-new-h2"><?php _e( 'View report', 'woocommerce' ); ?></a></h2>
 		        <form id="stock-management" method="get">
 		            <input type="hidden" name="post_type" value="product" />
 		            <input type="hidden" name="page" value="woocommerce-bulk-stock-management" />
@@ -186,7 +186,7 @@ if ( is_woocommerce_active() && ! class_exists( 'WC_Bulk_Stock_Management' ) ) {
 			$updated_count = ! empty( $_GET['updated'] ) ? absint( $_GET['updated'] ) : 0;
 			if ( $updated_count ) {
 				/* translators: 1: number of product(s) */
-				echo '<div class="updated notice is-dismissible"><p>' . sprintf( _n( '%s product was updated', '%s products were updated', $updated_count, 'woocommerce-bulk-stock-management' ), $updated_count ) . '</p></div>';
+				echo '<div class="updated notice is-dismissible"><p>' . sprintf( _n( '%s product updated', '%s products updated', $updated_count, 'woocommerce' ), $updated_count ) . '</p></div>';
 			}
 		}
 
@@ -228,14 +228,13 @@ if ( is_woocommerce_active() && ! class_exists( 'WC_Bulk_Stock_Management' ) ) {
 				$sendback = admin_url( 'edit.php?post_type=product&page=woocommerce-bulk-stock-management' );
 			}
 			$sendback = add_query_arg( 'paged', $pagenum, $sendback );
-
 			$affected_rows = 0;
-			if ( 'save' === $action ) {
+
+			if ( 'bulk-save-stock-quantities' === $action ) {
 				$quantities         = ! empty( $_POST['stock_quantity'] ) ? $_POST['stock_quantity'] : array();
 				$current_quantities = ! empty( $_POST['current_stock_quantity'] ) ? $_POST['current_stock_quantity'] : array();
                 $quantities = array_map( 'intval', $quantities );
                 $current_quantities = array_map( 'intval', $current_quantities );
-
                 foreach ( $quantities as $id => $qty ) {
 					if ( '' === $qty ) {
 						continue;

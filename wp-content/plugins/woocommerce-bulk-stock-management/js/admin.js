@@ -21,6 +21,7 @@
 		self.$doAction1 = $( '#doaction' );
 		self.$doAction2 = $( '#doaction2' );
 		self.$form      = $( '#stock-management' );
+		self.$bulkSaveStockQuantities      = $( '#bulk-save-stock-quantities' );
 	};
 
 	self.resetPageOnFilter = function() {
@@ -43,6 +44,7 @@
 		// - hits enter on input fields
 		self.$doAction1.on( 'click', self.formMethodToPostHandler );
 		self.$doAction2.on( 'click', self.formMethodToPostHandler );
+		self.$bulkSaveStockQuantities.on( 'click', self.formMethodToPostHandler );
 		self.$stocks.on( 'keydown', self.formMethodToPostHandler );
 	};
 
@@ -57,10 +59,10 @@
 	};
 
 	self.setActionHandler = function( e ) {
-		if ( 13 === e.which || 13 === e.keyCode ) {
-			self.$action1.val( 'save' );
-			self.$action2.val( 'save' );
-		}
+//		if ( 13 === e.which || 13 === e.keyCode ) {
+//			self.$action1.val( 'save' );
+//			self.$action2.val( 'save' );
+//		}
 	};
 
 	self.run = function() {

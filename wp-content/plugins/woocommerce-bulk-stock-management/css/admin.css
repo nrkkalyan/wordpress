@@ -29,3 +29,6 @@
 #stock-management .column-stock input {
 	width: 100%;
 }
+#bulk-save-stock-quantities.button-bulk-save-stock-quantities {
+	height: 32px;
+}
