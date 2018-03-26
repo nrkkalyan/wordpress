@@ -615,7 +615,7 @@ class WC_POS
             ?>
             <div class="error">
                 <p><?php _e('The WooCommerce API is disabled on this site.', 'wc_point_of_sale'); ?> <a
-                            href="<?php echo admin_url('admin.php?page=wc-settings'); ?>"><?php _e('Enable the REST API', 'wc_point_of_sale'); ?></a>
+                            href="<?php echo admin_url('admin.php?page=wc-settings&tab=api'); ?>"><?php _e('Enable the REST API', 'wc_point_of_sale'); ?></a>
                 </p>
             </div>
             <?php
