@@ -45,8 +45,7 @@ require_once( 'includes/class-wc-sa.php' );
  */
 
 function WC_SA () {
-    $instance = WC_SA::instance( __FILE__, '2.0.6' );
-    return $instance;
+    return WC_SA::instance( __FILE__, '2.0.6' );
 }
 // Global for backwards compatibility.
 $GLOBALS['woocommercestatusactions'] = WC_SA();

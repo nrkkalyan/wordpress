@@ -41,11 +41,11 @@ class WC_SA_Settings extends WC_Settings_Page {
 	public function get_sections() {
 
 		$sections = array(
-			''          	=> __( 'General', 'woocommerce_status_actions' ),
-			'gateways'       => __( 'Gateways', 'woocommerce_status_actions' ),
+			''          	=> __( 'General', 'woocommerce' ),
+			'gateways'       => __( 'Gateway', 'woocommerce' ),
 		);
 
-		return apply_filters( 'woocommerce_get_sections_' . $this->id, $sections );
+		return apply_filters( 'woocommerce_get_sections_wc_sa_settings' . $this->id, $sections );
 	}
 
 	/**
@@ -55,6 +55,7 @@ class WC_SA_Settings extends WC_Settings_Page {
 		global $current_section;
 
 		add_action( 'woocommerce_admin_field_edit_existing_status', array($this, 'edit_existing_status') );
+		add_action( 'woocommerce_admin_field_edit_custom_status', array($this, 'edit_custom_status') );
 		add_action( 'woocommerce_admin_field_edit_gateway_order_status', array($this, 'edit_gateway_order_status') );
 
 		$settings = $this->get_settings( $current_section );
@@ -109,12 +110,12 @@ class WC_SA_Settings extends WC_Settings_Page {
 	            ),
 
 			));
-		
+		} else if ('wc_custom_statuses' == $current_section) {
+			    
 		} else {
 			$status_list = wc_get_order_statuses();
 			$settings = apply_filters( 'wc_sa_general_settings', array(
 				array(
-					'title' 	=> __( 'General Settings', 'woocommerce_status_actions' ),
 					'type' 		=> 'title',
 					'id' 		=> 'custom_status_general_settings'
 				),
@@ -148,13 +149,17 @@ class WC_SA_Settings extends WC_Settings_Page {
 			));
 
 			$settings = array_merge($settings, array(
+			    array(
+			        'type' 	=> 'sectionend',
+			        'id' 	=> 'edit_default_status_options'
+			    ),
+			    'edit_custom_status' => array(
+			        'id'       => 'wc_custom_status_edit_custom_status',
+			        'type'     => 'edit_custom_status',
+			    ),
 				array(
-					'type' 	=> 'sectionend',
-					'id' 	=> 'edit_default_status_options'
-				),
-				array(
-					'title' => __( 'Core Order Statuses', 'woocommerce_status_actions' ),
-					'type'  => 'title',
+				    'title' => __( 'Core Order Statuses', 'woocommerce_status_actions' ),
+				    'type'  => 'title',
 					'id'    => 'edit_default_status'
 					),
 				'edit_existing_status' => array(
@@ -184,8 +189,8 @@ class WC_SA_Settings extends WC_Settings_Page {
 		<table class="wp-list-table widefat striped posts default_status_payments_methods">
 	        <thead>
 	            <tr>
-	                <th><?php _e('Gateway', 'woocommerce_status_actions'); ?></th>
-	                <th><?php _e('Order Status', 'woocommerce_status_actions'); ?></th>
+	                <th><?php _e('Gateway', 'woocommerce'); ?></th>
+	                <th><?php _e('Status', 'woocommerce'); ?></th>
 	            </tr>
 	        </thead>
 	        <tbody>
@@ -226,9 +231,11 @@ class WC_SA_Settings extends WC_Settings_Page {
 	      </tfoot>
 	    </table>
 		<?php
-
-
-
+	}
+	
+	public function edit_custom_status($val)
+	{
+	    echo '<p><a href="' . admin_url('edit.php?post_type=wc_custom_statuses') . '"class="button button-primary">' . __( 'Custom Order Statuses', 'woocommerce_status_actions' ) . '</a></p>';
 	}
 
 	public function edit_existing_status($val)
@@ -250,17 +257,17 @@ class WC_SA_Settings extends WC_Settings_Page {
             <thead>
                 <tr>
                     <th style="width: 70px; text-align: center;"><?php _e( 'Icon', 'woocommerce_status_actions' ); ?></th>
-                    <th><?php _e( 'Slug', 'woocommerce_status_actions' ); ?></th>
-                    <th><?php _e( 'Name', 'woocommerce_status_actions' ); ?></th>
+                    <th><?php _e( 'Slug' ); ?></th>
+                    <th><?php _e( 'Name' ); ?></th>
                     <th><?php _e( 'Label', 'woocommerce_status_actions' ); ?></th>
-                    <th class="status_colour"><?php _e( 'Colour', 'woocommerce_status_actions' ); ?></th>
-                    <th style="text-align: center;"><?php _e( 'Bulk Actions', 'woocommerce_status_actions' ); ?> <img width="16" height="16" src="<?php echo WC()->plugin_url(); ?>/assets/images/help.png" class="help_tip" data-tip="<?php _e( 'Check this box to hide this status from the Bulk Actions menu.', 'woocommerce_status_actions' ); ?>"></th>
+                    <th class="status_colour"><?php _e( 'Color' ); ?></th>
+                    <th style="text-align: center;"><?php _e( 'Bulk actions', 'woocommerce_status_actions' ); ?> <img width="16" height="16" src="<?php echo WC()->plugin_url(); ?>/assets/images/help.png" class="help_tip" data-tip="<?php _e( 'Check this box to hide this status from the Bulk Actions menu.', 'woocommerce_status_actions' ); ?>"></th>
                     <th style="text-align: center;"><?php _e( 'Item Editing', 'woocommerce_status_actions' ); ?> <img width="16" height="16" src="<?php echo WC()->plugin_url(); ?>/assets/images/help.png" class="help_tip" data-tip="<?php _e( 'Check this box to enable item editing for this status.', 'woocommerce_status_actions' ); ?>"></th>
                 </tr>
             </thead>
           <tbody>
           
-            <?php foreach ($order_statuses as $key => $value) {
+            <?php foreach ($order_statuses as $key => $value) :
                 $label = 'wc-' === substr( $key, 0, 3 ) ? substr( $key, 3 ) : $key
                 ?>
             <tr valign="top" data-statuskey="<?php echo $key; ?>" class="wc_order_statuses">
@@ -279,11 +286,13 @@ class WC_SA_Settings extends WC_Settings_Page {
                 <td class="forminp">
                     <?php
                     $color = '';
-                    if(isset($color_statuses[$key])){
+                    if (isset($color_statuses[$key])) :
                         $color = $color_statuses[$key];                        
-                    }
-                    if(isset($data[$key]) && !empty( $data[$key]['color']) )
+                    endif;
+                    
+                    if (isset($data[$key]) && !empty( $data[$key]['color']) ) :
                         $color = $data[$key]['color'];
+                    endif;
                     ?>
                    <input type="text"
                     autocomplete="off"
@@ -298,7 +307,7 @@ class WC_SA_Settings extends WC_Settings_Page {
                     <input class="default_editing" type="checkbox" name="<?php echo $val['id']; ?>[<?php echo $key; ?>][item_editing]" value="yes" <?php echo isset($data[$key]) && isset($data[$key]['item_editing']) ? 'checked="checked"' : ''; ?>>
                 </td>
             </tr>
-            <?php }?>
+            <?php endforeach; ?>
           </tbody>
           <tfoot>
               <tr>

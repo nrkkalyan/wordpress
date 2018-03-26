@@ -27,7 +27,7 @@
 							color: #d0c21f !important;
 						}
 						/*status-default_statuses-end*//*status-136-start*/
-				.widefat .column-order_status mark.wc-pre-order::after{
+				.widefat .column-order_status mark.pre-order::after{
 					color: #fff;
 					content: "\e014";
 					font-family: 'WC-SA-Icons' !important;
@@ -44,7 +44,7 @@
 				    font-size: 47%;
 				    line-height: 17px;
 				}
-				.widefat .column-order_status mark.wc-pre-order{
+				.widefat .column-order_status mark.pre-order{
 					background-color:#aa2727;
 					border: 1px solid #aa2727;
 					width: 11px;
@@ -54,7 +54,7 @@
     				text-align: center;
 				}
 				
-					#woocommerce_dashboard_status .wc_status_list li.wc-pre-order-orders a:before{
+					#woocommerce_dashboard_status .wc_status_list li.pre-order-orders a:before{
 						color: #fff;
 						content: "\e014";
 						font-family: 'WC-SA-Icons' !important;
@@ -67,4 +67,45 @@
 	    				padding: 3px;
 	    				border-radius: 100%;
 	    				text-align: center;
-					}/*status-136-end*/
+					}/*status-136-end*//*status-192-start*/
+				.widefat .column-order_status mark.fewfrwef::after{
+					color: #fff;
+					content: "\e014";
+					font-family: 'WC-SA-Icons' !important;
+					font-variant: normal;
+				    font-weight: 400;
+				    height: 100%;
+				    left: 0;
+				    margin: 0;
+				    position: absolute;
+				    text-indent: 0;
+				    text-transform: none;
+				    top: 0;
+				    width: 100%;
+				    font-size: 47%;
+				    line-height: 17px;
+				}
+				.widefat .column-order_status mark.fewfrwef{
+					background-color:#aa2727;
+					border: 1px solid #aa2727;
+					width: 11px;
+    				height: 11px;
+    				padding: 3px;
+    				border-radius: 100%;
+    				text-align: center;
+				}
+				
+					#woocommerce_dashboard_status .wc_status_list li.fewfrwef-orders a:before{
+						color: #fff;
+						content: "\e014";
+						font-family: 'WC-SA-Icons' !important;
+						font-size: 12px;
+						background-color:#aa2727;
+						border: 1px solid #aa2727;
+						width: 18px;
+	    				height: 18px;
+	    				line-height: 18px;
+	    				padding: 3px;
+	    				border-radius: 100%;
+	    				text-align: center;
+					}/*status-192-end*/

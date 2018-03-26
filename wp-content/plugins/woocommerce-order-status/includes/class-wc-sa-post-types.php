@@ -69,7 +69,7 @@ class WC_SA_Post_types {
 					'capability_type'     => 'post',
 					'publicly_queryable'  => false,
 					'exclude_from_search' => true,
-					'show_in_menu'        => current_user_can( 'manage_woocommerce' ) ? 'woocommerce' : true,
+					'show_in_menu'        => is_admin() || current_user_can( 'manage_woocommerce' ) ? 'woocommerce' : false,
 					'hierarchical'        => false,
 					'rewrite'             => false,
 					'supports'            => array( 'title'),

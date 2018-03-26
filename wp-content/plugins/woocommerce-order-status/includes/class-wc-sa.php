@@ -221,10 +221,9 @@ class WC_SA {
         include_once( 'class-wc-sa-install.php' );
 
         // Load API for generic admin functions
-        if ( is_admin() ) {
+        if ( is_admin() || current_user_can('manage_woocommerce') ) {
             include_once( 'admin/class-wc-sa-admin-post-types.php' );
             include_once( 'admin/meta-boxes/class-wc-sa-meta-box-status-data.php' );
-            include_once( 'admin/class-wc-sa-delete.php' );
         }else{
             include_once( 'class-wc-sa-frontend.php' );            
         }
