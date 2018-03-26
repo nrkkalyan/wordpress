@@ -88,13 +88,8 @@ class WC_POS_Install
             set_transient('_wc_pos_activation_redirect', 1, 30);
             delete_transient('_wc_pos_activation_redirect');
         }
-
-        if (!is_null($current_version) && version_compare($current_version, max(array_keys(self::$db_updates)), '<=')) {
-            set_transient('_wc_pos_activation_redirect', 1, 30);
-            WC_POS_Admin_Notices::add_notice('pos_update');
-        } else {
-            self::update_pos_version();
-        }
+        
+        self::update_pos_version();
 
         /*
          * Deletes all expired transients. The multi-table delete syntax is used
